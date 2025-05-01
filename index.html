@@ -23,6 +23,9 @@
             <li>
               <a href="#nextCourseIndex">Next JS</a>
             </li>
+            <li>
+              <a href="#tailwindCourseIndex">Tailwind CSS</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -3699,6 +3702,35 @@
           >
           <a href="#j267next" class="sessionIndex"
             >جلسه دویست و شصت و هفتم: ریداکس چیست؟</a
+          >
+          <a id="tailwindCourseIndex" href="#tailwind" class="courseIndex"
+            >دوره جامع و پروژه محور Tailwind CSS</a
+          >
+          <a href="#tailwindCourseIntroduction" class="chapterIndex">
+            فصل اول: مقدمه
+          </a>
+          <a href="#j1tailwind" class="sessionIndex">جلسه اول: مقدمه</a>
+          <a href="#j2tailwind" class="sessionIndex">جلسه دوم: تیلویند چیست؟</a>
+          <a href="#j3tailwind" class="sessionIndex"
+            >جلسه سوم: ویژگی های تیلویند</a
+          >
+          <a href="#launchTailwind" class="chapterIndex"
+            >فصل دوم: راه اندازی Tailwind</a
+          >
+          <a href="#j4tailwind" class="sessionIndex"
+            >جلسه چهارم: نصب ابزارهای مورد نیاز</a
+          >
+          <a href="#j5tailwind" class="sessionIndex"
+            >جلسه پنجم: نسخه بندی داکیومنت</a
+          >
+          <a href="#j6tailwind" class="sessionIndex"
+            >جلسه ششم: نصب تیلویند با cdn</a
+          >
+          <a href="#j7tailwind" class="sessionIndex"
+            >جلسه هفتم: نصب تیلویند با Tailwind CLI</a
+          >
+          <a href="#j8tailwind" class="sessionIndex"
+            >جلسه هشتم: نحوه minify کردن تیلویند</a
           >
         </div>
       </aside>
@@ -12539,6 +12571,217 @@
                     یعنی می تواند آن کاراکتر هم نباشد.
                   </p>
                   <img src="./Javascript/278_2.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="javascriptCourse">
+            <h2 id="tailwind">دوره جامع و پروژه محور Tailwind CSS</h2>
+            <div class="chapter">
+              <h3 id="tailwindCourseIntroduction">فصل اول: مقدمه</h3>
+              <div class="sessions">
+                <h4 id="j1tailwind">جلسه اول: مقدمه</h4>
+                <h4 id="j2tailwind">جلسه دوم: تیلویند چیست؟</h4>
+                <div class="sessionsContent">
+                  <p>
+                    Tailwind CSS یک فریمورک CSS است که utility-first است.
+                    Tailwind CSS ایجاد شده است تا بتوانیم خیلی سریع تر و راحت تر
+                    پروژه هایمان را توسعه دهیم.
+                  </p>
+                  <p>
+                    utility classها به ما این امکان را می دهند تا کنترل تمام
+                    اجزای دیزاین را در دست داشته باشیم مثل Layout و رنگ ها و
+                    فواصل و اندازه ها و typography و سایه ها و...
+                  </p>
+                  <p>
+                    Tailwind CSS به ما این امکان را می دهد که خیلی سریع هر سایتی
+                    را ایجاد کنیم بدون اینکه نیاز باشد تا از سند HTML خارج
+                    شویم(یعنی عملا نیاز نیست حتی یک خط کد CSS بنویسیم)
+                  </p>
+                  <p>
+                    utility classها شبیه presetها هستند. اگر بخواهیم بصورت ساده
+                    تر بیان کنیم، به ما این امکان را می دهند که بدون نوشتن CSS
+                    به یک المان استایل بدهیم. عملا یکسری class هستند که یکسری
+                    استایل و اتریبیوت خاصی را به المان ما می دهند.
+                  </p>
+                  <p>utility classها چند ویژگی مهم دارند:</p>
+                  <p>
+                    1- utility classها consistency را وارد پروژه ما می کنند.
+                    مثلا اگر به المانی padding-4 بدهیم این padding-4 در کل پروژه
+                    یک مقدار خواهد بود که باعث consistency و همگن شدن پروژه ما
+                    می شود.
+                  </p>
+                  <p>2- سرعت develop پروژه را خیلی بالا می برند.</p>
+                  <p>
+                    3- ایجاد تغییرات را برای ما راحت تر و safeتر می کنند چون در
+                    حالت عادی اگر استایل ها را داخل فایلی بنویسیم و بر روی پروژه
+                    اعمال کنیم و اگر بعدا بخواهیم فایل CSS را تغییر بدهیم،
+                    تغییرات روی کل پروژه اعمال می شود اما در utility classها
+                    استایل موردنظر فقط به یک المان اعمال می شود و اگر بخواهیم
+                    تغییری بدهیم، تغییرات فقط روی آن المان اعمال می شود و هیچ
+                    side effectی نخواهد داشت به همین دلیل می گوییم تغییرات را
+                    safeتر می کند.
+                  </p>
+                  <p>4- استفاده از utility classها خیلی راحت است.</p>
+                </div>
+                <h4 id="j3tailwind">جلسه سوم: ویژگی های تیلویند</h4>
+                <div class="sessionsContent">
+                  <p>
+                    اولین ویژگی تیلویند consistency بودن آن است. یعنی داخل
+                    تیلویند اندازه ها و فواصل و رنگ ها و... مقادیر مشخص دارند.
+                  </p>
+                  <p>
+                    classهایی که تیلویند در اختیار ما قرار می دهد به ما این
+                    امکان را می دهد تا هر پروژه ای که می خواهیم را پیاده کنیم.
+                  </p>
+                  <p>
+                    performance تیلویند بسیار بالا است. داخل تیلویند نهایت حجمی
+                    که فایل CSS می تواند بگیرد 10kB است چون classهایی که استفاده
+                    نمی کنیم اصلا وارد پروژه نمی شوند.
+                  </p>
+                  <p>
+                    ریسپانسیوسازی در تیلویند بسیار راحت است و اصول Mobile first
+                    را هم در تیلویند داریم.
+                  </p>
+                  <p>
+                    داخل تیلویند می توانیم Stateهایی مثل focus و hover و... را
+                    تغییر دهیم.
+                  </p>
+                  <p>
+                    داخل تیلویند این امکان وجود دارد که اگر استایلی را خیلی روی
+                    المان ها اعمال می کنیم آن المان را Extract کرده و در جاهای
+                    مختلف از آن المان(کامپوننت) استفاده کنیم.
+                  </p>
+                  <p>
+                    می توانیم Dark mode را با تیلویند خیلی سریع و ساده پیاده
+                    سازی کنیم.
+                  </p>
+                  <p>
+                    customize کردن تیلویند خیلی راحت است و تمام چیزهایی که داخل
+                    تیلویند وجود دارد(مثل ابعاد و رنگ ها و...) را بسته به نیاز
+                    پروژه مان می توانیم customize کنیم.
+                  </p>
+                  <p>
+                    تیلویند بسیار بروز است و هر تغییر و آپدیتی که در CSS رخ دهد
+                    تیلویند خیلی سریع آن را پوشش می دهد.
+                  </p>
+                  <p>
+                    توسعه دادن تیلویند راحت است چون یکسری اکستنشن VSCode مثل
+                    Tailwind CSS IntelliSense را داریم که همه کلاس ها را دارند و
+                    آنها را به ما suggest می دهند.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="launchTailwind">فصل دوم: راه اندازی Tailwind</h3>
+              <div class="sessions">
+                <h4 id="j4tailwind">جلسه چهارم: نصب ابزارهای مورد نیاز</h4>
+                <div class="sessionsContent">
+                  <p>
+                    VSCode را متناسب با سیستم عاملمان از سایت
+                    code.visualstudio.com دانلود کرده و نصب می کنیم.
+                  </p>
+                  <p>
+                    NodeJs را هم متناسب با سیستم عاملمان از سایت nodejs.org
+                    دانلود کرده و نصب می کنیم.
+                  </p>
+                  <p>
+                    اکستنشن های Tailwind CSS IntelliSense و Prettier را هم داخل
+                    VSCode نصب می کنیم.
+                  </p>
+                  <p>
+                    اگر در محیط Terminal دستور node -v و npm -v را وارد کنیم
+                    ورژنی از node و npm که روی سیستممان نصب است را نشان می دهد.
+                  </p>
+                </div>
+                <h4 id="j5tailwind">جلسه پنجم: نسخه بندی داکیومنت</h4>
+                <div class="sessionsContent">
+                  <p>
+                    به سایت tailwindcss.com رفته و ورژن 3.4.17 را انتخاب می کنیم
+                    تا داکیومنت آن را بیاورد.
+                  </p>
+                </div>
+                <h4 id="j6tailwind">جلسه ششم: نصب تیلویند با cdn</h4>
+                <div class="sessionsContent">
+                  <p>
+                    طبق داکیومنت تیلویند برای نصب تیلویند به روش cdn تگ script
+                    با cdn تیلویند را به فایل html اضافه می کنیم.
+                  </p>
+                  <img src="./Tailwind/6_1.png" />
+                </div>
+                <h4 id="j7tailwind">جلسه هفتم: نصب تیلویند با Tailwind CLI</h4>
+                <div class="sessionsContent">
+                  <p>
+                    توسط دستور npm init -y یک فایل package.json برای پروژه می
+                    سازیم که اطلاعات برنامه را داخل آن قرار می دهد.
+                  </p>
+                  <p>
+                    طبق داکیومنت Tailwind برای نصب تیلویند به روش CLI دستورات
+                    زیر را به ترتیب در Terminal پروژه مان وارد می کنیم.
+                  </p>
+                  <p dir="ltr">npm install -D tailwindcss@3</p>
+                  <p dir="ltr">npx tailwindcss init</p>
+                  <p>
+                    دستور دوم config تیلویند را نصب می کند که تنظیمات مربوط به
+                    تیلویند را داخل آن ست می کنیم.
+                  </p>
+                  <p>
+                    داخل فایل tailwind.config.js مقدار content را چیزی که در
+                    داکیومنت گفته قرار می دهیم.
+                  </p>
+                  <img src="./Tailwind/7_1.png" />
+                  <p>
+                    این مقدار content به Tailwind می گوید که همه فایل های با
+                    پسوند html و js داخل فولدر src را چک کن(چون فولدر src را
+                    نداریم آن را ایجاد می کنیم) و اگر داخل آن ها utility class
+                    مربوط به تیلویند دیدی آن را به کد CSS تبدیل کن.
+                  </p>
+                  <p>
+                    سپس طبق داکیومنت تیلویند، موارد گفته شده را به فایل
+                    input.css داخل فولدر src اضافه می کنیم(ابتدا این فایل را
+                    داخل فولدر src می سازیم)
+                  </p>
+                  <img src="./Tailwind/7_2.png" />
+                  <p>
+                    در قدم بعدی فرآیند build کردن Tailwind CLI را شروع می کنیم.
+                    این کار را به کمک دستور زیر انجام می دهیم.
+                  </p>
+                  <p dir="ltr">
+                    npx tailwindcss -i ./src/input.css -o ./dist/output.css
+                    --watch
+                  </p>
+                  <p>
+                    یعنی فایل input.css را که کدهای آن برای مرورگر ناشناخته است
+                    را build کرده و به فایل output.css که کدهای آن برای مرورگر
+                    شناخته شده است تبدیل کن و داخل فولدر dist قرار بده.
+                  </p>
+                  <p>
+                    عبارت watch-- آخر دستور یعنی بصورت مداوم فایل input.css را
+                    watch کن و هر تغییری که داخل آن اتفاق افتاد را build کن و به
+                    فایل output.css اضافه کن.
+                  </p>
+                  <p>
+                    تگ link مربوط به فایل output.css را هم به فایل html اضافه می
+                    کنیم.
+                  </p>
+                  <img src="./Tailwind/7_3.png" />
+                  <p>
+                    می توانیم دستور مربوط به build را به صورت script به فایل
+                    package.json اضافه کنیم تا بجای وارد کردن آن دستور نام
+                    script مربوط به آن را به همراه npm run وارد کنیم.
+                  </p>
+                  <img src="./Tailwind/7_4.png" />
+                </div>
+                <h4 id="j8tailwind">جلسه هشتم: نحوه minify کردن تیلویند</h4>
+                <div class="sessionsContent">
+                  <p>
+                    در داکیومنت Tailwind و در قسمت Optimizing for production
+                    گفته که اگر بخواهیم نسخه Optimize شده و بهینه(minify) از
+                    فایل CSS داشته باشیم تا روی هاست قرار دهیم باید دستور زیر را 
+                    وارد کنیم(فایل output.css حجم بالایی دارد - 11kB)
+                  </p>
+                  <img src="./Tailwind/8_1.png" />
                 </div>
               </div>
             </div>
