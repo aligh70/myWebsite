@@ -1,0 +1,572 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #edf2f7;
+}
+
+.main {
+  display: flex;
+  margin: 1rem 1rem;
+  justify-content: space-between;
+}
+
+aside {
+  width: 20%;
+  margin-left: 15px;
+}
+
+main {
+  width: 80%;
+}
+
+aside,
+main {
+  background: #ffffff;
+  height: 598px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+main::-webkit-scrollbar,
+aside::-webkit-scrollbar {
+  width: 15px;
+  background-color: #e0e9f4;
+}
+
+main::-webkit-scrollbar-track,
+aside::-webkit-scrollbar-track {
+  box-shadow: inset 0px -1px 13px #b9baf1;
+  border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb,
+aside::-webkit-scrollbar-thumb {
+  background: #019ee7;
+  border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover,
+aside::-webkit-scrollbar-thumb:hover {
+  background: #017db6;
+  cursor: pointer;
+}
+
+.header {
+  background: rgb(0, 21, 79);
+  padding: 1.5rem 3rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar a {
+  color: #ffffff;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+h1 {
+  color: #35046b;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 20px;
+  text-align: center;
+  font-family: "YekanBakhHeavy";
+}
+
+h2 {
+  color: #f80404;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 20px 20px;
+  font-family: "YekanBakhBold";
+}
+
+h3 {
+  color: #ca049f;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 15px 15px;
+  font-family: "YekanBakhBold";
+}
+
+h4 {
+  color: #06ac7d;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 15px 15px;
+  font-family: "YekanBakhMedium";
+}
+
+p {
+  color: #0952c6;
+  font-size: 1rem;
+  margin: 10px 15px;
+  font-family: "YekanBakhMedium";
+}
+
+img {
+  height: 600px;
+  width: 1000px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.courseIndex {
+  display: block;
+  text-decoration: none;
+  color: #f80404;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px 20px;
+  font-family: "YekanBakhMedium";
+}
+
+.chapterIndex {
+  display: block;
+  text-decoration: none;
+  color: #ca049f;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 20px 20px;
+  font-family: "YekanBakhMedium";
+}
+.sessionIndex {
+  display: block;
+  text-decoration: none;
+  color: #06ac7d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 20px 20px;
+  font-family: "YekanBakhMedium";
+}
+
+.htmlStructureImage {
+  width: 700px;
+  height: 350px;
+}
+
+.classNameImage {
+  height: 50px;
+}
+
+.boxModelImage {
+  height: 300px;
+}
+
+.paddingImage {
+  width: 500px;
+  height: 300px;
+}
+
+.gridImages {
+  height: 300px;
+  width: 300px;
+}
+
+.responsiveImage {
+  width: 300px;
+  height: 250px;
+}
+
+.backdropFilterImage {
+  width: 300px;
+  height: 50px;
+}
+
+.forwardAnimationImage {
+  width: 400px;
+  height: 50px;
+}
+
+.scriptTagImage {
+  width: 400px;
+  height: 50px;
+}
+
+.garbageCollectorImage {
+  width: 350px;
+  height: 150px;
+}
+
+.patternImage {
+  width: 200px;
+  height: 200px;
+}
+
+.optionalChainingImage {
+  width: 800px;
+  height: 200px;
+}
+
+.datasetImage {
+  width: 1000px;
+  height: 60px;
+}
+
+.windowObjectImage {
+  width: 500px;
+  height: 400px;
+}
+
+.bomImage {
+  width: 500px;
+  height: 300px;
+}
+
+.priceImage {
+  width: 600px;
+  height: 75px;
+}
+
+.priceImageChaining {
+  width: 800px;
+  height: 60px;
+}
+
+.variablesImage {
+  width: 500px;
+  height: 50px;
+}
+
+.idFunctionImage {
+  width: 500px;
+  height: 300px;
+}
+
+.keyValueImage {
+  width: 500px;
+  height: 400px;
+}
+
+.orOperatorImage {
+  width: 600px;
+  height: 50px;
+}
+
+.changeStatusImage {
+  width: 500px;
+  height: 300px;
+}
+
+.asyncJsImage {
+  width: 700px;
+  height: 350px;
+}
+
+.apiVariableImage {
+  width: 800px;
+  height: 80px;
+}
+
+.eventParameterImage {
+  width: 500px;
+  height: 60px;
+}
+
+.sortArrayOfObjectsImage {
+  width: 400px;
+  height: 80px;
+}
+
+.tokenImage {
+  width: 700px;
+  height: 600px;
+}
+
+.langImage{
+  width: 300px;
+  height: 40px;
+}
+
+.formSumbitImage{
+  width: 500px;
+  height: 380px;
+}
+
+.backtikImage{
+  width: 500px;
+  height: 40px;
+}
+
+.queryStringImage{
+  height: 120px;
+}
+
+.importCreateStoreImage{
+  width: 500px;
+  height: 65px;
+}
+
+.payloadImage1{
+  width: 500px;
+  height: 150px;
+}
+
+.payloadImage2{
+  width: 700px;
+  height: 600px;
+}
+
+.reducerImage1{
+  width: 500px;
+  height: 100px;
+}
+
+.reducerImage2{
+  width: 700px;
+  height: 500px;
+}
+
+.combineReducersImage{
+  width: 500px;
+  height: 90px;
+}
+
+.middlewareImage{
+  width: 500px;
+  height: 90px;
+}
+
+.createAsyncThunkImage{
+  width: 700px;
+  height: 700px;
+}
+
+.graphQLVariablesImage{
+  width: 400px;
+  height: 30px;
+}
+
+.createUserImage{
+  width: 700px;
+  height: 1200px;
+}
+
+.updateUserImage{
+  width: 700px;
+  height: 1100px;
+}
+
+.deleteUserImage{
+  width: 700px;
+  height: 800px;
+}
+
+.linkInParagraph{
+  color: #06ac7d;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: "YekanBakhMedium";
+}
+
+.absoluteImportImage{
+  width: 600px;
+  height: 600px;
+}
+
+.formDataValuesImage{
+  width: 700px;
+  height: 700px;
+}
+
+.intoBooleanImage{
+  width: 500px;
+  height: 40px;
+}
+
+.contentTypeImage{
+  width: 400px;
+  height: 170px;
+}
+
+.formDataImage{
+  width: 700px;
+  height: 500px;
+}
+
+.nestedDynamicRouteImage{
+  height: 120px;
+}
+
+.aLinkImage{
+  width: 600px;
+  height: 50px;
+}
+
+.cssModuleImage{
+  height: 180px;
+}
+
+.getStaticPathsImage{
+  width: 600px;
+  height: 800px;
+}
+
+.prefetchImage{
+  width: 500px;
+  height: 50px;
+}
+
+.importImage{
+  width: 500px;
+  height: 65px;
+}
+
+.findMethodImage{
+  height: 450px;
+}
+
+.updateDataUiImage{
+  width: 800px;
+  height: 1900px;
+}
+
+.sitemapImage{
+  height: 400px;
+}
+
+.signupApiImage{
+  width: 700px;
+  height: 1000px;
+}
+
+.signupFormImage{
+  width: 700px;
+  height: 1000px;
+}
+
+.loginApiImage{
+  width: 700px;
+  height: 750px;
+}
+
+.comaprePassImage{
+  width: 500px;
+  height: 120px;
+}
+
+.loginApiImage2{
+  width: 700px;
+  height: 1000px;
+}
+
+.signImage{
+  width: 700px;
+  height: 50px;
+}
+
+.saveJwtInCookieImage{
+  width: 600px;
+  height: 400px;
+}
+
+.copmleteLoginApiImage{
+  width: 800px;
+  height: 1400px;
+}
+
+.loginFormImage{
+  width: 700px;
+  height: 1000px;
+}
+
+.verifyTokenImage{
+  width: 500px;
+  height: 220px;
+}
+
+.authApiImage{
+  width: 600px;
+  height: 500px;
+}
+
+.signinCodesImage{
+  width: 800px;
+  height: 1200px;
+}
+
+.signupCodesImage{
+  width: 800px;
+  height: 1200px;
+}
+
+.authImage{
+  width: 600px;
+  height: 1000px;
+}
+
+.completeUserDataApiImage{
+  width: 700px;
+  height: 1300px;
+}
+
+.completeUserDataFormImage{
+  width: 600px;
+  height: 1500px;
+}
+
+.authorizeFuncImage{
+  width: 600px;
+  height: 800px;
+}
+
+.signInNextauthImage{
+  width: 600px;
+  height: 900px;
+}
+
+.getSessionImage{
+  height: 450px;
+}
+
+.nextAuthImage{
+  width: 700px;
+  height: 1100px;
+}
+
+.showButtonsCodeImage{
+  width: 600px;
+  height: 900px;
+}
+
+@font-face {
+  font-family: "iranyekanwebmedium";
+  src: url(/fonts/iranyekanwebmedium.woff) format("woff");
+}
+@font-face {
+  font-family: "iranyekanwebregular";
+  src: url(/fonts/iranyekanwebregular.woff) format("woff");
+}
+@font-face {
+  font-family: "YekanBakhBold";
+  src: url(/fonts/YekanBakhBold.woff) format("woff");
+}
+@font-face {
+  font-family: "YekanBakhHeavy";
+  src: url(/fonts/YekanBakhHeavy.woff) format("woff");
+}
+@font-face {
+  font-family: "YekanBakhMedium";
+  src: url(/fonts/YekanBakhMedium.woff) format("woff");
+}
