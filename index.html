@@ -3732,6 +3732,27 @@
           <a href="#j8tailwind" class="sessionIndex"
             >جلسه هشتم: نحوه minify کردن تیلویند</a
           >
+          <a href="#basicStylingConcepts" class="chapterIndex"
+            >فصل سوم: مفاهیم پایه استایل دهی</a
+          >
+          <a href="#j9tailwind" class="sessionIndex">جلسه نهم: Typography</a>
+          <a href="#j10tailwind" class="sessionIndex">جلسه دهم: Colors</a>
+          <a href="#j11tailwind" class="sessionIndex"
+            >جلسه یازدهم: Backgrounds</a
+          >
+          <a href="#j12tailwind" class="sessionIndex">جلسه دوازدهم: Borders</a>
+          <a href="#j13tailwind" class="sessionIndex"
+            >جلسه سیزدهم: Spacing & Sizing</a
+          >
+          <a href="#j14tailwind" class="sessionIndex">جلسه چهاردهم: Effects</a>
+          <a href="#j15tailwind" class="sessionIndex">جلسه پانزدهم: Filters</a>
+          <a href="#j16tailwind" class="sessionIndex"
+            >جلسه شانزدهم: Transition & Animation</a
+          >
+          <a href="#j17tailwind" class="sessionIndex">جلسه هفدهم: Transform</a>
+          <a href="#j18tailwind" class="sessionIndex"
+            >جلسه هجدهم: Interactivity & SVG & Accessibility</a
+          >
         </div>
       </aside>
       <main>
@@ -12575,7 +12596,7 @@
               </div>
             </div>
           </div>
-          <div id="javascriptCourse">
+          <div id="tailwindCourse">
             <h2 id="tailwind">دوره جامع و پروژه محور Tailwind CSS</h2>
             <div class="chapter">
               <h3 id="tailwindCourseIntroduction">فصل اول: مقدمه</h3>
@@ -12778,10 +12799,274 @@
                   <p>
                     در داکیومنت Tailwind و در قسمت Optimizing for production
                     گفته که اگر بخواهیم نسخه Optimize شده و بهینه(minify) از
-                    فایل CSS داشته باشیم تا روی هاست قرار دهیم باید دستور زیر را 
+                    فایل CSS داشته باشیم تا روی هاست قرار دهیم باید دستور زیر را
                     وارد کنیم(فایل output.css حجم بالایی دارد - 11kB)
                   </p>
                   <img src="./Tailwind/8_1.png" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="basicStylingConcepts">فصل سوم: مفاهیم پایه استایل دهی</h3>
+              <div class="sessions">
+                <h4 id="j9tailwind">جلسه نهم: Typography</h4>
+                <div class="sessionsContent">
+                  <p>
+                    می خواهیم از utility classهایی که تیلویند در اختیار ما قرار
+                    می دهد استفاده کنیم.
+                  </p>
+                  <p>
+                    برای استفاده از این utility classها لازم نیست آنها را حفظ
+                    کنیم و از داکیومنت Tailwind استفاده می کنیم.
+                  </p>
+                  <p>
+                    می خواهیم Typography در تیلویند را بررسی کنیم. Typography
+                    یعنی متن هایی که داخل پروژه مان داریم.
+                  </p>
+                  <p>در داکیومنت تیلویند به قسمت Typography می رویم.</p>
+                  <p>
+                    اولین classهایی که داریم مربوط به Font Family است که در
+                    داکیومنت کامل توضیح داده شده است که برای استفاده از هر فونت
+                    چه classی را چگونه باید به پروژه مان اعمال کنیم تا فونت
+                    دلخواهمان را داشته باشیم.
+                  </p>
+                  <img src="./Tailwind/9_1.png" />
+                  <p>
+                    همچنین می توانیم فونت های local و custom خودمان را هم داشته
+                    باشیم که در ادامه دوره گفته می شوند.
+                  </p>
+                  <p>
+                    به همین ترتیب classهای مربوط به Font Size و... را هم در
+                    داکیومنت داریم.
+                  </p>
+                  <img src="./Tailwind/9_2.png" />
+                  <p>
+                    برای استفاده از یک مقدار custom برای Font Size المانمان، بعد
+                    از text آن سایز را داخل براکت می نویسیم.
+                  </p>
+                  <img src="./Tailwind/9_3.png" />
+                  <p>
+                    به همین ترتیب classهای مربوط به Font Style و Font Weight و
+                    Font Variant Numeric و Letter Spacing و Line Height و... هم
+                    داریم.
+                  </p>
+                  <img src="./Tailwind/9_4.png" />
+                  <p>
+                    برای custom کردن مقدار مربوط به Line Height هم مقدار آنرا
+                    داخل براکت می نویسیم.
+                  </p>
+                  <img src="./Tailwind/9_5.png" />
+                  <p>
+                    همچنین classهای مربوط به List Style Type و Text Align و Text
+                    Color و... را هم داریم.
+                  </p>
+                  <img src="./Tailwind/9_6.png" />
+                  <p>
+                    اگر بخواهیم یک رنگ custom بدهیم هم آنرا داخل براکت می
+                    نویسیم.
+                  </p>
+                  <img src="./Tailwind/9_7.png" />
+                  <p>
+                    classهایی مربوط به Text Decoration و Text Wrap و Whitespace
+                    و... هم داریم.
+                  </p>
+                  <p>
+                    اگر جایی لازم داشتیم که خطمان به خط بعدی نرود و اسکرول بخورد
+                    بهتر است از Whitespace استفاده کنیم تا Text Wrap چون
+                    مرورگرهای بیشتری آن را پوشش می دهند.
+                  </p>
+                  <p>به همین صورت classهای مختلفی برای Text داریم.</p>
+                </div>
+                <h4 id="j10tailwind">جلسه دهم: Colors</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در قسمت Customization داکیومنت تیلویند به قسمت Colors
+                    برویم classهای مربوط به رنگ ها را نمایش می دهد که می توانیم
+                    از آنها برای Text و Border و Background و... استفاده کنیم.
+                  </p>
+                  <img src="./Tailwind/10_1.png" />
+                  <p>
+                    همچنین جلسه پیش گفتیم می توانیم رنگ ها را Customize کنیم که
+                    در اینصورت کد رنگ را داخل براکت می نویسیم.
+                  </p>
+                  <img src="./Tailwind/10_2.png" />
+                </div>
+                <h4 id="j11tailwind">جلسه یازدهم: Backgrounds</h4>
+                <div class="sessionContent">
+                  <p>داخل داکیومنت تیلویند به قسمت Backgrounds می رویم.</p>
+                  <p>
+                    به کمک style و مشخصه background-image و url به المانمان یک
+                    عکس به عنوان بکگراند می دهیم.
+                  </p>
+                  <img src="./Tailwind/11_1.png" />
+                  <p>
+                    اگر کلاس bg-fixed را به المان بدهیم عکس بکگراند هنگام اسکرول
+                    سایت ثابت می ماند و محتوای المان اسکرول می خورد.
+                  </p>
+                  <img src="./Tailwind/11_2.png" />
+                  <p>
+                    کلاس های bg-local و bg-scroll را هم داریم که هرکدام کاربرد
+                    خودشان را (در ارتباط با اسکرول خوردن) دارند.
+                  </p>
+                  <p>
+                    کلاس bg-clip مشخص می کند background داده شده چه مقدار از
+                    المان را بگیرد (زیر borderها را هم بگیرد یا فقط تا borderها
+                    و یا فقط content المان را بگیرد)
+                  </p>
+                  <p>به کمک کلاس -bg می توانیم به المان ها background بدهیم.</p>
+                  <img src="./Tailwind/11_3.png" />
+                  <p>
+                    اگر بعد از عدد مربوط به رنگ اسلش(/) قرار داده و یک عدد زیر
+                    100 بزنیم میزان opacity را اعمال می کند.
+                  </p>
+                  <img src="./Tailwind/11_4.png" />
+                  <p>
+                    به کمک کلاس های مربوط به Background Position می توانیم مکان
+                    قرارگیری background را مشخص کنیم.
+                  </p>
+                  <p>
+                    به کمک کلاس های مربوط به Background Size می توانیم اندازه
+                    background را مشخص کنیم.
+                  </p>
+                  <img src="./Tailwind/11_5.png" />
+                  <p>
+                    به کمک کلاس های مربوط به Background Repeat می توانیم تکرار
+                    شدن یا نشدن و یا چطور تکرار شدن background را مشخص کنیم.
+                  </p>
+                  <img src="./Tailwind/11_6.png" />
+                  <p>
+                    به کمک کلاس bg-gradient می توانیم به background گرادیانت
+                    بدهیم.
+                  </p>
+                  <img src="./Tailwind/11_7.png" />
+                  <p>
+                    در کل در داکیومنت تیلویند همه حالت های ممکن برای Background
+                    را گفته است.
+                  </p>
+                </div>
+                <h4 id="j12tailwind">جلسه دوازدهم: Borders</h4>
+                <div class="sessionsContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به قسمت Borders برویم classهای
+                    مختلفی مربوط به Border را نشان داده است. ابتدا انتخاب می
+                    کنیم که می خواهیم border المان موردنظرمان در چه سمت و چه
+                    پهنا و چه رنگی باشد سپس کلاس متناسب با آن را به آن المان می
+                    دهیم.
+                  </p>
+                  <p>
+                    کلاس -divide بین المان های Child خط می کشد که می توانیم رنگ
+                    و پهنا و استایل آن را هم توسط classهای موجود در داکیومنت
+                    تغییر دهیم.
+                  </p>
+                  <img src="./Tailwind/12_1.png" />
+                  <p>
+                    اگر برای پهنا و رنگ border بخواهیم از مقادیری استفاده کنیم
+                    که در داکیومنت خود تیلویند نیست آن مقادیر را داخل براکت می
+                    نویسیم.
+                  </p>
+                  <img src="./Tailwind/12_2.png" />
+                  <p>
+                    کلاس -rounded هم به المان ها border-radius می دهد که در
+                    داکیومنت مقادیر مختلفی برای آن وجود دارد که اگر بخواهیم یک
+                    مقدار custom برحسب px بدهیم آن را داخل براکت می نویسیم.
+                  </p>
+                  <img src="./Tailwind/12_3.png" />
+                  <p>classهایی هم مربوط به Outline داریم.</p>
+                  <p>
+                    کلاس outline-offset فاصله outline از border المان را مشخص می
+                    کند.
+                  </p>
+                  <p>
+                    Ringها کلاس هایی هستند که outline را با استفاده از
+                    box-shadow ایجاد می کنند(این قابلیت بیشتر در hover کردن
+                    المان کاربرد دارد)
+                  </p>
+                </div>
+                <h4 id="j13tailwind">جلسه سیزدهم: Spacing & Sizing</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به قسمتهای Spacing و Sizing برویم
+                    کلاس های مختلفی در ارتباط با padding و margin و space
+                    between و width و height و max-width و max-height و size
+                    و... نشان داده شده است.
+                  </p>
+                  <p>کلاس size عرض و ارتفاع را یک عدد یکسان تعیین می کند.</p>
+                  <img src="./Tailwind/13_1.png" />
+                  <p>
+                    کلا اگر در تیلویند بخواهیم از عددی استفاده کنیم که تیلویند
+                    آنرا نداشت آن عدد را داخل براکت می نویسیم.
+                  </p>
+                </div>
+                <h4 id="j14tailwind">جلسه چهاردهم: Effects</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به قسمت Effects برویم کلاس های
+                    مختلفی در ارتباط با box-shadow و opacity و... نشان داده شده
+                    است.
+                  </p>
+                  <p>
+                    سایه inset یعنی shadow را به داخل المان می دهد و بیرون از
+                    المان نیست.
+                  </p>
+                  <p>
+                    Mix Blend Mode کلاسی است که قسمتی که دو المان روی هم می
+                    افتند را استایل دهی می کند.
+                  </p>
+                  <img src="./Tailwind/14_1.png" />
+                  <p>
+                    Background Blend Mode کلاسی است که اگر دو بکگراند برای یک
+                    المان داشته باشیم آنها را استایل دهی می کند که این کلاس
+                    بیشتر در hover کردن کاربرددارد.
+                  </p>
+                  <img src="./Tailwind/14_2.png" />
+                </div>
+                <h4 id="j15tailwind">جلسه پانزدهم: Filters</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به بخش Filters برویم کلاس های مختلفی
+                    در رابطه با Blur و Brightness و سایر ابزار ادیت عکس وجود
+                    دارد.
+                  </p>
+                  <p>
+                    عکس یا المان هرطور باشد drop-shadow به همان سایه می دهد اما
+                    box-shadow عکس یا المان را مستطیل شکل در نظر گرفته و به آن
+                    مستطیل سایه می دهد.
+                  </p>
+                  <p>کلاس grayscale عکس را سیاه و سفید می کند.</p>
+                </div>
+                <h4 id="j16tailwind">جلسه شانزدهم: Transition & Animation</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به قسمت Transition & Animation برویم
+                    کلاس های زیادی در ارتباط با Transition و Animation وجود
+                    دارد.
+                  </p>
+                </div>
+                <h4 id="j17tailwind">جلسه هفدهم: Transform</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به قسمت Transform برویم کلاس های
+                    زیادی در ارتباط با Transform وجود دارد.
+                  </p>
+                </div>
+                <h4 id="j18tailwind">
+                  جلسه هجدهم: Interactivity & SVG & Accessibility
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در داکیومنت تیلویند به قسمت Interactivity برویم کلاس های
+                    زیادی در ارتباط با Interactivity وجود دارد مثل کلاس برای
+                    customize کردن شکل ماوس(cursor) و رنگ checkboxها و نوار
+                    اسکرول و ...
+                  </p>
+                  <p>
+                    و اگر به قسمت SVG برویم چند کلاس در ارتباط با تغییر رنگ و
+                    نوع SVG وجود دارد.
+                  </p>
+                  <p>
+                    اگر به قسمت Accessibility برویم چند کلاس در ارتباط با
+                    Accessibility مثل hide و show کردن یک المان وجود دارد.
+                  </p>
                 </div>
               </div>
             </div>
