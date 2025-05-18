@@ -3753,6 +3753,42 @@
           <a href="#j18tailwind" class="sessionIndex"
             >جلسه هجدهم: Interactivity & SVG & Accessibility</a
           >
+          <a href="#modifierPseudoClassElement" class="chapterIndex"
+            >فصل چهارم: Modifier و Pseudo elementها و Pseudo classها</a
+          >
+          <a href="#j19tailwind" class="sessionIndex"
+            >جلسه نوزدهم: Pseudo Classes</a
+          >
+          <a href="#j20tailwind" class="sessionIndex"
+            >جلسه بیستم: Group & Peer Modifier</a
+          >
+          <a href="#j21tailwind" class="sessionIndex"
+            >جلسه بیست و یکم: Pseudo Elements</a
+          >
+          <a href="#GridFlexLayout" class="chapterIndex"
+            >فصل پنجم: Grid و Flex و Layout</a
+          >
+          <a href="#j22tailwind" class="sessionIndex"
+            >جلسه بیست و دوم: Layout</a
+          >
+          <a href="#j23tailwind" class="sessionIndex"
+            >جلسه بیست و سوم: Flex - grow - shrink - basis</a
+          >
+          <a href="#j24tailwind" class="sessionIndex"
+            >جلسه بیست و چهارم: Gap - Direction - Wrap - Order</a
+          >
+          <a href="#j25tailwind" class="sessionIndex"
+            >جلسه بیست و پنجم: Justify & Align</a
+          >
+          <a href="#j26tailwind" class="sessionIndex"
+            >جلسه بیست و ششم: Grid - Rows & Columns</a
+          >
+          <a href="#j27tailwind" class="sessionIndex"
+            >جلسه بیست و هفتم: Grid auto flow</a
+          >
+          <a href="#j28tailwind" class="sessionIndex"
+            >جلسه بیست و هشتم: Align & Justify</a
+          >
         </div>
       </aside>
       <main>
@@ -13066,6 +13102,158 @@
                   <p>
                     اگر به قسمت Accessibility برویم چند کلاس در ارتباط با
                     Accessibility مثل hide و show کردن یک المان وجود دارد.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="modifierPseudoClassElement">
+                فصل چهارم: Modifier و Pseudo elementها و Pseudo classها
+              </h3>
+              <div class="sessions">
+                <h4 id="j19tailwind">جلسه نوزدهم: Pseudo Classes</h4>
+                <div class="sessionsContent">
+                  <p>
+                    می خواهیم شبه کلاس ها در تیلویند را بررسی کنیم. شبه کلاس عا
+                    عبارتند از hover و focus و first و last و odd و even و....
+                  </p>
+                  <p>
+                    در قسمت Core Concepts در داکیومنت تیلویند روی گزینه Hover,
+                    Focus, and Other States کلیک می کنیم تا نحوه استفاده از شبه
+                    کلاس ها را یاد بگیریم.
+                  </p>
+                  <p>
+                    برای اینکه بخواهیم مثلا در یک hover هم border تغییر کند و هم
+                    رنگ متن و هم رنگ بکگراند در اینصورت کلاس :hover را چندبار به
+                    المان می دهیم.
+                  </p>
+                  <img src="./Tailwind/19_1.png" />
+                </div>
+                <h4 id="j20tailwind">جلسه بیستم: Group & Peer Modifier</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر بخواهیم مثلا در یک hover کردن رنگ متن و پس زمینه و
+                    border آن المان و Childهایش تغییر کند در این حالت از Group
+                    Modifier استفاده می کنیم. به اینصورت که به المان parent کلاس
+                    group را داده و در المان های child شبه عنصر را به همراه
+                    group می نویسیم.
+                  </p>
+                  <img src="./Tailwind/20_1.png" />
+                  <p>
+                    اگر در المان های تو در تو چند group داشته باشیم بعد از group
+                    یک اسلش(/) قرار داده سپس یک اسم برای هر group انتخاب می کنیم
+                    تا اشتباه نشود.
+                  </p>
+                  <img src="./Tailwind/20_2.png" />
+                  <p>
+                    اما اگر بخواهیم مثلا در یک hover کردن روی یک المان مشخصه های
+                    آن المان و المان های Sibling(خواهر و برادر) هم تغییر کنند از
+                    Peer Modifier استفاده می کنیم. به اینصورت که به المان
+                    موردنظر کلاس peer داده و در المان های sibling که می خواهیم
+                    با hover روی آن المان تغییراتی داشته باشند شبه عنصر را همراه
+                    با peer می دهیم.
+                  </p>
+                  <img src="./Tailwind/20_3.png" />
+                  <p>
+                    در اینجا اول باید کلاس peer را بدهیم پس از آن اولین جایی که
+                    شبه کلاس را همراه با peer نوشتیم یعنی با آن peer هماهنگ باشد
+                    و خودش را تنظیم کند.
+                  </p>
+                  <p>برای peer هم مثل group می توانیم اسم مشخص کنیم.</p>
+                  <p>
+                    وقتی بخواهیم از تگ parent به تگ های child یکسری استایل بدهیم
+                    از modifier-* استفاده می کنیم
+                  </p>
+                  <img src="./Tailwind/20_4.png" />
+                  <p>
+                    با استفاده از modifier دیگری بنام *-has می توانیم در المان
+                    parent مشخص کنیم المان childی که مشخصه x را دارد استایل های
+                    y را بگیرد.
+                  </p>
+                </div>
+                <h4 id="j21tailwind">جلسه بیست و یکم: Pseudo Elements</h4>
+                <div class="sessionContent">
+                  <p>
+                    کلاس های مربوط به شبه عناصر(مثل before و after و placeholder
+                    و...) را به همان صورت که در داکیومنت تیلویند گفته شده است
+                    استفاده می کنیم.
+                  </p>
+                  <p>
+                    مثلا در مثال زیر گفته شده است که بعد از لیبل Email یک * با
+                    استایل های مشخص شده قرار داده شود.
+                  </p>
+                  <img src="./Tailwind/21_1.png" />
+                  <p>
+                    همچنین به کمک کلاس های مربوط به شبه عنصر file می توانیم تگ
+                    input با type:file را استایل دهی کنیم.
+                  </p>
+                  <img src="./Tailwind/21_2.png" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="GridFlexLayout">فصل پنجم: Grid و Flex و Layout</h3>
+              <div class="sessions">
+                <h4 id="j22tailwind">جلسه بیست و دوم: Layout</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر به قسمت Layout در داکیومنت تیلویند برویم کلاس های زیادی
+                    در ارتباط با Layoutبندی پروژه وجود دارد.
+                  </p>
+                  <p>
+                    کلاس های مربوط به Aspect Ratio نسبت طول و عرض المان را مشخص
+                    می کنند.
+                  </p>
+                  <p>
+                    کلاس container خودش عرض سایت را برای deviceهای مختلف تنظیم
+                    می کند و کلاس های دیگری هم در ارتباط با Box Sizing و
+                    Overflow و Position و Visibility و z-index وجود دارد.
+                  </p>
+                </div>
+                <h4 id="j23tailwind">
+                  جلسه بیست و سوم: Flex - grow - shrink - basis
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند به قسمت Flexbox & Grid می رویم که کلاس
+                    های زیادی در ارتباط با flex و grid وجود دارد.
+                  </p>
+                </div>
+                <h4 id="j24tailwind">
+                  جلسه بیست و چهارم: Gap - Direction - Wrap - Order
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند کلاس هایی هم در ارتباط با Gap و
+                    Direction و Wrap و Order وجود دارد.
+                  </p>
+                </div>
+                <h4 id="j25tailwind">جلسه بیست و پنجم: Justify & Align</h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند کلاس هایی در ارتباط با Justify و Align
+                    وجود دارد.
+                  </p>
+                </div>
+                <h4 id="j26tailwind">جلسه بیست و ششم: Grid - Rows & Columns</h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند کلاس هایی هم در ارتباط با Grid Rows و
+                    Grid Columns داریم.
+                  </p>
+                </div>
+                <h4 id="j27tailwind">جلسه بیست و هفتم: Grid auto flow</h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند کلاس هایی هم در ارتباط با Grid auto flow
+                    داریم.
+                  </p>
+                </div>
+                <h4 id="j28tailwind">جلسه بیست و هشتم: Align & Justify</h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند کلاس هایی در ارتباط با Align و Justify
+                    داریم.
                   </p>
                 </div>
               </div>
