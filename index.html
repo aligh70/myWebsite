@@ -3789,6 +3789,22 @@
           <a href="#j28tailwind" class="sessionIndex"
             >جلسه بیست و هشتم: Align & Justify</a
           >
+          <a href="#responsiveAndDarkMode" class="chapterIndex"
+            >فصل ششم: Dark Mode و Responsive design</a
+          >
+          <a href="#j29tailwind" class="sessionIndex"
+            >جلسه بیست و نهم: Responsive Design</a
+          >
+          <a href="#j30tailwind" class="sessionIndex">جلسه سی ام: Dark Mode</a>
+          <a href="#j31tailwind" class="sessionIndex"
+            >جلسه سی و یکم: تغییر Dark Mode بصورت دستی</a
+          >
+          <a href="#j32tailwind" class="sessionIndex"
+            >جلسه سی و دوم: Directives</a
+          >
+          <a href="#j33tailwind" class="sessionIndex"
+            >جلسه سی و سوم: Functions</a
+          >
         </div>
       </aside>
       <main>
@@ -12632,6 +12648,514 @@
               </div>
             </div>
           </div>
+          <div id="gitGithubGitlabCourse">
+            <h2 id="gitGithubGitlab">
+              git - Github - Gitlab
+            </h2>
+            <div class="sessions">
+              <h4 id="j1gitGithubGitlab">
+                جلسه اول: معرفی دوره
+              </h4>
+              <div class="sessionContent">
+                <p>
+                  هر زبان برنامه نویسی که کار می کنیم به گیت نیاز داریم و باید
+                  آنرا بلد باشیم.
+                </p>
+              </div>
+              <h4 id="j2gitGithubGitlab">جلسه دوم: گیت چیست؟</h4>
+              <div class="sessionContent">
+                <p>گیت یک version control system می باشد.</p>
+                <p>
+                  گیت تمام تغییرات در فایل های ما را ثبت می کند(اینکه تغییر کِی
+                  و توسط چه کسی و چه تغییری انجام شده) و یک تاریخچه کامل در
+                  اختیار ما قرار می دهد.
+                </p>
+                <p>
+                  از گیت می توان به عنوان یک رزومه ساز برای تازه کاران استفاده
+                  کرد(می توانیم پروژه هایی که انجام می دهیم را در گیت ثبت کنیم)
+                </p>
+                <p>
+                  از گیت برای ایجاد یک بستر برای کاربر، روی یک پروژه که توسط چند
+                  نفر(تیم) دولوپ می شود استفاده می شود.
+                </p>
+                <p>
+                  گیت روی سیستم لوکال شما کار می کند(یعنی git یک برنامه است که
+                  آنرا روی لپتاپ نصب می کنیم و فایل ها را چک می کند و تغییری در
+                  آنها باشد ثبت می کندو ... و فقط روی لپتاپ ما کار می کند). برای
+                  رفع این مشکل از Hosting Service استفاده می کنیم که همان گیت
+                  هاب و گیت لب هستند.
+                </p>
+                <p>
+                  گیت هاب و گیت لب دو Hosting Service معروف برای گیت هستند(دو
+                  سایت هستند) که یکسری امکانات مخصوص در اختیار ما قرار می دهند
+                  مثلا از گیت هاب و گیت لب برای قرار دادن کدهایمان در آنجا
+                  استفاده می کنیم که اگر کدهایمان از لپتاپمان حذف شد یا مشکلی
+                  برای لپتاپمان پیش آمد کدهایمان در یک جای خیلی امن هستند که هیچ
+                  اتفاقی برای آنها رخ نمی دهد. همچنین کار تیمی بدون git و github
+                  و gitlab امکانپذیر نیست.
+                </p>
+              </div>
+              <h4 id="j3gitGithubGitlab">جلسه سوم: نصب گیت</h4>
+              <div class="sessionContent">
+                <p>
+                  به سایت git-scm.com رفته و روی گزینه Download for Windows کلیک
+                  می کنیم تا git را دانلود کند، سپس آنرا نصب می کنیم.
+                </p>
+              </div>
+              <h4 id="j4gitGithubGitlab">جلسه چهارم: نحوه کار کردن گیت</h4>
+              <div class="sessionContent">
+                <p>در گیت ۳فاز اصلی (محل اصلی) وجود دارد:</p>
+                <p>
+                  1- working directory(محلی که کار می کنیم) که به آن unstage هم
+                  گفته می شود که فایل هایمان آنجا قرار دارد(فایل ها می تواند هر
+                  نوعی اعم از css و js و html و php و... باشند)
+                </p>
+                <p>2- فاز srage</p>
+                <p>3- commitها</p>
+                <p>
+                  commitها جایی هستند که در آنجا چیزی را commit(ثبت) کرده ایم.
+                  مثلا اگر فایلی تغییر کرده باشد باید ثبت شود و یک تاریخچه به ما
+                  می دهد.
+                </p>
+                <p>
+                  برای اینکه یک تغییر را commit(ثبت) کنیم اول باید وارد فاز
+                  stage شده و آماده ثبت شود.
+                </p>
+                <p>
+                  مثلا 4فایل داریم که تغییر کرده اند و می خواهیم آنها را یکی یکی
+                  commit کنیم ابتدا آنها را داخل stage اد می کنیم سپس commit می
+                  کنیم(می توانیم تک تک یا چند فایل و فولدر را باهم انجام دهیم)
+                </p>
+                <p>
+                  برای اینکه یک فایل که تغییر کرده را از فاز unstage به فاز
+                  stage ببریم از دستور git add استفاده می کنیم. سپس با دستور git
+                  commit آنرا commit می کنیم تا در تاریخچه git ثبت شود تا بعدا
+                  به آن دسترسی داشته باشیم.
+                </p>
+                <p>همه این کارها به صورت Local در سیستم ما انجام می شود.</p>
+                <p>
+                  پس از commit کردن فایل ها با استفاده از دستور git push می
+                  توانیم آنها را به Hosting Serviceها( مثل github و gitlab)
+                  منتقل کنیم.
+                </p>
+              </div>
+              <h4 id="j5gitGithubGitlab">جلسه پنجم: config کردن گیت</h4>
+              <div class="sessionContent">
+                <p>
+                  در محیط دسکتاپ کلیک راست کرده و گزینه Open Git Bash here را می
+                  زنیم تا محیط git را باز کند تا بتوانیم دستورات را داخل آن
+                  بنویسیم.
+                </p>
+                <p>
+                  اگر دستور git --version را بزنیم ورژنی از گیت که روی سیستممان
+                  نصب است را می دهد.
+                </p>
+                <p>
+                  همچنین اگر دستور node --version یا npm --version را هم بنویسیم
+                  ورژن آنها را هم می دهد.
+                </p>
+                <img src="./git-Github-Gitlab/5_1.png" />
+                <p>
+                  دستور git --help یک توضیح کلی راجع به دستوراتی که در گیت هست
+                  می دهد.
+                </p>
+                <p>دستور clear هم صفحه گیت را پاک می کند.</p>
+                <p>
+                  پس از نصب گیت ابتدا اطلاعاتمان را config می کنیم تا گیت بعدها
+                  بداند کدها را چه کسی تغییرداده است. اطلاعاتمان را با استفاده از
+                  دستورات زیر config می کنیم.
+                </p>
+                <p dir="ltr">git config --global user.name "Ali Ghaffari"</p>
+                <p dir="ltr">
+                  git config --global user.email "aligh71@yahoo.com"
+                </p>
+                <p>
+                  این دستورات بصورت global روی پروژه های کل سیستم اسم و ایمیل ما
+                  را درج می کند اما اگر بخواهیم در یک پروژه از اسم و ایمیل دیگر
+                  استفاده کنیم در دستورات بالا به جای global از local استفاده می
+                  کنیم.
+                </p>
+              </div>
+              <h4 id="j6gitGithubGitlab">
+                جلسه ششم: راه اندازی repository در گیت
+              </h4>
+              <div class="sessionContent">
+                <p>
+                  دستور git config --list اطلاعات configuration ما را می دهد.
+                </p>
+                <img src="./git-Github-Gitlab/6_1.png" />
+                <p>دستور pwd نشان می دهد که در چه مسیری هستیم.</p>
+                <p>
+                  دستور ls اسامی فایل ها و فولدرهایی که در آن مسیر هستیم را می
+                  دهد.
+                </p>
+                <img src="./git-Github-Gitlab/6_2.png" />
+                <p>
+                  توسط دستور mkdir git یک فولدر می سازیم(git نام فولدری است که
+                  می سازیم) و توسط دستور rmdir git فولدر موردنظر را حذف می کنیم.
+                </p>
+                <p>
+                  اگر بخواهیم به داخل فولدری که ساختیم برویم از دستور cd git
+                  استفاده می کنیم(git نام فولدری است که می خواهیم به داخل آن
+                  برویم) در این حالت آن فولدر باید داخل مسیری که الان هستیم
+                  باشد.
+                </p>
+                <p>
+                  اگر بخواهیم از آن فولدر بیرون بیاییم از دستور .. cd استفاده می
+                  کنیم.
+                </p>
+                <p>
+                  اگر بخواهیم مثلا داخل فولدر git به فولدر new برویم از دستور cd
+                  git/new استفاده می کنیم.
+                </p>
+                <img src="./git-Github-Gitlab/6_3.png" />
+                <p>
+                  حال می خواهیم یک repository برای git راه اندازی کنیم(یعنی یک
+                  مخزن git درست کنیم که وقتی پروژه را شروع می کنیم پروژه داخل آن
+                  مخزن باشد و git تغییرات آنرا تعقیب و ثبت کند)
+                </p>
+                <p>
+                  برای اینکار داخل فولدری که هستیم و می خواهیم داخل آن فولدر
+                  repository گیت ساخته شود دستور git init را وارد می کنیم.
+                </p>
+              </div>
+              <h4 id="j7gitGithubGitlab">جلسه هفتم: add و commit در گیت</h4>
+              <div class="sessionContent">
+                <p>
+                  اگر در مسیر فولدری که repository گیت را ساختیم دستور . code را
+                  بزنیم آن فولدر را در VSCode باز می کند.
+                </p>
+                <p>
+                  می دانیم توسط دستور mkdir css فولدر css را می سازیم. همچنین
+                  توسط دستور touch index.html فایل index.html را می سازیم.
+                </p>
+                <img src="./git-Github-Gitlab/7_1.png" />
+                <p>
+                  دستور git status وضعیت فایل ها را نشان می دهد که تغییری در
+                  آنها صورت گرفته یا نه.
+                </p>
+                <p>
+                  تصویر زیر نشان می دهد commitی وجود ندارد اما 3 فایل وجود دارد
+                  که چون آنترک نشده اند git آنها را تعقیب نمی کند. برای اینکه آن
+                  فایل ها را از فاز working directory(unstage) به فاز stage
+                  بیاوریم تا git آنها را تعقیب کند و بتوانیم آنها را commit کنیم
+                  از دستور git add index.html استفاده می کنیم.
+                </p>
+                <img src="./git-Github-Gitlab/7_2.png" />
+                <p>
+                  حال اگر دستور git status را وارد کنیم فایل index.html را آنترک
+                  نشده نشان نمی دهد.
+                </p>
+                <img src="./git-Github-Gitlab/7_3.png" />
+                <p>
+                  دستور . git add همه فایل ها و فولدرها را به فاز stage اضافه می
+                  کند.
+                </p>
+                <img src="./git-Github-Gitlab/7_4.png" />
+                <p>
+                  برای commit کردن از دستور " " git commit -m استفاده می کنیم.
+                  داخل دابل کوتیشن این دستور کاری که انجام می دهیم را یادداشت می
+                  کنیم تا بعدا راحت تر پیدا کنیم که در چه مرحله چه کاری انجام
+                  داده ایم مثلا کدهای navigation bar را نوشتیم.
+                </p>
+                <p>
+                  برای مشاهده کردن commitها از دستور git log استفاده می کنیم.
+                </p>
+                <img src="./git-Github-Gitlab/7_5.png" />
+                <p>
+                  اگر به یکی از فایل ها مثل فایل index.html چیزی اضافه کنیم و
+                  git status را بزنیم نشان می دهد که فایل index.html دچار
+                  تغییراتی شده است و اگر git diff را بزنیم کدهایی که اضافه شده
+                  است را با رنگ سبز نشان می دهد و اگر کدی کم شده باشد آن را با
+                  رنگ قرمز نشان می دهد.
+                </p>
+                <img src="./git-Github-Gitlab/7_6.png" />
+                <p>
+                  توسط دستور cat index.html کدهای داخل فایل موردنظر را می توانیم
+                  ببینیم.
+                </p>
+                <p>
+                  دستور " " git commit -a -m تغییرات را add و commit می کند. که
+                  داخل دابل کوتیشن آن هم کاری که انجام می دهیم را یادداشت می
+                  کنیم.
+                </p>
+                <img src="./git-Github-Gitlab/7_7.png" />
+              </div>
+              <h4 id="j8gitGithubGitlab">جلسه هشتم: دستور restore و amend</h4>
+              <div class="sessionContent">
+                <p>
+                  اگر دستور git restore index.html را بزنیم تغییرات ایجاد شده در
+                  فایل index.html برگردانده می شود.
+                </p>
+                <p>
+                  دستور . git restore همه فایل هایی که دچار تغییرات شده اند را
+                  restore می کند.
+                </p>
+                <p>
+                  این دستور برای فایل هایی است که در فاز unstage هستند یعنی
+                  تغییرات اعمال شده اند اما add نشده اند.
+                </p>
+                <p>
+                  اگر فایل هایی که دچار تغییرات شده اند را به فاز stage اضافه
+                  کرده ایم و می خواهیم آنها را به فاز unstage برگردانیم از دستور
+                  زیر استفاده می کنیم.
+                </p>
+                <p dir="ltr">git restore --staged index.html</p>
+                <img src="./git-Github-Gitlab/8_1.png" />
+                <p>
+                  اگر به جای نام فایل نقطه(.) قرار دهیم همه فایل هایی که در فاز
+                  stage هستند را به فاز unstage می آورد.
+                </p>
+                <p dir="ltr">git restore --staged .</p>
+                <p>
+                  اگر متن آخرین commit را دوست نداشتیم و خواستیم آنرا تغییر دهیم
+                  از دستور " " git commit --amend -m استفاده می کنیم و داخل دابل
+                  کوتیشن متن جدید را می نویسیم.
+                </p>
+                <img src="./git-Github-Gitlab/8_2.png" />
+                <p>
+                  برای اینکه ببینیم داخل commit مدنظر چه کاری انجام داده ایم id
+                  آن commit را کپی کرده و همراه با دستور git show آنرا وارد می
+                  کنیم تا کدهایی که در آن commit تغییر کرده اند را نشان دهد.
+                </p>
+                <img src="./git-Github-Gitlab/8_3.png" />
+              </div>
+              <h4 id="j9gitGithubGitlab">جلسه نهم: کار با branchها</h4>
+              <div class="sessionContent">
+                <p>
+                  در گیت چیزی داریم به نام branch(شاخه). master که در آخر
+                  directory در git می نویسد یک branch است.
+                </p>
+                <p>
+                  وقتی repository گیت را راه اندازی می کنیم و initialize می کنیم
+                  یک branch کلی داریم به اسم master و همه commitها روی آن branch
+                  انجام می شود.
+                </p>
+                <p>
+                  وقتی یک پروژه را بصورت تیمی انجام می دهیم و ما مثلا صفحه لاگین
+                  را می خواهیم توسعه دهیم بهتر است همه افراد تیم روی یک branch
+                  کار نکنند. پس برای صفحه login یک branch جدا می کنیم و پس از
+                  پایان کار که صفحه لاگین کامل شد آن را به branch اصلی(master)
+                  اضافه می کنیم و branchی که جدا کرده بودیم را حذف می کنیم.
+                </p>
+                <p>
+                  دستور git branch شاخه ها(branchها) را نشان می دهد(روی هر
+                  branch که باشیم آنرا سبز رنگ نشان می دهد)
+                </p>
+                <p>
+                  برای ساخت یک branch از دستور git branch login-page استفاده می
+                  کنیم(login-page اسم branch دلخواهمان است)
+                </p>
+                <p>
+                  اگر بخواهیم روی یک branch که ساختیم برویم از دستور git
+                  checkout login-page استفاده می کنیم.
+                </p>
+                <img src="./git-Github-Gitlab/9_1.png" />
+                <p>
+                  وقتی یک branch جدید می سازیم commitهای قبل از ساخت این branch
+                  را در این branch جدید هم نشان می دهد.
+                </p>
+                <p>
+                  وقتی روی branchی که ساختیم کاری انجام می دهیم(مثلا فایلی می
+                  سازیم) وقتی روی branch اصلی (master) می آییم آن فایل را دیگر
+                  اینجا نشان نمی دهد(روی branch اصلی هیچ تغییری دیده نمی شود)
+                </p>
+                <p>
+                  برای اینکه branch جدید را روی branch اصلی (master) بیاوریم در
+                  branch اصلی دستور git merge login-page را وارد می کنیم.
+                </p>
+                <p>
+                  این ویژگی در کارهای تیمی بسیار کاربرد دارد که به هرکس یک
+                  branch داده می شود و اگر کارش تمام شد و برنامه بدون ایراد بود
+                  به branch اصلی اضافه می شود.
+                </p>
+                <p>
+                  حال اگر دستور git branch را بزنیم آن branchی که ساخته بودیم را
+                  هم نشان می دهد.
+                </p>
+                <p>
+                  چون آن branch را به branch اصلی(master) اضافه کردیم دیگر با آن
+                  کاری نداریم و با دستور git branch -d login-page آن را حذف می
+                  کنیم.
+                </p>
+              </div>
+              <h4 id="j10gitGithubGitlab">جلسه دهم: گیت هاب</h4>
+              <div class="sessionContent">
+                <p>به سایت github.com رفته و ثبتنام می کنیم.</p>
+                <p>
+                  سپس Create repository را می زنیم و یک repository جدید می
+                  سازیم.
+                </p>
+                <p>
+                  هنگام ساخت repository باید برای آن یک name مشخص کنیم و در قسمت
+                  Description هم می توانیم هر توضیحی خواستیم بنویسیم.
+                </p>
+                <p>
+                  repository نوع public رایگان می باشد اما برای private باید
+                  هزینه بپردازیم.
+                </p>
+                <p>
+                  پس از انتخاب public گزینه Create را می زنیم تا repository را
+                  بسازد.
+                </p>
+                <p>
+                  در صفحه بعدی نحوه فرستادن repository موجود و repository جدید
+                  را بیان می کند.
+                </p>
+                <img src="./git-Github-Gitlab/10_1.png" />
+                <p>
+                  چونکه ما repository را در git ساخته ایم و موجود است پس باید
+                  دستور git remote add origin را به همراه url کپی کرده در صفحه
+                  gitمان وارد کنیم تا origin را برای Hosting Service ست کند.
+                </p>
+                <p>
+                  سپس دستور git branch -M main را وارد می کنیم تا نام branch
+                  اصلی را از master به main تبدیل کند.
+                </p>
+                <p>
+                  پس از آن دستور git push -u origin main را وارد می کنیم تا
+                  پروژه را که در repository گیت است، به repository که در گیت هاب
+                  ساختیم بفرستد.
+                </p>
+                <p>
+                  پس از آپلود در github می توانیم commitها و تغییرات آنها را هم
+                  ببینیم.
+                </p>
+                <p>
+                  حال اگر تغییری در فایل ها انجام دهیم یا فایل جدیدی بسازیم باید
+                  آنرا add و commit کنیم سپس push می کنیم. دیگر لازم نیست پس از
+                  push عبارت u origin main- را بنویسیم.
+                </p>
+              </div>
+              <h4 id="j11gitGithubGitlab">جلسه یازدهم: دستور pull در گیت</h4>
+              <div class="sessionContent">
+                <p>
+                  وقتی در گیت هاب روی یک فایل تغییراتی ایجاد کرده و commit می
+                  کنیم برای آنکه آن تغییرات در git و پروژه مان هم اعمال شود از
+                  دستور git pull استفاده می کنیم.
+                </p>
+                <p>
+                  همچنین اگر در گیت هاب فایلی را اضافه کرده باشیم باید همین
+                  مراحل را طی کنیم تا آن فایل به پروژه مان اضافه شود.
+                </p>
+              </div>
+              <h4 id="j12gitGithubGitlab">جلسه دوازدهم: گیت لب</h4>
+              <div class="sessionContent">
+                <p>
+                  می خواهیم با GitLab کار کنیم و پروژه مان را به گیت لب push
+                  کنیم.
+                </p>
+                <p>به سایت gitlab.com رفته و ثبتنام می کنیم.</p>
+                <p>
+                  سپس گزینه New project را می زنیم و یک پروژه ساخته و از
+                  repository گیت به آنجا push می کنیم.
+                </p>
+                <p>
+                  پس از ساختن پروژه و git init و add و commit کردن آن، برای push
+                  کردن آن مثل گیت هاب عمل کرده و دستور زیر را به همراه url که از
+                  سایت گیت لب برای پروژه ای که ساختیم، کپی کردیم وارد می کنیم.
+                </p>
+                <p>
+                  سپس دستور git branch -M main را وارد می کنیم تا نام branch
+                  اصلی را از master به main تغییر دهد.
+                </p>
+                <p>سپس از دستور git push -u origin main استفاده می کنیم.</p>
+                <p>
+                  پس از آن هر تغییری در پروژه دادیم پس از add و commit فقط دستور
+                  git push را وارد می کنیم.
+                </p>
+                <p>
+                  وقتی یک branch دیگر بسازیم و آنرا git push کنیم ارور می دهد و
+                  می گوید از دستور git push --set-upstream origin login-page
+                  استفاده کنید.
+                </p>
+              </div>
+              <h4 id="j13gitGithubGitlab">جلسه سیزدهم: بحث pull request</h4>
+              <div class="sessionContent">
+                <p>
+                  وقتی در یک تیم کار می کنیم و یک branch می سازیم و روی یک فیچر
+                  کار می کنیم و آنرا توسعه می دهیم سپس آنرا به branch اصلی merge
+                  می کنیم اما در پروژه واقعی یک pull request به نفر بالاتر می
+                  فرستیم و اگر همه چیز اوکی بود او branch ما را به branch اصلی
+                  merge می کند.
+                </p>
+                <p>
+                  دستور git log --oneline هر commit را در یک خط نشان می دهد.
+                </p>
+                <p>
+                  در سایت گیت هاب branch که اضافه می شود گزینه compare & pull
+                  request هم دارد تا pull request بفرستیم تا نفر بالادستی در
+                  سایت گیت هاب branch ما را merge کند.
+                </p>
+                <p>
+                  گزینه create pull request را که زدیم و pull request ساخته شد
+                  در سمت راست از گزینه Reviewers تعیین می کنیم چه کسانی در تیم
+                  pull request ما را ببینند و از قسمت Lables می توانیم به pull
+                  request لیبل اضافه کنیم.
+                </p>
+                <p>
+                  نفر بالایی هم می تواند merge pull request کند و سپس Delete
+                  branch کند.
+                </p>
+              </div>
+              <h4 id="j14gitGithubGitlab">
+                جلسه چهاردهم: برطرف کردن conflictها
+              </h4>
+              <div class="sessionContent">
+                <p>
+                  مسئله دیگر در کارهای تیمی conflictها می باشند یعنی تداخل هایی
+                  که بوجود می آید.
+                </p>
+                <p>
+                  وقتی با یک هم تیمی روی یک branch کار می کنیم و کارهایی که
+                  انجام می دهیم باهم تداخل دارند در این صورت گیت هاب یکسری
+                  conflictهایی می دهد که باید آنها را رفع کنیم.
+                </p>
+                <p>
+                  مثلا یک فایل را قبلا push کرده ایم و حال خودمان آن فایل را در
+                  VSCodeمان کاملتر کردیم و دوباره می خواهیم push کنیم از آنطرف
+                  هم تیمی مان آن فایل اول که push شده بود را Edit کرده است. در
+                  اینصورت push انجام نمی شود و ارور می دهد.
+                </p>
+                <p>
+                  در این وضعیت اول تغییرات سمت گیت هاب را git pull می کنیم تا
+                  روی پروژه مان بیاید سپس تداخل را هندل می کنیم و دوباره add و
+                  commit و سپس push می کنیم.
+                </p>
+              </div>
+              <h4 id="j15gitGithubGitlab">
+                جلسه پانزدهم: فایل gitignore و کاربرد آن
+              </h4>
+              <div class="sessionContent">
+                <p>
+                  بعضی وقت ها فایل ها و فولدرهایی داریم که نیاز نداریم تا گیت
+                  آنها را تعقیب کند ببیند چه تغییراتی روی آنها اعمال می شود.
+                </p>
+                <p>
+                  برای اینکه به گیت بفهمانیم این فایل ها و فولدرها را بیخیال شو
+                  و تعقیب نکن باید از gitignore استفاده کنیم.
+                </p>
+                <p>
+                  یک فایل به اسم gitignore. ایجاد می کنیم و اسم فایل هایی که نمی
+                  خواهیم git آنها را تعقیب کند را داخل آن می نویسیم.
+                </p>
+                <p>
+                  مثلا فولدر node module که در ریکت حجم بالایی دارد و نمی خواهیم
+                  آنرا push کنیم را داخل gitignore. می نویسیم.
+                </p>
+              </div>
+              <h4 id="j16gitGithubGitlab">جلسه شانزدهم: دستور clone</h4>
+              <div class="sessionContent">
+                <p>چطور یک پروژه را از گیت هاب به سیستم خودمان بیاوریم؟</p>
+                <p>روش اول دانلود فایل zip پروژه و Extract کردن آن می باشد.</p>
+                <p>
+                  روش دوم: لینک https آن را کپی می کنیم. سپس یک فولدر ساخته و در
+                  git با دستور cd به آن فولدر می رویم. سپس توسط دستور git clone
+                  و آن لینک که کپی کرده ایم پروژه را روی سیستممان می آوریم.
+                </p>
+              </div>
+            </div>
+          </div>
           <div id="tailwindCourse">
             <h2 id="tailwind">دوره جامع و پروژه محور Tailwind CSS</h2>
             <div class="chapter">
@@ -13255,6 +13779,96 @@
                     در داکیومنت تیلویند کلاس هایی در ارتباط با Align و Justify
                     داریم.
                   </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="responsiveAndDarkMode">
+                فصل ششم: Dark mode و Responsive design
+              </h3>
+              <div class="sessions">
+                <h4 id="j29tailwind">جلسه بیست و نهم: Responsive Design</h4>
+                <div class="sessionsContent">
+                  <p>
+                    برای ریسپانسیوسازی در داکیومنت تیلویند در قسمت Core Concepts
+                    به قسمت Responsive Design می رویم و طبق دستورات آن عمل می
+                    کنیم.
+                  </p>
+                </div>
+                <h4 id="j30tailwind">جلسه سی ام: Dark Mode</h4>
+                <div class="sessionContent">
+                  <p>
+                    در داکیومنت تیلویند در قسمت Core Concepts به قسمت Dark Mode
+                    می رویم و طبق این داکیومنت برای حالت Dark Mode به المان ها
+                    شبه کلاس :dark داده و در آن شبه کلاس استایل دهی میکنیم.
+                  </p>
+                </div>
+                <h4 id="j31tailwind">
+                  جلسه سی و یکم: تغییر Dark Mode بصورت دستی
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    طبق داکیومنت تیلویند اگر نخواهیم حالت Dark Mode سایتمان با
+                    Dark Mode کل سیستم تغییر کند به فایل tailwind.config.js آیتم
+                    <span dir="ltr">darkmode:"selector"</span> را اضافه می کنیم
+                    سپس یک کد جاوااسکریپتی می نویسیم که وقتی روی باتنی کلیک
+                    کردیم کلاس dark را به تگ html اضافه کند.
+                  </p>
+                  <img src="./Tailwind/31_1.png" />
+                  <img src="./Tailwind/31_2.png" />
+                </div>
+                <h4 id="j32tailwind">جلسه سی و دوم: Directives</h4>
+                <div class="sessionContent">
+                  <p>
+                    در جلسات اول دوره، داخل فایل input.css سه خط کد با درکتیو
+                    tailwind@ نوشتیم.
+                  </p>
+                  <img src="./Tailwind/32_1.png" />
+                  <p>
+                    اگر در داکیومنت تیلویند قسمت های Adding Custom Styles و
+                    Functions & Directives را مطالعه کنیم می فهمیم که از
+                    tailwind directive برای اضافه کردن استایل های base و
+                    components و utilities و variants به CSS استفاده می کنیم.
+                  </p>
+                  <p>
+                    tailwind base@ لایه ای است که استایل های default هر تگ(مثل
+                    font و padding و margin و color و...) را به CSS اضافه می
+                    کند.
+                  </p>
+                  <p>
+                    tailwind components@ لایه ای است که استایل های کلاس های
+                    بزرگ(کلاس هایی که چند مشخصه المان را تغییر می دهند) را به
+                    CSS اضافه می کند.
+                  </p>
+                  <p>
+                    tailwind utilities@ لایه ای است که استایل های کلاس های کوچک
+                    تیلویند که هرکدام یک کار کوچک مشخص انجام می دهند(مثل
+                    bg-white و border-1 و...) را به CSS اضافه می کند.
+                  </p>
+                  <p>
+                    توسط layer@ در فایل input.css می توانیم استایل های Custom
+                    خودمان را به base و components و utilities اضافه کنیم تا از
+                    آنها برای استایل دهی راحت تر استفاده کنیم.
+                  </p>
+                  <p>
+                    اگر بخواهیم از utility classهای تیلویند داخل فایل input.css
+                    استفاده کنیم آنها را به همراه apply@ می نویسیم.
+                  </p>
+                  <img src="./Tailwind/32_2.png" />
+                  <p>
+                    با config@ هم می توانیم کانفیگ دلخواه خودمان را به پروژه
+                    اعمال کنیم. در حالت default تیلویند فایل tailwind.config.js
+                    را به عنوان فایل کانفیگ می شناسد.
+                  </p>
+                </div>
+                <h4 id="j33tailwind">جلسه سی و سوم: Functions</h4>
+                <div class="sessionContent">
+                  <p>
+                    به کمک فانکشن هایی که تیلویند در اختیار ما قرار می دهد مثل
+                    ()theme و ()screen می توانیم از مقادیری که تیلویند در اختیار
+                    ما قرار می دهد برای ساخت کلاس custom خودمان استفاده کنیم.
+                  </p>
+                  <img src="./Tailwind/33_1.png" />
                 </div>
               </div>
             </div>
