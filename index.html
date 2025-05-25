@@ -3835,6 +3835,34 @@
           <a href="#j41tailwind" class="sessionIndex"
             >جلسه چهل و یکم: Customization - قسمت سوم</a
           >
+          <a href="#tailwindV4" class="chapterIndex">فصل نهم: ورژن 4 تیلویند</a>
+          <a href="#j42tailwind" class="sessionIndex"
+            >جلسه چهل و دوم: نصب و راه اندازی برنامه</a
+          >
+          <a href="#j43tailwind" class="sessionIndex"
+            >جلسه چهل و سوم: Automatic Content Detection</a
+          >
+          <a href="#j44tailwind" class="sessionIndex"
+            >جلسه چهل و چهارم: Default Style Updates</a
+          >
+          <a href="#j45tailwind" class="sessionIndex"
+            >جلسه چهل و پنجم: Dynamic Utility Values and Variants</a
+          >
+          <a href="#j46tailwind" class="sessionIndex"
+            >جلسه چهل و ششم: New 3D Transform Utilities</a
+          >
+          <a href="#j47tailwind" class="sessionIndex"
+            >جلسه چهل و هفتم: P3 Color Palette and Gradients</a
+          >
+          <a href="#j48tailwind" class="sessionIndex"
+            >جلسه چهل و هشتم: Container Queries</a
+          >
+          <a href="#j49tailwind" class="sessionIndex"
+            >جلسه چهل و نهم: not-* variant</a
+          >
+          <a href="#j50tailwind" class="sessionIndex"
+            >جلسه پنجاهم: Theme Variables</a
+          >
         </div>
       </aside>
       <main>
@@ -14049,6 +14077,195 @@
                   <p>
                     می توانیم ابعاد جدید را هم به کمک آیتم spacing اضافه کنیم.
                   </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="tailwindV4">فصل نهم: ورژن 4 تیلویند</h3>
+              <div class="sessions">
+                <h4 id="j42tailwind">
+                  جلسه چهل و دوم: نصب و راه اندازی برنامه
+                </h4>
+                <div class="sessionsContent">
+                  <p>
+                    ابتدا با دستور npm init -y فایل package.json را ایجاد می
+                    کنیم.
+                  </p>
+                  <p>
+                    سپس طبق داکیومنت تیلویند برای نصب تیلویند ورژن 4 به روش CLI
+                    از دستور زیر استفاده می کنیم.
+                  </p>
+                  <p dir="ltr">npm install tailwindcss @tailwindcss/cli</p>
+                  <p>
+                    در مرحله بعد فایل input.css را داخل فولدر src ساخته و
+                    <span dir="ltr">@import "tailwindcss";</span> را داخل آن می
+                    نویسیم(که در ورژن 3 سه تا import در این فایل می نوشتیم)
+                  </p>
+                  <p>
+                    سپس دستور زیر که مربوط به build تیلویند است را وارد می کنیم
+                    تا فایل مربوط به تیلویند را build کرده و به css تبدیل کند.
+                  </p>
+                  <p dir="ltr">
+                    npx @tailwind/cli -i ./src/input.css -o ./dist/output.css
+                    --watch
+                  </p>
+                  <p>
+                    می توانیم این خط مربوط به build کردن را داخل فایل
+                    package.json در یک اسکریپت نوشته و بجای نوشتن این دستور در
+                    هربار، آن اسکریپت را به همراه npm run بنویسیم.
+                  </p>
+                  <p>سپس فایل output.css را به سند htmlمان لینک می کنیم.</p>
+                </div>
+                <h4 id="j43tailwind">
+                  جلسه چهل و سوم: Automatic Content Detection
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در سایت tailwindcss.com به قسمت Blog رفته و مقاله Tailwind
+                    CSS v4 را باز می کنیم که تغییرات اعمال شده در V4 تیلویند را
+                    گفته است.
+                  </p>
+                  <p>
+                    در ورژن 3 در فایل tailwind.config.js یک آیتم content داشتیم
+                    که در آن مشخص می کردیم تیلویند چه فایل هایی را بررسی کند و
+                    کدهای آنها را build کند اما در ورژن 4 این را تیلویند خودش
+                    تشخیص می دهد چه فایل هایی را بررسی کند و نیاز نیست ما بگوییم
+                    و کلا در ورژن 4 فایل tailwind.config.js را نداریم.
+                  </p>
+                  <p>
+                    تیلویند به فایل ها و فولدرهایی که در فایل gitignore. نوشتیم
+                    کاری ندارد و آنها را بررسی نمی کند.
+                  </p>
+                  <p>
+                    تیلویند یکسری از فایل ها مثل عکس و ویدیو و zip و... را تشخیص
+                    می دهد و آنها را watch نمی کند.
+                  </p>
+                  <p>
+                    به عنوان مثال اگر یک لایبری به پروژه اضافه کردیم و داخل آن
+                    لایبری از کدهای تیلویند استفاده کردیم برای اینکه به تیلویند
+                    بگوییم که آن را هم watch کند از درکتیو source@ در فایل
+                    input.css استفاده می کنیم.
+                  </p>
+                  <img src="./Tailwind/43_1.png" />
+                </div>
+                <h4 id="j44tailwind">
+                  جلسه چهل و چهارم: Default Style Updates
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در تیلویند ورژن 4 یکسری از defaultها تغییر کرده اند مثلا
+                    قبلا اگر به المانی کلاس border-2 را می دادیم، به آن المان یک
+                    border به رنگ gray می داد اما الان رنگ border را از رنگ متن
+                    المان ارث بری می کند.
+                  </p>
+                  <img src="./Tailwind/44_1.png" />
+                  <p>
+                    یا در تگ input هم رنگ placeholder را از رنگ متن با opacity-50
+                    ارث بری می کند.
+                  </p>
+                  <img src="./Tailwind/44_2.png" />
+                </div>
+                <h4 id="j45tailwind">
+                  جلسه چهل و پنجم: Dynamic Utility Values and Variants
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در ورژن 4 تیلویند به spacingها مثل padding و margin و width
+                    و height و طول و عرض سطر و ستون ها در grid هر عددی بدهیم آن
+                    را با فرمولی که خودش در داکیومنت گفته حساب می کند و اعمال می
+                    کند. که در ورژن 3 یکسری اعداد مشخص را می توانستیم بدهیم و در
+                    یکسری از اعداد اتفاق خاصی نمی افتاد.
+                  </p>
+                  <p>
+                    در فایل input.css به کمک درکتیو layer@ می توانیم مقادیر
+                    default برای کلاس ها مثل spacing را تغییر دهیم.
+                  </p>
+                  <p>
+                    می توانیم یکسری اتریبیوت با -data تعریف کنیم و در کلاس ها
+                    مشخص کنیم که اگر این اتریبیوت را به المان دادیم چه عملی
+                    اتفاق بیفتد مثلا در مثال زیر گفتیم که اگر اتریبیوت data-bg
+                    را دادیم bg را قرمز رنگ کن در غیر اینصورت bg را زرد کن.
+                  </p>
+                  <img src="./Tailwind/45_1.png" />
+                  <img src="./Tailwind/45_2.png" />
+                </div>
+                <h4 id="j46tailwind">
+                  جلسه چهل و ششم: New 3D Transform Utilities
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    یکسری کلاس برای ایجاد Transfornهای سه بعدی در ورژن 4 اضافه
+                    شده است.
+                  </p>
+                  <img src="./Tailwind/46_1.png" />
+                  <p>
+                    و یکسری کلاس ها مثل backface-hidden و backface-visible و
+                    perspective-dramatic و perspective-normal و... هم اضافه شده
+                    اند.
+                  </p>
+                </div>
+                <h4 id="j47tailwind">
+                  جلسه چهل و هفتم: P3 Color Palette and Gradients
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    پلت رنگی ورژن 4 بجای rgb از oklch استفاده می کند که نحوه
+                    اعمال رنگ ها به همان صورت ورژن قبلی است.
+                  </p>
+                  <p>
+                    در ورژن 4 به گرادیانت ها می توانیم زاویه دهیم و بجای
+                    bg-gradient از bg-linear استفاده می کنیم.
+                  </p>
+                  <p>در استفاده از پلت oklch کیفیت رنگ بهتر می شود.</p>
+                  <img src="./Tailwind/47_1.png" />
+                  <p>
+                    در ورژن 4 می توانیم گرادیانت های دایره ای و کره ای ایجاد
+                    کنیم.
+                  </p>
+                </div>
+                <h4 id="j48tailwind">جلسه چهل و هشتم: Container Queries</h4>
+                <div class="sessionContent">
+                  <p>
+                    قبلا وقتی سایتمان را responsive می کردیم بر اساس سایز کل
+                    صفحه deviceمان این کار را انجام می دادیم اما در Container
+                    Queries المان مورد نظر ابعاد parent خودش را برای responsive
+                    کردن در نظر می گیرد و کاری به ابعاد صفحه device ندارد.
+                  </p>
+                  <p>
+                    مقادیر sm@ و lg@ و... در Container Queries با مقادیر sm و lg
+                    و... در حالت عادی متفاوت است.
+                  </p>
+                  <img src="./Tailwind/48_1.png" />
+                  <p>
+                    در Container Queries هم
+                    <span dir="ltr">@min-* , @max-*</span> را داریم.
+                  </p>
+                </div>
+                <h4 id="j49tailwind">جلسه چهل و نهم: not-* variant</h4>
+                <div class="sessionContent">
+                  <p>
+                    not-* variant در ورژن 4 به تیلویند اضافه شده است که یک شبه
+                    کلاس است.
+                  </p>
+                  <p>
+                    مثلا قبلا می گفتیم اگر hover شد فلان کار را بکن ولی اینجا می
+                    گوییم اگر hover نشده بود آن کار را انجام بده.
+                  </p>
+                  <p>
+                    مثلا می توانیم بگوییم اگر hover شده بود ولی focus نشده بود
+                    فلان کار را بکن.
+                  </p>
+                  <img src="./Tailwind/49_1.png" />
+                </div>
+                <h4 id="j50tailwind">جلسه پنجاهم: Theme Variables</h4>
+                <div class="sessionContainer">
+                  <p>
+                    چون در ورژن 4 فایل tailwind.config.js را نداریم برای
+                    Customization از درکتیو theme@ داخل فایل input.css استفاده
+                    می کنیم.
+                  </p>
+                  <img src="./Tailwind/50_1.png" />
+                  <img src="./Tailwind/50_2.png" />
                 </div>
               </div>
             </div>
