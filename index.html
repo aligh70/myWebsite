@@ -2847,6 +2847,70 @@
           <a href="#j387react" class="sessionIndex"
             >جلسه سیصد و هشتاد و هفتم: سوالات مصاحبه ریکت</a
           >
+          <a href="#react19" class="chapterIndex">فصل سی و سوم: ورژن 19 ریکت</a>
+          <a href="#j388react" class="sessionIndex"
+            >جلسه سیصد و هشتاد و هشتم: React Compiler چیست؟</a
+          >
+          <a href="#j389react" class="sessionIndex"
+            >جلسه سیصد و هشتاد و نهم: کانفیگ کردن React Compiler</a
+          >
+          <a href="#j390react" class="sessionIndex"
+            >جلسه سیصد و نودم: عملیات های async در هوک useTransition</a
+          >
+          <a href="#j391react" class="sessionIndex"
+            >جلسه سیصد و نود و یکم: مفهوم Action</a
+          >
+          <a href="#j392react" class="sessionIndex"
+            >جلسه سیصد و نود و دوم: معرفی هوک useActionState</a
+          >
+          <a href="#j393react" class="sessionIndex">
+            جلسه سیصد و نود و سوم: توسعه formAction و mutate کردن دیتا
+          </a>
+          <a href="#j394react" class="sessionIndex"
+            >جلسه سیصد و نود و چهارم: بررسی previousState</a
+          >
+          <a href="#j395react" class="sessionIndex">
+            جلسه سیصد و نود و پنجم: هندل کردن error در هوک useActionState
+          </a>
+          <a href="#j396react" class="sessionIndex"
+            >جلسه سیصد و نود و ششم: مقدار isPending و استفاده از آن</a
+          >
+          <a href="#j397react" class="sessionIndex"
+            >جلسه سیصد و نود و هفتم: هوک useFormStatus</a
+          >
+          <a href="#j398react" class="sessionIndex"
+            >جلسه سیصد و نود و هشتم: معرفی هوک useOptimistic</a
+          >
+          <a href="#j399react" class="sessionIndex"
+            >جلسه سیصد و نود و نهم: کار با useOptimistic - پارت یک</a
+          >
+          <a href="#j400react" class="sessionIndex"
+            >جلسه چهارصدم: کار با useOptimistic - پارت دو</a
+          >
+          <a href="#j401react" class="sessionIndex"
+            >جلسه چهارصد و یکم: کار با useOptimistic - پارت سه</a
+          >
+          <a href="#j402react" class="sessionIndex"
+            >جلسه چهارصد و دوم: معرفی ()use</a
+          >
+          <a href="#j403react" class="sessionIndex"
+            >جلسه چهارصد و سوم: استفاده از Promise در ()use</a
+          >
+          <a href="#j404react" class="sessionIndex"
+            >جلسه چهارصد و چهارم: اشتباهات رایج در استفاده از ()use</a
+          >
+          <a href="#j405react" class="sessionIndex"
+            >جلسه چهارصد و پنجم: استفاده از context در ()use</a
+          >
+          <a href="#j406react" class="sessionIndex"
+            >جلسه چهارصد و ششم؛ Context as a provider</a
+          >
+          <a href="#j407react" class="sessionIndex"
+            >جلسه چهارصد و هفتم: Ref as a props</a
+          >
+          <a href="#j408react" class="sessionIndex"
+            >جلسه چهارصد و هشتم: Metadata</a
+          >
           <a id="nextCourseIndex" href="#next" class="courseIndex"
             >دوره جامع و پروژه محور Next JS</a
           >
@@ -16118,6 +16182,588 @@
                 </div>
               </div>
             </div>
+            <div class="chapter">
+              <h3 id="react19">فصل سی و سوم: ورژن 19 ریکت</h3>
+              <div class="sessions">
+                <h4 id="j388react">
+                  جلسه سیصد و هشتاد و هشتم: React Compiler چیست؟
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    قبلا برای جلوگیری از rerenderهای اضافی، خودمان عملیات
+                    memoization را به کمک هوک های useMemo و useCallback و
+                    React.memo انجام می دادیم اما React Compiler خودش عملیات
+                    memoization را انجام می دهد و دیگر نیاز نیست ما قسمت های
+                    لازم را بشناسیم و تشخیص دهیم و عملیات memoization را انجام
+                    دهیم که این کار باعث افزایش سرعت کدنویسی ما می شود.
+                  </p>
+                </div>
+                <h4 id="j389react">
+                  جلسه سیصد و هشتاد و نهم: کانفیگ کردن React Compiler
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    چطور از این قابلیت جدید React استفاده کنیم و کدهایمان را با
+                    استفاده از React Compiler کامپایل کنیم؟
+                  </p>
+                  <p>
+                    یک فولدر بنام react-19 ساخته و آن را با VSCode باز می کنیم.
+                  </p>
+                  <p>
+                    برای استفاده از React Compiler باید ورژن 18 به بالا node را
+                    روی سیستممان داشته باشیم. پس با دستور node -v ورژن node را
+                    چک کرده و در صورت نیاز آن را بروزرسانی می کنیم.
+                  </p>
+                  <p>
+                    با دستور <span dir="ltr">npm create vite@latest ./</span> یک
+                    پروژه ریکتی در همین فولدر که هستیم می سازیم.
+                  </p>
+                  <p>
+                    در مراحل بعد گزینه های React و Javascript را انتخاب می کنیم
+                    و سپس دستور npm install را وارد می کنیم تا dependencyها را
+                    نصب کند.
+                  </p>
+                  <p>
+                    در داکیومنت خود ریکت هم کامل گفته شده که اگر از vite استفاده
+                    می کنید برای راه انداختن React Compiler چه کاری را انجام
+                    دهید.
+                  </p>
+                  <p>
+                    پس از اتمام نصب dependencyها با دستور زیر babel را نصب می
+                    کنیم.
+                  </p>
+                  <p dir="ltr">npm install babel-plugin-react-compiler@rc</p>
+                  <p>
+                    در قسمت React Compiler داکیومنت React گفته که اگر از vite
+                    استفاده می کنید کدهای زیر را در فایل vite.config.js وارد
+                    کنید.
+                  </p>
+                  <img src="./React/389_1.png" />
+                  <img src="./React/389_2.png" />
+                  <p>
+                    حال به این صورت React Compiler را به پروژه مان اضافه کردیم.
+                    سپس با دستور npm run dev پروژه را ران می کنیم.
+                  </p>
+                </div>
+                <h4 id="j390react">
+                  جلسه سیصد و نودم: عملیات های async در هوک useTransition
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در
+                    <a href="#j222react" class="linkInParagraph"
+                      >جلسه دویست و بیست و دوم</a
+                    >
+                    نحوه استفاده از هوک useTransition را گفتیم.
+                  </p>
+                  <p>
+                    طبق مثال زیر به کمک هوک useTransition کامپوننت
+                    TransitionComponent در طول اجرای فانکشن changeHandler دو بار
+                    rerender می شود(یکبار قبل از اجرای startTransition و یکبار
+                    پس از اجرای startTransition)
+                  </p>
+                  <img src="./React/390_1.png" />
+                  <img src="./React/390_2.png" />
+                  <p>در ورژن 19 ریکت چه تغییری انجام شده است؟</p>
+                  <p>
+                    در ورژن 19 به عنوان ورودی به فانکشن startTransition می
+                    توانیم فانکشن های async هم بدهیم.
+                  </p>
+                  <p>
+                    مثلا اگر قرار است دیتایی fetch شود می توانیم به کمک async
+                    function دیتا را داخل startTransition فچ کنیم.
+                  </p>
+                  <img src="./React/390_3.png" />
+                </div>
+                <h4 id="j391react">جلسه سیصد و نود و یکم: مفهوم Action</h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم دیتا را به سمت سرور و back-end بفرستیم و در
+                    دیتابیس ذخیره شود که به این عمل اصطلاحا Mutation گفته می
+                    شود.
+                  </p>
+                  <p>و برای گرفتن دیتا از سرور از Queryها استفاده می کنیم.</p>
+                  <p>
+                    برای بحث Mutate کردن و تغییر دادن دیتا در بک اند، اغلب به یک
+                    form نیاز داریم.
+                  </p>
+                  <p>
+                    تا قبل از ریکت 19 برای گرفتن اطلاعات فرم و فرستادن آن به سمت
+                    بک اند به روش زیر عمل می کردیم.
+                  </p>
+                  <img src="./React/391_1.png" class="actionImage" />
+                  <img src="./React/391_2.png" class="actionImage2" />
+                  <p>
+                    اما در ریکت 19 بجای اینکه کل کدها را بصورت دستی بنویسیم هوک
+                    useActionState را معرفی کرده است.
+                  </p>
+                  <p>
+                    Action که در ریکت 19 از آن نام برده و استفاده می شود چیست؟
+                  </p>
+                  <p>
+                    قبلا در form یک اتریبیوت action داشتیم که در ریکت 19 دوباره
+                    اتریبیوت action به فرم ها داده می شود.
+                  </p>
+                  <p>
+                    ریکت به فانکشن هایی که از async transition استفاده می کنند
+                    Action می گوید.
+                  </p>
+                  <p>
+                    Actionها بصورت اتوماتیک بحث Submit کردن دیتا را برای ما
+                    انجام می دهند(دیگر نیاز نیست به فرم ایونت onSubmit داده و یک
+                    فانکشن برای هندل آن تعریف کنیم)
+                  </p>
+                  <p>Action چه چیزهایی در اختیار ما قرار می دهد؟</p>
+                  <p>
+                    Pending state را به ما می دهد و دیگر نیاز نیست به صورت جدا
+                    استیت isPending تعریف کنیم.
+                  </p>
+                  <p>
+                    Optimistic updates را به ما می دهد(که در جلسات بعد در این
+                    مورد بیشتر توضیح داده می شود)
+                  </p>
+                  <p>
+                    Error handling را برای ما انجام می دهد و دیگر نیاز نیست
+                    بصورت جدا استیت error را برای هندل کردن ارورها تعریف کنیم.
+                  </p>
+                  <p>
+                    form را بعد از اینکه عملیات Submit انجام شد reset می کند.
+                  </p>
+                </div>
+                <h4 id="j392react">
+                  جلسه سیصد و نود و دوم: معرفی هوک useActionState
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    طبق داکیومنت ریکت هوک useActionState هوکی است که به ما اجازه
+                    آپدیت کردن یک state از روی نتیجه action یک فرم را می دهد.
+                  </p>
+                  <p>
+                    هوک useActionState سه ورودی می گیرد که ورودی اول یک فانکشن
+                    است و ورودی دوم مقادیر اولیه state است و ورودی سوم اصطلاحا
+                    permalink نامیده می شود که می تواند باشد یا نباشد(آپشنال
+                    است) که یک مقدار یونیک بر اساس requestی که فرستاده می شود
+                    است.
+                  </p>
+                  <p>
+                    هوک useActionState را به صورت آرایه destructure کرده و
+                    مقادیر state و formAction و isPending را از آن می گیریم(در
+                    destructure کردن باید ترتیب را رعایت کنیم)
+                  </p>
+                  <p>
+                    می خواهیم مثال جلسه قبل را به کمک هوک useActionState بنویسم.
+                  </p>
+                  <p>
+                    فانکشنی که از destructure کردن هوک useActionState گرفتیم را
+                    به اتریبیوت action فرم می دهیم.
+                  </p>
+                  <p>
+                    حال اینکه فانکشن formAction باید چه کاری انجام دهد را داخل
+                    فانکشنی که به عنوان ورودی اول به هوک useActionState دادیم
+                    هندل می کنیم.
+                  </p>
+                  <p>
+                    در فانکشن ورودی هوک useActionState می توانیم previousState و
+                    formData(اطلاعات وارد شده در فرم) را بگیریم.
+                  </p>
+                  <img src="./react/392_1.png" />
+                  <img src="./react/392_2.png" class="useActionStateImage" />
+                  <img src="./react/392_3.png" class="useActionStateImage" />
+                  <p>
+                    اگر بخواهیم formData را بصورت یک آبجکت دربیاوریم به این صورت
+                    عمل می کنیم.
+                  </p>
+                  <img src="./react/392_4.png" />
+                  <img src="./react/392_5.png" class="useActionStateImage" />
+                  <p>
+                    previousState هم مقدار state قبل از ارسال request را مشخص می
+                    کند.
+                  </p>
+                </div>
+                <h4 id="j393react">
+                  جلسه سیصد و نود و سوم: توسعه formAction و mutate کردن دیتا
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    فانکشن formAction مثال جلسه قبل که مربوط به ارسال اطلاعات
+                    فرم بود را توسعه می دهیم.
+                  </p>
+                  <img
+                    src="./react/393_1.png"
+                    class="formActionFunctionImage" />
+                  <img src="./react/393_2.png" />
+                  <p>
+                    چیزی که فانکشن formAction(در این مثال createPost نام دارد)
+                    return می کند داخل stateی که از هوک destructure ،
+                    useActionState کردیم قرار می گیرد.
+                  </p>
+                  <p>
+                    نکته ۱: علامت !! متغیر غیر بولین را تبدیل به متغیر بولین می
+                    کند.
+                  </p>
+                  <p>
+                    نکته ۲: به کمک تگ pre می توانیم کد جاوااسکریپتی را داخل صفحه
+                    نمایش دهیم.
+                  </p>
+                  <p>
+                    پس به کمک هوک useActionState خیلی راحت تر کار ارسال دیتا
+                    انجام می شود بدون اینکه نیاز باشد changeHandler و onSubmit و
+                    stateهای مختلف تعریف کنیم.
+                  </p>
+                </div>
+                <h4 id="j394react">
+                  جلسه سیصد و نود و چهارم: بررسی previousState
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    وقتی request به سمت سرور می رود responseی که می آید در state
+                    ذخیره شده و state قبلی داخل previousState ذخیره می شود.
+                  </p>
+                  <img src="./react/394_1.png" class="previousStateImage" />
+                  <img src="./react/394_2.png" class="previousStateImage2" />
+                  <img src="./react/394_3.png" class="previousStateImage2" />
+                </div>
+                <h4 id="j395react">
+                  جلسه سیصد و نود و پنجم: هندل کردن error در هوک useActionState
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در قسمت catch بلاک try-catch فانکشن formAction ارور را
+                    هم return کنیم، آن هم داخل stateی که از هوک destructure ،
+                    useActionState کردیم قرار می گیرد.
+                  </p>
+                  <img src="./react/395_1.png" />
+                  <p>
+                    حال می خواهیم مقدار دیتا و ارور را جدا از هم داشته باشیم و
+                    هر دو را داخل state نریزد.
+                  </p>
+                  <p>
+                    به این صورت عمل می کنیم که بجای return کردن result ، یک
+                    آبجکت با آیتم های data و error را return می کنیم.
+                  </p>
+                  <img
+                    src="./react/395_2.png"
+                    class="errorInUseActionStateImage" />
+                  <img
+                    src="./react/395_3.png"
+                    class="errorInUseActionStateImage2" />
+                  <img src="./react/395_4.png" />
+                  <p>چون متن ارور string است نیاز به JSON.stringify ندارد.</p>
+                  <p>
+                    قبل از اینکه نسخه 19 ریکت استیبل شود و در دسترس قرار گیرد(در
+                    نسخه بتا ورژن 19 ریکت) از نام useFormState بجای
+                    useActionState استفاده میشد.
+                  </p>
+                </div>
+                <h4 id="j396react">
+                  جلسه سیصد و نود و ششم: مقدار isPending و استفاده از آن
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    مقدار سومی که هوک return ، useActionState می کند وضعیت
+                    requestمان است که آن را با isPending مشخص می کنیم.
+                  </p>
+                  <img src="./react/396_1.png" />
+                  <img src="./react/396_2.png" />
+                  <p>
+                    در حالت قبل که از هوک useActionState استفاده نمی کردیم برای
+                    هندل کردن فرم و ارسال اطلاعات آن یک state تعریف می کردیم و
+                    با onChange هر بار که در inputها کاراکتری میشد آن را می
+                    گرفتیم. درواقع در هربار تایپ کردن یکبار فرم rerender میشد که
+                    هوک useActionState جلوی این rerenderهای متوالی را هم گرفت
+                    چون هنگام استفاده کردن از این هوک این rerenderها رخ نمی دهد.
+                  </p>
+                  <p>
+                    پس علاوه بر اینکه هوک useActionState حجم کدها را کم می کند
+                    بهینه تر هم هست.
+                  </p>
+                </div>
+                <h4 id="j397react">
+                  جلسه سیصد و نود و هفتم: هوک useFormStatus
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در ریکت ورژن 19 یک هوک جدید اضافه شد به نام useFormStatus که
+                    این هوک وضعیت فرمی که داخل آن هست را به ما می دهد.
+                  </p>
+                  <p>
+                    useFormStatus هوکی است که هیچ ورودی ندارد اما اطلاعاتی مثل
+                    pending و data و method و action را به ما می دهد.
+                  </p>
+                  <p>
+                    وقتی از این هوک داخل کامپوننتی استفاده می کنیم آن کامپوننت
+                    حتما باید Child یک form باشد و این هوک اطلاعات آن form که
+                    parent خودش است را می دهد.
+                  </p>
+                  <img src="./react/397_1.png" />
+                  <img src="./react/397_2.png" />
+                </div>
+                <h4 id="j398react">
+                  جلسه سیصد و نود و هشتم: معرفی هوک useOptimistic
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    هوک useOptimistic به ما اجازه می دهد که بصورت UI ،
+                    Optimistic را آپدیت کنیم.
+                  </p>
+                  <p>
+                    در کل دو دیدگاه داریم: Realistic و Optimistic. در Realistic
+                    کاربر همه مراحل را می بیند، مثلا وقتی یک فرم را Submit می
+                    کنیم حالت Submitting را هم به کاربر نشان می دهیم که باتن
+                    لحظه ای Submitting می شود اما در Optimistic یکسری اتفاقات
+                    پشت پرده رخ می دهد و کاربر آنها را نمی بیند.
+                  </p>
+                  <p>
+                    Optimistic یعنی خوشبینانه، یعنی فرض ما این است که مثلا وقتی
+                    کاربر باتن Submit را زد دیتا رفته و داخل دیتابیس ذخیره شده
+                    است یعنی همیشه خوشبینانه و بهترین حالت را در نظر می گیریم و
+                    به همین دلیل به محض زدن باتن Submit نتیجه بهترین حالت را به
+                    کاربر نمایش می دهیم یعنی کار بطور کامل انجام شده است در
+                    اینصورت کاربر احساس می کند سرعت برنامه چقدر بالاست و UX
+                    بهتری دارد. این کار را در ریکت با هوک useOptimistic انجام می
+                    دهیم.
+                  </p>
+                  <p>
+                    هوک useOptimistic دو ورودی می گیرد: state و updateFunction.
+                    و یک آرایه به ما برمی گرداند که مقدار آیتم اول
+                    optimisticState(stateی که در حالت خوشبینانه درنظر می گیریم)
+                    و آیتم دوم فانکشن addOptimistic است.
+                  </p>
+                  <p dir="ltr">
+                    const
+                    [optimisticState,addOptimistic]=useOptimistic(state,updateFn)
+                  </p>
+                  <p>
+                    stateی که به عنوان ورودی اول به هوک useOptimistic می دهیم
+                    داخل optimisticState می نشیند و updateFn مشخص می کند که
+                    optimisticState به چه صورت تغییر کند(آپدیت شود)
+                  </p>
+                </div>
+                <h4 id="j399react">
+                  جلسه سیصد و نود و نهم: کار با useOptimistic - پارت یک
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    بعنوان مثال می خواهیم کدی بنویسیم که در render اول سایت 100
+                    پست را fetch کرده و در UI سایت نشان دهد.
+                  </p>
+                  <img src="./react/399_1.png" />
+                  <p>
+                    حال می خواهیم یک فرم ایجاد کنیم که از کاربر پست جدید را
+                    بگیرد و آن را به بک اند فرستاده و در دیتابیس ذخیره شود و
+                    همچنین چون پست ها را fetch می کند و در UI نشان می دهد آن پست
+                    که کاربر می فرستد هم در UI نمایش دهد. می خواهیم این کار را
+                    به صورت Optimistic انجام دهیم یعنی در لحظه که کاربر پست را
+                    می فرستد در UI هم نشان دهد.
+                  </p>
+                  <p>
+                    در تصویر زیر به صفحه حاوی 100 پست یک فرم اضافه کردیم که یک
+                    پست را از کاربر گرفته و آن را بصورت یک آبجکت درآورده و در
+                    console نشان می دهد.
+                  </p>
+                  <img src="./react/399_2.png" class="useOptimisticImage" />
+                  <img src="./react/399_3.png" />
+                </div>
+                <h4 id="j400react">
+                  جلسه چهارصدم: کار با useOptimistic - پارت دو
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    به ورودی اول هوک useOptimistic که باید یک state باشد data که
+                    حاوی 100 پست است را می دهیم.
+                  </p>
+                  <p>
+                    حال dataیی که به هوک useOptimistic دادیم مقدار اولیه
+                    optimisticData هم می شود چون مقدار اولیه optimisticState را
+                    از stateی که به ورودی اول هوک useOptimistic می دهیم می
+                    خواند.
+                  </p>
+                  <p>
+                    updateFn فانکشنی است که از آن استفاده می کنیم برای آپدیت
+                    کردن optimisticData ، اینکه setOptimisticData به چه صورت عمل
+                    کند را داخل updateFn پیاده می کنیم.
+                  </p>
+                  <p>
+                    داخل updateFn هم به مقدار اولیه optimisticData دسترسی داریم.
+                  </p>
+                  <p>
+                    optimisticData دیتای ما در حالت خوشبینانه است و data
+                    دیتایمان در حالت واقعی، در رندر اول مقدار دیتاها یکی هستند
+                    اما وقتی پستی به سمت سرور ارسال کردیم چون احتمال دارد
+                    request با مشکل مواجه شود و optimisticData برابر با data
+                    واقعی نشود.
+                  </p>
+                  <p>
+                    برای تغییر optimisticData از setOptimisticData استفاده می
+                    کنیم.
+                  </p>
+                  <p>
+                    به updateFn دو ورودی می دهیم که اولی می شود دیتای فعلی که
+                    داریم(که همان optimisticData است) و ورودی دوم هم مقداری است
+                    که بصورت خوشبینانه ممکن است وجود داشته باشد(مقداری که می
+                    خواهیم پست کنیم و بصورت خوشبینانه به optimisticData اضافه
+                    کنیم)
+                  </p>
+                  <p>
+                    حال اگر به setOptimisticData یک ورودی بدهیم درواقع آن مقدار
+                    را به عنوان ورودی دوم به updateFn می دهد و به عنوان ورودی
+                    اول هم optimisticData فعلی را می دهد و در نتیجه
+                    optimisticData جدید را می گیرد که آن پستی که به
+                    setOptimisticData دادیم را به آن اضافه کرده است.
+                  </p>
+                  <img src="./react/400_1.png" class="useOptimisticImage2" />
+                </div>
+                <h4 id="j401react">
+                  جلسه چهارصد و یکم: کار با useOptimistic - پارت سه
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    حال کدهای مربوط به عملیات fetch کردن دیتای وارد شده به سمت
+                    سرور را می نویسیم.
+                  </p>
+                  <img src="./react/401_1.png" class="useOptimisticImage3" />
+                  <p>
+                    حال برای اینکه نشان دهیم در لحظه Submit کردن optimisticData
+                    با data متفاوت است به دیتایی که وارد می کنیم یک isPending می
+                    دهیم و به وسیله آن یک Loading نشان می دهیم.
+                  </p>
+                  <img src="./react/401_2.png" class="useOptimisticImage3" />
+                  <img src="./react/401_3.png" />
+                  <img src="./react/401_4.png" />
+                  <p>
+                    برای برطرف کردن لگ برنامه از ()startTransition استفاده می
+                    کنیم و setSata را داخل آن قرار می دهیم.
+                  </p>
+                  <img src="./react/401_5.png" class="useOptimisticImage3" />
+                </div>
+                <h4 id="j402react">جلسه چهارصد و دوم: معرفی ()use</h4>
+                <div class="sessionContent">
+                  <p>
+                    use یک React API است که به ما اجازه می دهد مقادیر مربوط به
+                    یک Promise یا context را بخوانیم(به چیزهایی که داخل Promise
+                    یا context هستند دسترسی داشته باشیم)
+                  </p>
+                  <p>
+                    پس ()use به ما این امکان را می دهد که یک resource به آن
+                    بدهیم(که این resource می تواند Promise یا context باشد) و از
+                    مقادیر آن استفاده کنیم.
+                  </p>
+                </div>
+                <h4 id="j403react">
+                  جلسه چهارصد و سوم: استفاده از Promise در ()use
+                </h4>
+                <div class="sessionContent">
+                  <p>در مرحله اول می خواهیم یک Promise ایجاد کنیم.</p>
+                  <p>برای این کار یک request می فرستیم و دیتا را می گیریم.</p>
+                  <p>
+                    در تصویر زیر ما یک Promise را در داخل return ، fetchPost می
+                    کنیم چون()response.json هم به یک await نیاز دارد(چون یک عمل
+                    async است) ولی await را قرار نمی دهیم و خود Promise را که در
+                    حالت pending است return می کنیم و از آن داخل ()use استفاده
+                    می کنیم. و از ()use می خواهیم وقتی Promiseمان کامل شد از
+                    دیتای آن استفاده کند.
+                  </p>
+                  <img src="./react/403_1.png" />
+                  <p>
+                    در تصویر زیر که Promise را به ()use دادیم اگر از برنامه
+                    خروجی بگیریم می بینیم که داخل یک حلقه نامتناهی گیر افتادیم
+                    که بصورت مکرر کامپوننت rerender شده و request به سمت سرور می
+                    رود.
+                  </p>
+                  <img src="./react/403_2.png" />
+                  <img src="./react/403_3.png" />
+                  <p>
+                    برای جلوگیری از این اتفاق کامپوننتی که داخل آن از ()use
+                    استفاده کردیم(در اینجا کامپوننت FetchedPostList) را هنگام
+                    استفاده داخل کامپوننت Suspense که برای خود ریکت است قرار می
+                    دهیم(کامپوننت Suspense را دور آن wrap می کنیم)
+                  </p>
+                  <p>
+                    Suspense کامپوننتی است که به ما این امکان را می دهد که آن را
+                    دور کامپوننتی wrap کنیم که آن کامپوننت در حال render است و
+                    یک مقدار fallback را به Suspense می دهیم تا وقتی که render
+                    آن کامپوننت تمام نشده است مقدار fallback را نشان دهد.
+                  </p>
+                  <img src="./react/403_4.png" />
+                  <img src="./react/403_5.png" />
+                  <p>
+                    قبلا برای گرفتن و ذخیره کردن دیتا از هوک های useEffect و
+                    useState استفاده می کردیم که در این حالت که از ()use استفاده
+                    می کنیم دیگر به آنها نیازی نیست.
+                  </p>
+                </div>
+                <h4 id="j404react">
+                  جلسه چهارصد و چهارم: اشتباهات رایج در استفاده از ()use
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    Promise را حتما باید در کامپوننت Parent تعریف کنیم و به کمک
+                    props به کامپوننت Child که داخل آن از ()use استفاده می کنیم،
+                    پاس بدهیم.
+                  </p>
+                  <p>
+                    اگر Promise را در همان کامپوننت Child که شامل ()use هم هست
+                    تعریف کنیم دقیقا مثل زمانی که از Suspense استفاده نکرده
+                    بودیم داخل یک حلقه نامتناهی از ارسال request می افتیم.
+                  </p>
+                </div>
+                <h4 id="j405react">
+                  جلسه چهارصد و پنجم: استفاده از context در ()use
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    یک context ایجاد کرده و آن را دور کامپوننت App(بالاترین
+                    کامپوننت) wrap می کنیم.
+                  </p>
+                  <img src="./react/405_1.png" />
+                  <img src="./react/405_2.png" />
+                  <p>
+                    برای اینکه در جاهای مختلف(کامپوننت های مختلف) به دیتای داخل
+                    context دسترسی داشته باشیم قبلا از useContext استفاده می
+                    کردیم.
+                  </p>
+                  <p>
+                    اما در اینجا می خواهیم از ()use برای اینکار استفاده کنیم.
+                  </p>
+                  <img src="./react/405_3.png" />
+                  <p>قابلیت Suspense را در اینجاهم داریم.</p>
+                </div>
+                <h4 id="j406react">جلسه چهارصد و ششم؛ Context as a provider</h4>
+                <div class="sessionContent">
+                  <p>
+                    در ورژن 19 ریکت دیگر لازم نیست context را که ایجاد کردیم آن
+                    را به کمک Provider دور کامپوننت ها wrap کنیم و خود context
+                    را wrap می کنیم. یعنی تصویر زیر
+                  </p>
+                  <img src="./react/405_1.png" />
+                  <p>به صورت زیر می شود.</p>
+                  <img src="./react/406_1.png" />
+                  <p>
+                    حتی در ورژن های بعدی React استفاده از Provider برای wrap
+                    کردن context ارور خواهد داد.
+                  </p>
+                </div>
+                <h4 id="j407react">جلسه چهارصد و هفتم: Ref as a props</h4>
+                <div class="sessionContent">
+                  <p>
+                    در ورژن های قبلی ریکت اگر از ref استفاده می کردیم و آنرا به
+                    عنوان props پاس می دادیم یکسری مشکلاتی پیش می آمد که نیاز
+                    بود تا از forwardRef استفاده کنیم. اما در ریکت ورژن 19 می
+                    توانیم به ref به عنوان یک props دسترسی داشته باشیم و نیاز به
+                    forwardRef نیست.
+                  </p>
+                </div>
+                <h4 id="j408react">جلسه چهارصد و هشتم: Metadata</h4>
+                <div class="sessionContent">
+                  <p>
+                    در ریکت 19 در هر کامپوننت می توانیم متادیتاهای مربوط به
+                    داکیومنت آن را تغییر دهیم و برای آن ها مقداری را مشخص کنیم‌
+                  </p>
+                  <img src="./react/408_1.png" />
+                  <p>متا دیتاها داخل تگ head قرار می گیرند.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="nextCourse">
             <h2 id="next">دوره جامع و پروژه محور Next JS</h2>
@@ -17043,7 +17689,8 @@
                   شود و در آن دستور npm run serve-json را وارد می کنیم تا سرور
                   جیسونی ران شود و از آن API و endpointهای آن برای گرفتن دیتا
                   استفاده می کنیم(این script را
-                  <a href="#j42next" class="linkInParagraph">جلسه چهل و دوم</a> ساختیم)
+                  <a href="#j42next" class="linkInParagraph">جلسه چهل و دوم</a>
+                  ساختیم)
                 </p>
                 <img src="./Next/48_1.png" />
                 <img src="./Next/48_2.png" />
@@ -17244,11 +17891,12 @@
               </h4>
               <div class="sessionContent">
                 <p>
-                  در مثال جلسات قبل فرض کنیم به جای 10تا user مثلا یک میلیون user
-                  داشته باشیم. اگر نکست بخواهد برای همه آنها صفحات html و فایل
-                  json بسازد کلی منابع مصرف می شود و build time هم خیلی بالا می
-                  رود. می توانیم با مقداری که به fallback می دهیم این را مدیریت
-                  کنیم که چه تعداد و کدامیک از صفحات داینامیک را pre-render کند.
+                  در مثال جلسات قبل فرض کنیم به جای 10تا user مثلا یک میلیون
+                  user داشته باشیم. اگر نکست بخواهد برای همه آنها صفحات html و
+                  فایل json بسازد کلی منابع مصرف می شود و build time هم خیلی
+                  بالا می رود. می توانیم با مقداری که به fallback می دهیم این را
+                  مدیریت کنیم که چه تعداد و کدامیک از صفحات داینامیک را
+                  pre-render کند.
                 </p>
                 <p>
                   fallback کلا سه مقدار می تواند داشته باشد: false و true و

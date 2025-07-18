@@ -293,86 +293,88 @@ img {
   height: 600px;
 }
 
-.langImage{
+.langImage {
   width: 300px;
   height: 40px;
 }
 
-.formSumbitImage{
+/* react */
+
+.formSumbitImage {
   width: 500px;
   height: 380px;
 }
 
-.backtikImage{
+.backtikImage {
   width: 500px;
   height: 40px;
 }
 
-.queryStringImage{
+.queryStringImage {
   height: 120px;
 }
 
-.importCreateStoreImage{
+.importCreateStoreImage {
   width: 500px;
   height: 65px;
 }
 
-.payloadImage1{
+.payloadImage1 {
   width: 500px;
   height: 150px;
 }
 
-.payloadImage2{
+.payloadImage2 {
   width: 700px;
   height: 600px;
 }
 
-.reducerImage1{
+.reducerImage1 {
   width: 500px;
   height: 100px;
 }
 
-.reducerImage2{
+.reducerImage2 {
   width: 700px;
   height: 500px;
 }
 
-.combineReducersImage{
+.combineReducersImage {
   width: 500px;
   height: 90px;
 }
 
-.middlewareImage{
+.middlewareImage {
   width: 500px;
   height: 90px;
 }
 
-.createAsyncThunkImage{
+.createAsyncThunkImage {
   width: 700px;
   height: 700px;
 }
 
-.graphQLVariablesImage{
+.graphQLVariablesImage {
   width: 400px;
   height: 30px;
 }
 
-.createUserImage{
+.createUserImage {
   width: 700px;
   height: 1200px;
 }
 
-.updateUserImage{
+.updateUserImage {
   width: 700px;
   height: 1100px;
 }
 
-.deleteUserImage{
+.deleteUserImage {
   width: 700px;
   height: 800px;
 }
 
-.linkInParagraph{
+.linkInParagraph {
   color: #06ac7d;
   text-decoration: none;
   font-size: 1rem;
@@ -380,176 +382,228 @@ img {
   font-family: "YekanBakhMedium";
 }
 
-.absoluteImportImage{
+.absoluteImportImage {
   width: 600px;
   height: 600px;
 }
 
-.formDataValuesImage{
+.formDataValuesImage {
   width: 700px;
   height: 700px;
 }
 
-.intoBooleanImage{
+.intoBooleanImage {
   width: 500px;
   height: 40px;
 }
 
-.contentTypeImage{
+.contentTypeImage {
   width: 400px;
   height: 170px;
 }
 
-.formDataImage{
+.formDataImage {
   width: 700px;
   height: 500px;
 }
 
-.nestedDynamicRouteImage{
-  height: 120px;
-}
-
-.aLinkImage{
-  width: 600px;
-  height: 50px;
-}
-
-.cssModuleImage{
-  height: 180px;
-}
-
-.getStaticPathsImage{
-  width: 600px;
-  height: 800px;
-}
-
-.prefetchImage{
-  width: 500px;
-  height: 50px;
-}
-
-.importImage{
-  width: 500px;
-  height: 65px;
-}
-
-.findMethodImage{
-  height: 450px;
-}
-
-.updateDataUiImage{
+.actionImage {
   width: 800px;
-  height: 1900px;
+  height: 1600px;
 }
 
-.sitemapImage{
+.actionImage2 {
   height: 400px;
 }
 
-.signupApiImage{
-  width: 700px;
-  height: 1000px;
-}
-
-.signupFormImage{
-  width: 700px;
-  height: 1000px;
-}
-
-.loginApiImage{
-  width: 700px;
-  height: 750px;
-}
-
-.comaprePassImage{
-  width: 500px;
-  height: 120px;
-}
-
-.loginApiImage2{
-  width: 700px;
-  height: 1000px;
-}
-
-.signImage{
-  width: 700px;
-  height: 50px;
-}
-
-.saveJwtInCookieImage{
-  width: 600px;
-  height: 400px;
-}
-
-.copmleteLoginApiImage{
-  width: 800px;
-  height: 1400px;
-}
-
-.loginFormImage{
-  width: 700px;
-  height: 1000px;
-}
-
-.verifyTokenImage{
-  width: 500px;
-  height: 220px;
-}
-
-.authApiImage{
-  width: 600px;
+.useActionStateImage {
   height: 500px;
 }
 
-.signinCodesImage{
+.formActionFunctionImage {
   width: 800px;
-  height: 1200px;
+  height: 1100px;
 }
 
-.signupCodesImage{
+.previousStateImage {
   width: 800px;
-  height: 1200px;
+  height: 1100px;
 }
 
-.authImage{
-  width: 600px;
-  height: 1000px;
+.previousStateImage2 {
+  height: 500px;
 }
 
-.completeUserDataApiImage{
-  width: 700px;
-  height: 1300px;
-}
-
-.completeUserDataFormImage{
-  width: 600px;
-  height: 1500px;
-}
-
-.authorizeFuncImage{
-  width: 600px;
-  height: 800px;
-}
-
-.signInNextauthImage{
-  width: 600px;
-  height: 900px;
-}
-
-.getSessionImage{
-  height: 450px;
-}
-
-.nextAuthImage{
+.errorInUseActionStateImage {
   width: 700px;
   height: 1100px;
 }
 
-.showButtonsCodeImage{
+.errorInUseActionStateImage2 {
+  height: 500px;
+}
+
+.useOptimisticImage {
+  width: 600px;
+  height: 800px;
+}
+
+.useOptimisticImage2 {
+  width: 700px;
+  height: 900px;
+}
+
+.useOptimisticImage3 {
+  width: 700px;
+  height: 1400px;
+}
+
+/* next */
+
+.nestedDynamicRouteImage {
+  height: 120px;
+}
+
+.aLinkImage {
+  width: 600px;
+  height: 50px;
+}
+
+.cssModuleImage {
+  height: 180px;
+}
+
+.getStaticPathsImage {
+  width: 600px;
+  height: 800px;
+}
+
+.prefetchImage {
+  width: 500px;
+  height: 50px;
+}
+
+.importImage {
+  width: 500px;
+  height: 65px;
+}
+
+.findMethodImage {
+  height: 450px;
+}
+
+.updateDataUiImage {
+  width: 800px;
+  height: 1900px;
+}
+
+.sitemapImage {
+  height: 400px;
+}
+
+.signupApiImage {
+  width: 700px;
+  height: 1000px;
+}
+
+.signupFormImage {
+  width: 700px;
+  height: 1000px;
+}
+
+.loginApiImage {
+  width: 700px;
+  height: 750px;
+}
+
+.comaprePassImage {
+  width: 500px;
+  height: 120px;
+}
+
+.loginApiImage2 {
+  width: 700px;
+  height: 1000px;
+}
+
+.signImage {
+  width: 700px;
+  height: 50px;
+}
+
+.saveJwtInCookieImage {
+  width: 600px;
+  height: 400px;
+}
+
+.copmleteLoginApiImage {
+  width: 800px;
+  height: 1400px;
+}
+
+.loginFormImage {
+  width: 700px;
+  height: 1000px;
+}
+
+.verifyTokenImage {
+  width: 500px;
+  height: 220px;
+}
+
+.authApiImage {
+  width: 600px;
+  height: 500px;
+}
+
+.signinCodesImage {
+  width: 800px;
+  height: 1200px;
+}
+
+.signupCodesImage {
+  width: 800px;
+  height: 1200px;
+}
+
+.authImage {
+  width: 600px;
+  height: 1000px;
+}
+
+.completeUserDataApiImage {
+  width: 700px;
+  height: 1300px;
+}
+
+.completeUserDataFormImage {
+  width: 600px;
+  height: 1500px;
+}
+
+.authorizeFuncImage {
+  width: 600px;
+  height: 800px;
+}
+
+.signInNextauthImage {
   width: 600px;
   height: 900px;
 }
 
+.getSessionImage {
+  height: 450px;
+}
+
+.nextAuthImage {
+  width: 700px;
+  height: 1100px;
+}
+
+.showButtonsCodeImage {
+  width: 600px;
+  height: 900px;
+}
 
 @font-face {
   font-family: "iranyekanwebmedium";
