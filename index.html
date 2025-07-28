@@ -17440,8 +17440,8 @@
                 </h4>
                 <div class="sessionContent">
                   <p>
-                    فانکشن createQueryObject اگر به Query آیتم search با رشته
-                    خالی(' ') یا category:all اضافه شود آنها را حذف می کند.
+                    فانکشن createQueryObject اگر به Query آیتم search با مقدار
+                    رشته خالی(' ') یا category:all اضافه شود آنها را حذف می کند.
                   </p>
                 </div>
                 <h4 id="j199react">
@@ -18231,6 +18231,1738 @@
                     سایر آیتم های آبجکت state را ثابت نگه داشته و فقط آن آیتم
                     مورنظر را تغییر می دهد.
                   </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="reduxToolkit">
+                فصل بیست و دوم: بررسی کامل Redux Toolkit
+              </h3>
+              <div class="sessions">
+                <h4 id="j242react">
+                  جلسه دویست و چهل و دوم: redux toolkit چیست؟
+                </h4>
+                <div class="sessionContent">
+                  <p>مفاهیم و پشت پرده redux toolkit دقیقا مثل redux است.</p>
+                  <p>
+                    گفتیم که redux toolkit در پشت صحنه از immer استفاده می کند و
+                    نیاز به نصب جداگانه لایبری immer نیست.
+                  </p>
+                  <p>
+                    برای عملیات های redux toolkit ، async در پشت صحنه از redux
+                    thunk استفاده می کند و نیاز به نصب جداگانه لایبری
+                    redux-thunk نیست.
+                  </p>
+                </div>
+                <h4 id="j243react">
+                  جلسه دویست و چهل و سوم: راه اندازی پروژه اولیه
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم پروژه ریکتی را به جای vite با create react app
+                    بسازیم.
+                  </p>
+                  <p>یک فولدر ساخته و آن را با VSCode باز می کنیم.</p>
+                  <p>
+                    در ترمینال و با دستور
+                    <span dir="ltr">npx create-react-app ./</span> پروژه ریکتی
+                    را می سازیم.
+                  </p>
+                  <p>
+                    /. در دستور بالا بخاطر این است که در همین فولدر که هستیم
+                    پروژه ریکتی را بسازد. اگر به جای آن هر اسمی بنویسیم یک فولدر
+                    با آن نام ساخته و داخل آن پروژه را می سازد.
+                  </p>
+                  <p>
+                    پس از ساخت پروژه ریکتی با دستور npm install @reduxjs/toolkit
+                    ریداکس تولکیت را نصب می کنیم.
+                  </p>
+                </div>
+                <h4 id="j244react">
+                  جلسه دویست و چهل و چهارم: بررسی ساختار فولدرهای redux toolkit
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    حال طبق خواسته redux toolkit دو فولدر app و features را در
+                    src می سازیم تا در فولدر store ، appها را ایجاد کنیم و در
+                    فولدر features هم sliceها را ایجاد کنیم(sliceها تولید کننده
+                    actionها و reducerهاهستند)
+                  </p>
+                  <p>سپس با دستور npm start پروژه را run می کنیم.</p>
+                </div>
+                <h4 id="j245react">
+                  جلسه دویست و چهل و پنجم: ایحاد اولین slice
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    sliceها در redux toolkit تولید کننده action و reducer هستند.
+                  </p>
+                  <p>
+                    گفتیم sliceها را داخل فولدر features می سازیم و برای ساخت
+                    slice از فانکشن ()createSlice استفاده می کنیم و ابتدا آنرا
+                    import می کنیم.
+                  </p>
+                  <p>
+                    هنگام ساخت slice به فانکشن ()createSlice به عنوان ورودی یک
+                    آبجکت می دهیم که سه آیتم name و initialState و reducers را
+                    باید داشته باشد.
+                  </p>
+                  <p>سپس reducerها و actionها را export می کنیم.</p>
+                  <img src="./react/245_1.png" />
+                </div>
+                <h4 id="j246react">جلسه دویست و چهل و ششم: ایجاد store</h4>
+                <div class="sessionContent">
+                  <p>
+                    حال داخل فولدر store ، app را می سازیم. برای ساخت store از
+                    فانکشن configureStore استفاده می کنیم و ابتدا آن را import
+                    می کنیم.
+                  </p>
+                  <p>
+                    هنگام ساخت store به فانکشن ()configureStore به عنوان ورودی
+                    یک آبجکت با آیتم reducer می دهیم.
+                  </p>
+                  <p>
+                    reducerی که از فایل export ، slice کردیم را import کرده و
+                    داخل آبجکت reducer(داخل آبجکت configureStore) قرار می
+                    دهیم(یادآوری: هرچیزی که بصورت export ، default کنیم هنگام
+                    import کردن آن با هر نام دلخواهی می توانیم آن را import
+                    کنیم)
+                  </p>
+                  <p>
+                    می توانیم داخل آبجکت reducer هرچندتا که reducer داریم را
+                    قرار دهیم.
+                  </p>
+                  <p>در آخر store را export می کنیم.</p>
+                  <img src="./react/246_1.png" />
+                </div>
+                <h4 id="j247react">دویست و چهل و هفتم: استفاده از Provider</h4>
+                <div class="sessionContent">
+                  <p>حال می خواهیم store را به پروژه ریکت متصل کنیم.</p>
+                  <p>
+                    برای اینکار ابتدا react-redux را با کمک دستور npm install
+                    react-redux نصب می کنیم.
+                  </p>
+                  <p>
+                    react-redux ریداکس(یا redux toolkit) را به پروژه ریکتی متصل
+                    می کند.
+                  </p>
+                  <p>
+                    در بالاترین قسمت برنامه که فایل App را آنجا استفاده کرده
+                    ایم(index.js) Provider را import می کنیم و آن را دور App می
+                    پیچیم(wrap می کنیم)
+                  </p>
+                  <p>
+                    همچنین store را هم import کرده و به عنوان props به Provider
+                    می دهیم.
+                  </p>
+                  <img src="./react/247_1.png" />
+                  <p>
+                    در اینصورت در کل برنامه به store و دیتاهای داخل آن دسترسی
+                    خواهیم داشت.
+                  </p>
+                </div>
+                <h4 id="j248react">جلسه دویست و چهل و هشتم: هوک useSelector</h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم stateی که داخل store است را داخل کامپوننت Counter
+                    نشان دهیم.
+                  </p>
+                  <p>
+                    برای گرفتن اطلاعات داخل store از هوک useSelector استفاده می
+                    کنیم.
+                  </p>
+                  <p>
+                    به هوک useSelector به عنوان ورودی یک فانکشن می دهیم که به آن
+                    فانکشن اصطلاحا selector می گویند و فانکشن store ، selector
+                    را می گیرد و هرچیزی که از store می خواهیم را select می کند و
+                    برمی گرداند.
+                  </p>
+                  <p>
+                    می بینیم آبجکت store به همان صورت که کدش را نوشتیم ساخته شده
+                    است.
+                  </p>
+                  <img src="./react/248_1.png" />
+                  <img src="./react/248_2.png" />
+                </div>
+                <h4 id="j249react">جلسه دویست و چهل و نهم: فانکشن selector</h4>
+                <div class="sessionContent">
+                  <p>
+                    می توانیم فانکشن selector را هم در کنار slice تعریف کرده و
+                    export کنیم و در کامپوننت ها از آن استفاده کنیم.
+                  </p>
+                  <img src="./react/249_1.png" />
+                </div>
+                <h4 id="j250react">جلسه دویست و پنجاهم: هوک useDispatch</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای تغییر دادن stateهای داخل store از هوک useDispatch
+                    استفاده می کنیم.
+                  </p>
+                  <p>
+                    actionها را هم که از کامپوننت counterSlice قبلا export کرده
+                    بودیم.
+                  </p>
+                  <img src="./react/250_1.png" />
+                </div>
+                <h4 id="j251react">
+                  جلسه دویست و پنجاه و یکم: استفاده از payload
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای استفاده از payload در slice به payload ، action را هم
+                    اضافه می کنیم و هنگام dispatch کردن هم به ورودی action هرچه
+                    بدهیم به عنوان payload درنظر می گیرد.
+                  </p>
+                  <img src="./react/251_1.png" />
+                  <img src="./react/251_2.png" />
+                  <p>
+                    همچنین می توانیم یک input قرار دهیم و مقدار payload را از آن
+                    بگیریم.
+                  </p>
+                  <img src="./react/251_3.png" />
+                </div>
+                <h4 id="j252react">
+                  جلسه دویست و پنجاه و دوم: اضافه کردن slice دیگر به پروژه
+                </h4>
+                <div class="sessionContent">
+                  <p>یک slice دیگر بنام number به پروژه اضافه می کنیم.</p>
+                  <img src="./react/252_1.png" />
+                  <img src="./react/252_2.png" />
+                  <img src="./react/252_3.png" />
+                </div>
+                <h4 id="j253react">
+                  جلسه دویست و پنجاه و سوم: اضافه کردن middleware
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم از logger middleware در redux toolkit استفاده
+                    کنیم.
+                  </p>
+                  <p>توسط دستور npm i redux-logger آنرا نصب می کنیم.</p>
+                  <p>
+                    سپس در فایل store آنرا import کرده و بصورت زیر logger
+                    middleware را هم به middlewareهای redux toolkit اضافه می
+                    کنیم.
+                  </p>
+                  <img src="./react/253_1.png" />
+                  <p>
+                    در اینصورت روی store هر عملی انجام شود با جزئیات از آن log
+                    گرفته می شود.
+                  </p>
+                  <img src="./react/253_2.png" />
+                </div>
+                <h4 id="j254react">
+                  جلسه دویست و پنجاه و چهارم: بحث extraReducer - قسمت اول
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم وقتی روی باتن Increment در counter کلیک می کنیم هم
+                    یک واحد به counter اضافه شود هم یک واحد به number اما وقتی
+                    روی باتن Increment در number کلیک می کنیم فقط یک واحد به
+                    number اضافه شود.
+                  </p>
+                  <p>
+                    در اینجا از extraReducerها استفاده می کنیم و extraReducer را
+                    به number ، slice می دهیم و در آن تعیین می کنیم که action
+                    کدام slice تغییر کرد تو چه کاری انجام بده.
+                  </p>
+                  <img src="./react/254_1.png" />
+                  <p>
+                    که این روش اضافه کردن extraReducer منسوخ شده و ارور می دهد و
+                    روش جدیدتر جلسه بعد گفته می شود.
+                  </p>
+                </div>
+                <h4 id="j255react">
+                  جلسه دویست و پنجاه و پنجم: بحث extraReducer - قسمت دوم
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    گفتیم به کمک extraReducerها می توانیم از slice ، actionهای
+                    دیگر در یک slice استفاده کنیم.
+                  </p>
+                  <p>
+                    در این روش action آن sliceی که می خواهیم استفاده کنیم را اول
+                    import می کنیم.
+                  </p>
+                  <p>
+                    سپس به extraReducer یک فانکشن با ورودی builder می دهیم و آن
+                    action که import کردیم را توسط متد ()addCase به builder
+                    اضافه می کنیم.
+                  </p>
+                  <img src="./react/255_1.png" />
+                </div>
+                <h4 id="j256react">
+                  جلسه دویست و پنجاه و ششم: توسعه async action
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    فرض کنیم در یک action دیتا از api گرفته می شود(این نوع
+                    actionها زمانبر می شوند)
+                  </p>
+                  <p>
+                    فانکشن createAsyncThunk که redux-toolkit در اختیار ما قرار
+                    می دهد نشان می دهد درخواست در چه فازی است
+                  </p>
+                  <p>1- درخواست ارسال شده و متتظر پاسخ هستیم(pending)</p>
+                  <p>
+                    2- درخواست رفته و دیتا با موفقیت گرفته شده است(fulfilled)
+                  </p>
+                  <p>3- درخواست به مشکل خورده و ارور داده است(rejected)</p>
+                  <p>
+                    به ()createAsyncThunk دو ورودی می دهیم. ورودی اول action ما
+                    خواهد بود و ورودی دوم هم یک فانکشن که داخل آن عملیات fetch
+                    کردن انجام می شود.
+                  </p>
+                  <p>
+                    چونکه ()createAsyncThunk باید بیرون از slice تعریف شود، پس
+                    از extraReducer داخل slice برای دیتاهایی که از api گرفته می
+                    شود استفاده می کنیم.
+                  </p>
+                  <p>
+                    چون ()createAsyncThunk وضعیت درخواست را در 3 فاز نشان می
+                    دهد، پس توسط extraReducer سه تا action به slice اضافه می
+                    شود.
+                  </p>
+                  <p>
+                    در نهایت reducer را export کرده و در store از آن استفاده می
+                    کنیم.
+                  </p>
+                  <img src="./react/256_1.png" class="createAsyncThunkImage" />
+                  <img src="./react/256_2.png" />
+                </div>
+                <h4 id="j257react">
+                  جلسه دویست و پنجاه و هفتم: تکمیل async actionها
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    حال دیتا را به کمک اکشن fetchUsers و با استفاده از هوک های
+                    useDispatch و useSelector و useEffect می گیریم و در UI نمایش
+                    می دهیم.
+                  </p>
+                  <img src="./react/257_1.png" />
+                  <img src="./react/257_2.png" />
+                </div>
+                <h4 id="j258react">
+                  جلسه دویست و پنجاه و هشتم: اکستنشن Redux devtools
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اکستنشن کروم Redux devtools اطلاعات کاملی از redux و دیتاها
+                    و نحوه تغییر روی آنها در اختیار ما قرار می دهد.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="rtkStoreProject">
+                فصل بیست و سوم: پروژه سبد خرید با ریداکس
+              </h3>
+              <div class="sessions">
+                <h4 id="j259react">جلسه دویست و پنجاه و نهم: مقدمه</h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم در پروژه سبد خرید بجای context از redux toolkit
+                    استفاده کنیم.
+                  </p>
+                </div>
+                <h4 id="j260react">
+                  جلسه دویست و شصتم: نصب لایبری های مورد نیاز
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    با دستور npm install @reduxjs/toolkit ریداکس تولکیت را نصب
+                    می کنیم.
+                  </p>
+                  <p>
+                    با دستور npm install react-redux لایبری react-redux را هم
+                    نصب می کنیم.
+                  </p>
+                  <p>کدهای مربوط به context را در همه فایل ها کامنت می کنیم.</p>
+                </div>
+                <h4 id="j261react">
+                  جلسه دویست و شصت و یکم: ایجاد اسلایس product
+                </h4>
+                <h4 id="j262react">جلسه دویست و شصت و دوم: ایجاد store</h4>
+                <div class="sessionContent">
+                  <p>
+                    store را ایجاد کرده و توسط Provider آنرا دور کل برنامه wrap
+                    می کنیم.
+                  </p>
+                </div>
+                <h4 id="j263react">
+                  جلسه دویست و شصت و سوم: گرفتن لیست محصولات
+                </h4>
+                <h4 id="j264react">
+                  جلسه دویست و شصت و چهارم: گرفتن دیتای جزئیات محصول
+                </h4>
+                <h4 id="j265react">
+                  جلسه دویست و شصت و پنجم: ایجاد اسلایس cart
+                </h4>
+                <h4 id="j266react">
+                  جلسه دویست و شصت و ششم: افزودن اکشن ها به کامپوننت Card
+                </h4>
+                <h4 id="j267react">
+                  جلسه دویست و شصت و هفتم: نشان دادن دیتا در سبد خرید
+                </h4>
+                <h4 id="j268react">
+                  جلسه دویست و شصت و هشتم: حذف و اضافه کردن محصولات در سبد خرید
+                </h4>
+                <h4 id="j269react">
+                  جلسه دویست و شصت و نهم: پیاده سازی Layout نهایی
+                </h4>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="graphQL">
+                فصل بیست و چهارم: آموزش کامل GraphQL و اتصال آن به ریکت
+              </h3>
+              <div class="sessions">
+                <h4 id="j270react">جلسه دویست و هفتادم: GraphQL چیست؟</h4>
+                <div class="sessionContent">
+                  <p>
+                    GraphQL یک زبان query است که از آن برای APIها استفاده می
+                    کنیم.
+                  </p>
+                  <p>
+                    API یک رابط است که بین دو برنامه ارتباط ایجاد می کند مثلا
+                    ارتباط بین front-end و back-end را API برقرار می کند.
+                  </p>
+                  <p>
+                    APIهایی که تا الان داشتیم از نوع REST یا REST Full بودند. در
+                    APIهای REST انواع endpointها را داریم مثل users/ و posts/
+                    و...
+                  </p>
+                  <p>
+                    همچنین در APIهای REST انواع متد مثل GET و POST و PUT و PATCH
+                    و DELETE را داریم.
+                  </p>
+                  <p>در APIهای body ، REST و header را هم داریم.</p>
+                  <p>
+                    اما علاوه بر REST یک نوع API دیگر هم داریم بنام GraphQL API
+                    که برای ایجاد ارتباط بین front-end و back-end استفاده می
+                    شود.
+                  </p>
+                </div>
+                <h4 id="j271react">جلسه دویست و هفتاد و یکم: چرا GraphQL؟</h4>
+                <div class="sessionContent">
+                  <p>فرض کنید اطلاعات users را می خواهیم از سرور بگیریم.</p>
+                  <img src="./react/271_1.png" />
+                  <p>
+                    اگر از روش REST API بخواهیم این دیتاها را بگیریم همه آنها را
+                    می دهد اما فرض کنیم در مورد هر user فقط name و username و
+                    email را می خواهیم و بقیه اطلاعاتی که می دهد را نمی خواهیم.
+                  </p>
+                  <p>
+                    به این کار که همه اطلاعات را بدون آنکه به آنها نیاز داشته
+                    باشیم می دهد اصطلاحا Overfetching گفته می شود یعنی بیشتر از
+                    حدی که نیاز داریم به ما اطلاعات می دهد.
+                  </p>
+                  <p>
+                    اما فرض کنیم توسط posts ، endpoint اطلاعات postها را گرفتیم
+                    اما کامنت ها را هم می خواهیم که آنها در اطلاعاتی که این
+                    endpoint می فرستد نیستند و باید آنها را هم با comments ،
+                    endpoint بگیریم. در اینصورت Underfetching رخ می دهد یعنی
+                    اطلاعات کمتری از آنچه ما می خواهیم می فرستد.
+                  </p>
+                  <p>
+                    اما در GraphQL دقیقا چیزی که می خواهیم را مشخص می کنیم و آن
+                    هم دقیقا همان را می فرستد.
+                  </p>
+                </div>
+                <h4 id="j272react">
+                  جلسه دویست و هفتاد و دوم: پشت پرده GraphQL
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اطلاعات در GraphQL مثل یک گراف به هم متصل هستند و داخل هر
+                    دسته، به دسته دیگر دسترسی داریم‌.
+                  </p>
+                  <p>دو عمل اصلی در GraphQL وجود دارد:</p>
+                  <p>
+                    1- برای گرفتن اطلاعات از GraphQL API از query استفاده می
+                    کنیم که در REST API از GET استفاده می کردیم.
+                  </p>
+                  <p>
+                    2- برای انجام هرگونه تغییر در اطلاعات از mutation استفاده می
+                    کنیم که در REST API از POST و PUT و PATCH و DELETE استفاده
+                    می کردیم.
+                  </p>
+                  <p>
+                    در REST APIها endpointهای مختلف برای کارهای مختلف مثل گرفتن
+                    users یا posts یا... داشتیم اما در GraphQL فقط یک url برای
+                    کلیه کارها داریم و در اینجا دیگر endpointها و آدرس ها و
+                    مسیرهای متفاوت نداریم.
+                  </p>
+                </div>
+                <h4 id="j273react">
+                  جلسه دویست و هفتاد و سوم: آشنایی با سینتکس و نحوه نوشتن Query
+                </h4>
+                <div class="sessionContent">
+                  <p>به سایت graphqlzero.almansi.me/api می رویم.</p>
+                  <p>
+                    در قسمت DOCS می بینیم که دسته بندی دیتاها چگونه است و
+                    چیزهایی که می خواهیم را با توجه به دسته بندی، داخل آکلاد
+                    query می نویسیم.
+                  </p>
+                  <img src="./react/273_1.png" />
+                  <p>در اینصورت دقیقا همان دیتایی که می خواهیم را می دهد.</p>
+                  <img src="./react/273_2.png" />
+                </div>
+                <h4 id="j274react">
+                  جلسه دویست و هفتاد و چهارم: پاس دادن متغیر به query و فیلتر
+                  کردن
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در گرفتن دیتای یک نفر می توانیم داخل پرانتز id آن شخص را
+                    بدهیم. id را طبق راهنمای DOCS می دهیم.
+                  </p>
+                  <img src="./react/274_1.png" />
+                  <img src="./react/274_2.png" />
+                  <p>
+                    پس اینکه آرگومان ها را چطور بدهیم را هم داخل DOCS نشان می
+                    دهد.
+                  </p>
+                  <img src="./react/274_3.png" />
+                </div>
+                <h4 id="j275react">
+                  جلسه دویست و هفتاد و پنجم: آشنایی با سینتکس Mutation و نحوه
+                  نوشتن آن
+                </h4>
+                <div class="sessionContent">
+                  <p>در قسمت DOCS می توانیم نحوه ارسال Mutation را ببینیم.</p>
+                  <p>
+                    چیزی که می خواهیم بفرستیم را بصورت آبجکت داخل آرگومان می
+                    نویسیم و چیزی که می خواهیم بگیریم را هم مثل Query می نویسیم.
+                  </p>
+                  <img src="./react/275_1.png" />
+                  <img src="./react/275_2.png" />
+                </div>
+                <h4 id="j276react">
+                  جلسه دویست و هفتاد و ششم: آپدیت کردن دیتا با Mutation
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای آپدیت کردن post یا user یا... هم طبق داکیومنت خود سایت
+                    عمل می کنیم.
+                  </p>
+                  <img src="./react/276_1.png" />
+                  <img src="./react/276_2.png" />
+                </div>
+                <h4 id="j277react">
+                  جلسه دویست و هفتاد و هفتم: حذف کردن دیتا با Mutation
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای حذف کردن post یا... هم طبق داکیومنت خود سایت عمل می
+                    کنیم.
+                  </p>
+                  <img src="./react/277_1.png" />
+                </div>
+                <h4 id="j278react">
+                  جلسه دویست و هفتاد و هشتم: متصل کردن پروژه ریکتی به GraphQL
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای اینکه بتوانیم داخل ریکت از GraphQL استفاده کنیم و به یک
+                    سرور GraphQLی درخواست بفرستیم و اطلاعات بگیریم به Apollo
+                    Client نیاز داریم.
+                  </p>
+                  <p>
+                    Apollo Client یک لایبری جاوااسکریپت است که به ما کمک می کند
+                    دیتاهای remote یا local را manage(مدیریت) کنیم یعنی برای
+                    fetch کردن یا cache کردن(ذخیره کردن) یا تغییر دادن دیتاهای
+                    برنامه از آن استفاده می کنیم.
+                  </p>
+                  <p>
+                    داخل ریکت Apollo Client اکثر کارهای مربوط به GraphQL را
+                    انجام می دهد.
+                  </p>
+                  <p>
+                    با دستور npm install @apollo/client graphql هم Apollo Client
+                    و هم GraphQL را نصب می کنیم.
+                  </p>
+                  <p>
+                    سپس Apollo Client را در گوگل سرچ کرده و نحوه استفاده از آن
+                    را می خوانیم که چه چیزهایی را باید در چه فایل هایی import
+                    کنیم.
+                  </p>
+                  <p>
+                    یک client ایجاد می کنیم که به کمک آن ارتباط با سرور GraphQLی
+                    را برقرار کنیم.
+                  </p>
+                  <p>
+                    دلیل استفاده از cache این است که اطلاعاتی که از uri گرفته می
+                    شود cache شود تا برای گرفتن آن اطلاعات دوباره درخواست
+                    نفرستیم.
+                  </p>
+                  <p>
+                    به کمک client ، ApolloProvider را دور کل برنامه wrap می کنیم
+                    تا در همه جای برنامه بتوانیم از GraphQL استفاده کنیم و به آن
+                    دسترسی داشته باشیم.
+                  </p>
+                  <img src="./react/278_1.png" />
+                  <p>
+                    کلا Providerها امکان استفاده از یکسری امکانات را در همه
+                    کامپوننت ها فراهم می کنند.
+                  </p>
+                </div>
+                <h4 id="j279react">
+                  جلسه دویست و هفتاد و نهم: گرفتن اطلاعات با هوک useQuery
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    جلسه قبل به کمک Apollo پروژه ریکتی مان را به بک اند GraphQLی
+                    وصل کردیم حال می خواهیم دیتا را بگیریم.
+                  </p>
+                  <p>
+                    ابتدا gql و هوک useQuery را از import ، apollo/client می
+                    کنیم.
+                  </p>
+                  <p>
+                    از gql استفاده کرده و query که در تصویر زیر در
+                    <a href="#j273react" class="linkInParagraph"
+                      >جلسه دویست و هفتاد و سوم</a
+                    >
+                    برای گرفتن دیتای users استفاده می کردیم را داخل یک متغیر می
+                    ریزیم.
+                  </p>
+                  <img src="./react/273_1.png" />
+                  <p>
+                    اکستنشن GraphQL را داخل VSCode نصب می کنیم تا متغیر تصویر
+                    زیر را:
+                  </p>
+                  <img src="./react/279_1.png" />
+                  <p>بصورت زیر نمایش دهد.</p>
+                  <img src="./react/279_2.png" />
+                  <p>
+                    query که نوشتیم را با استفاده از هوک useQuery اجرا می کنیم
+                    تا درخواست به سمت سرور GraphQLی فرستاده شده و دیتا دریافت
+                    شود.
+                  </p>
+                  <img src="./react/279_3.png" />
+                  <p>
+                    در تصویر بالا می بینیم که دو بار از متغیر log ، response
+                    گرفته که در اولی loading:true و در دومی که response(دیتا)
+                    گرفته شده loading:false است که از آن می توانیم برای نمایش یک
+                    spinner در سایت استفاده کنیم.
+                  </p>
+                  <p>
+                    اگر درخواست با ارور مواجه شود یک آیتم ارور هم به آبجکت
+                    response اضافه می شود.
+                  </p>
+                  <img src="./react/279_4.png" />
+                  <p>
+                    می توانیم response را destructure کرده و اطلاعاتی که می
+                    خواهیم را بگیریم و در UI نمایش دهیم.
+                  </p>
+                  <img src="./react/279_5.png" />
+                </div>
+                <h4 id="j280react">
+                  جلسه دویست و هشتادم: پاس دادن متغیر به هوک useQuery
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای پاس دادن یک متغیر به هوک useQuery ابتدا باید در query
+                    متغیر را تعریف کنیم.
+                  </p>
+                  <img src="./react/280_1.png" />
+                  <p>
+                    در تصویر بالا userId یک نام دلخواه و !ID نشانگر این است که
+                    data type(نوع داده ای) متغیر id$(علامت $ را حتما باید قرار
+                    دهیم) از نوع !ID می باشد. می توانیم بجای آن بنویسم
+                    !String(این را بک اند تعیین می کند) یا اگر چند متغیر داشتیم
+                    کاما گذاشته و متغیر دوم را هم می نوشتیم.
+                  </p>
+                  <img src="./react/280_2.png" class="graphQLVariablesImage" />
+                  <p>
+                    حال در هوک useQuery علاوه بر query که تعریف کردیم در ورودی
+                    دوم یک آبجکت می دهیم که مقدار متغیرها را داخل آن آبجکت به
+                    query می فرستیم.
+                  </p>
+                </div>
+                <h4 id="j281react">
+                  جلسه دویست و هشتاد و یکم: مرتب کردن ساختار GraphQL
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای مرتب شدن برنامه یک فولدر graphql می سازیم و queryها را
+                    در یک فایل و mutationها را هم در یک فایل می نویسیم سپس آنها
+                    را export می کنیم.
+                  </p>
+                  <img src="./react/281_1.png" />
+                  <img src="./react/281_2.png" />
+                </div>
+                <h4 id="j282react">
+                  جلسه دویست و هشتاد و دوم: استفاده از هوک useLazyQuery
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    هوک useQuery برای فاز Mounting استفاده می شود که در Mount
+                    شدن سایت دیتا از سرور گرفته شده و نمایش داده شود اما اگر
+                    بخواهیم مثلا با کلیک روی یک باتن درخواست به سمت سرور ارسال
+                    شود در اینصورت از هوک useLazyQuery استفاده می کنیم.
+                  </p>
+                  <p>
+                    ورودی های هوک useLazyQuery دقیقا مثل هوک useQuery می باشد
+                    اما responseی که برمی گرداند کمی متفاوت است.
+                  </p>
+                  <p>
+                    responseی که می دهد یک آرایه است که آیتم اول آن یک فانکشن و
+                    آیتم دوم آن یک آبجکت است که حاوی دیتای دریافتی می باشد یعنی
+                    همان آبجکتی که useQuery می داد.
+                  </p>
+                  <img src="./react/282_1.png" />
+                  <p>
+                    چون هوک useLazyQuery یک آرایه می دهد پس response آنرا بصورت
+                    یک آرایه destructure می کنیم.
+                  </p>
+                  <p>
+                    یادآوری: در destructure کردن آرایه ها ترتیب مهم است و اسم
+                    آیتم هایی که می دهیم مهم نیست که دقیقا همان ها باشند یا نه
+                    اما در destructure کردن آبجکت ها ترتیب مهم نیست و اسم آیتم
+                    ها مهم است و باید دقیقا همان اسامی باشند.
+                  </p>
+                  <p>
+                    از فانکشنی که هوک useLazyQuery در آیتم اول آرایه می دهد برای
+                    اجرای هوک و ارسال درخواست هنگام رخداد Event مثل کلیک کردن
+                    استفاده می کنیم.
+                  </p>
+                  <img src="./react/282_2.png" />
+                </div>
+                <h4 id="j283react">
+                  جلسه دویست و هشتاد و سوم: کار با هوک useMutation برای ارسال
+                  دیتا
+                </h4>
+                <div class="sessionContent">
+                  <p>در اینجاهم اول gql و هوک useMutation را import می کنیم.</p>
+                  <p>سپس mutation را به کمک gql مثل query تعریف می کنیم.</p>
+                  <p>
+                    حال برای ارسال دیتا(mutation ساخته شده) از هوک useMutation
+                    استفاده می کنیم.
+                  </p>
+                  <p>
+                    هوک useMutation هم خیلی شبیه هوک useLazyQuery است که یک
+                    آرایه با آیتم های فانکشن و آبجکت برمی گرداند که آنرا
+                    destructure می کنیم. چون تا خودمان فانکشن آنرا call نکنیم
+                    اجرا نمی شود و درخواست به سمت سرور نمی رود.
+                  </p>
+                  <img src="./react/283_1.png" />
+                </div>
+                <h4 id="j284react">
+                  جلسه دویست و هشتاد و چهارم: پاس دادن متغیر به هوک useMutation
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    به هوک useMutation متغیر را دقیقا مثل هوک useQuery می دهیم.
+                  </p>
+                  <p>
+                    اینکه نوع داده ای(data type) متغیرها چه باشد را سرور هرچه
+                    گفته آنرا قرار می دهیم.
+                  </p>
+                  <img src="./react/284_1.png" class="createUserImage" />
+                  <img src="./react/284_2.png" />
+                </div>
+                <h4 id="j285react">
+                  جلسه دویست و هشتاد و پنجم: آپدیت کردن دیتا با هوک useMutation
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    دقیقا مثل create user است با این تفاوت که mutation را به
+                    نوعی که سرور گفته تعریف می کنیم. همچنین نوع data typeها را
+                    هم همانطور که سرور تعیین می کند قرار می دهیم.
+                  </p>
+                  <img src="./react/285_1.png" class="updateUserImage" />
+                  <img src="./react/285_2.png" />
+                </div>
+                <h4 id="j286react">
+                  جلسه دویست و هشتاد و ششم: حذف کردن دیتا با هوک useMutation
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    دقیقا مثل update user است فقط mutation را باید به نوعی که
+                    سرور گفته تعریف کنیم.
+                  </p>
+                  <img src="./react/286_1.png" class="deleteUserImage" />
+                  <img src="./react/286_2.png" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="blogProject">
+                فصل بیست و پنجم: پروژه وبلاگ - Material UI - GraphQL
+              </h3>
+              <div class="sessions">
+                <h4 id="j287react">جلسه دویست و هشتاد و هفتم: معرفی پروژه</h4>
+                <div class="sessionContent">
+                  <p>
+                    از GraphCMS(یعنی سایت hygraph.com) برای مدیریت دیتاها و
+                    گرفتن APIها استفاده می کنیم و از Material UI(سایت mui.com)
+                    برای طراحی و ساخت UI سایت استفاده می کنیم.
+                  </p>
+                </div>
+                <h4 id="j288react">
+                  جلسه دویست و هشتاد و هشتم: کار با GraphCMS و ساخت مدل POST
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم قبل از هر چیزی بک اند را آماده کنیم و برای ساخت بک
+                    اند از GraphCMS(سایت hygraph.com) استفاده می کنیم.
+                  </p>
+                  <p>
+                    GraphCMS یک headless CMS است. همانطور که وردپرس بک اند و
+                    فرانت اند را آماده می دهد و ما می توانیم از آنها استفاده
+                    کنیم و نیاز به کد نوشتن نیست headless CMSها هم یک بک اند
+                    آماده را می دهند و فرانت را باید خودمان طراحی کنیم.
+                  </p>
+                  <p>
+                    توسط GraphCMS می توانیم APIهایی طراحی کنیم که GraphQL هستند.
+                  </p>
+                  <p>
+                    ابتدا وارد سایت hygraph.com شده و در آن ثبتنام کرده سپس
+                    login می کنیم.
+                  </p>
+                  <p>
+                    پس از login کردن گزینه Add project را زده و یک نام برای
+                    پروژه انتخاب می کنیم سپس یک region انتخاب کرده(US) و پس از
+                    آن باتن Add project را می زنیم تا پروژه را بسازد.
+                  </p>
+                  <p>
+                    پس از ساخته شدن پروژه از منوی سمت چپ Schema را انتخاب می
+                    کنیم تا ساختار کلی Back-End را پیاده کنیم.
+                  </p>
+                  <p>
+                    برای اینکار باید Modelهای مختلف بسازیم. مثلا یک Model برای
+                    مقاله ها(Post) که هر مقاله عکس و title و متن و... دارد. و یک
+                    Model برای نویسنده ها(Author) که برای هر نویسنده عکس و
+                    توضیحات و... دارد و یک Model برای کامنت ها(Comment) که نام و
+                    ایمیل و... دارد.
+                  </p>
+                  <p>
+                    سپس بین این Modelها ارتباط ایجاد می کنیم مثلا یک نویسنده می
+                    تواند چند مقاله داشته باشد اما هر مقاله می تواند فقط یک
+                    نویسنده داشته باشد. یا هر کامنت برای یک مقاله است و...
+                  </p>
+                  <p>
+                    برای ساخت Model گزینه Add Model را می زنیم و اسم این Model
+                    را که Post است را در Display name می نویسیم(بقیه فیلدها را
+                    خودش پر می کند) سپس باتن Add Model را می زنیم.
+                  </p>
+                  <p>
+                    پس از اینکه مدل Post ساخته شد مشخص می کنیم این مدل چه ویژگی
+                    هایی داشته باشد(مثلا عکس داشته باشد، عنوان داشته باشد و
+                    تاریخ داشته باشد و...)
+                  </p>
+                  <p>
+                    در منوی سمت راست فیلدهایی که می توانیم به مدلمان اضافه کنیم
+                    را می آورد مثلا single line text را انتخاب می کنیم تا مدلمان
+                    یک متن تک خطی داشته باشد که اسم آن را title انتخاب می
+                    کنیم(بقیه فیلدهای لازم را خودش پر می کند) و در قسمت
+                    Validations تیک گزینه Make field required را می زنیم تا این
+                    فیلد را جزو فیلدهای ضروری هنگام تولید محتوا حساب کند و سپس
+                    باتن Add را می زنیم.
+                  </p>
+                  <p>
+                    پس به این صورت مشخص کردیم که هر Post باید یک title داشته
+                    باشد.
+                  </p>
+                  <p>
+                    هر Post چون مقاله است یک متن طولانی هم باید داشته باشد و
+                    برای آن از فیلد Rich text استفاده می کنیم نام آن را content
+                    انتخاب کرده و در قسمت Validations هم تیک گزینه Make field
+                    required را زده سپس Add را می زنیم.
+                  </p>
+                  <p>
+                    برای عکس مقاله ها فیلد Asset picker را انتخاب کرده و اسم
+                    coverPhoto را گذاشته و در Validations تیک گزینه Make field
+                    required را زده و گزینه Add را می زنیم.
+                  </p>
+                  <p>
+                    برای هر Post تاریخ هم قرار می دهیم و از فیلد Date استفاده
+                    کرده و اسم date-published را گذاشته و تیک گزینه Make field
+                    required را هم در Validations زده و Add را می زنیم.
+                  </p>
+                  <p>
+                    برای مدل Post فیلد Slug را هم اضافه می کنیم. Slugها مشخص می
+                    کنند برای هر مقاله در url سایت چه query نوشته شود یعنی وقتی
+                    در url سایت پس از دامنه آن Slug را نوشتیم به مقاله
+                    موردنظرمان برود.
+                  </p>
+                  <p>
+                    پس فیلد Slug را انتخاب کرده و نام Slug را برای آن انتخاب می
+                    کنیم سپس تیک گزینه Generate slug from template را زده و در
+                    باکس آن title را می نویسیم تا از روی title پست Slug را
+                    بسازد(البته اگر title انگلیسی باشد) در قسمت Validations هم
+                    تیک Make field required را می زنیم. تیک گزینه های Set field
+                    as unique و Match a specific pattern را هم خودش بصورت
+                    default زده است سپس Add را می زنیم.
+                  </p>
+                  <p>حال مدل مربوط به Post ساخته شد.</p>
+                  <img src="./react/288_1.png" />
+                </div>
+                <h4 id="j289react">
+                  جلسه دویست و هشتاد و نهم: اضافه کردن محتوای یک Post به
+                  GraphCMS
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    حال می خواهیم محتوای مدل Post(مقاله ها) را داخل بک اندی که
+                    ساختیم(مدل Post) آپلود کنیم.
+                  </p>
+                  <p>
+                    اگر در منو سمت چپ به قسمت content برویم مدل Post که ساختیم
+                    را نشان می دهد.
+                  </p>
+                  <p>
+                    مدل Post را انتخاب کرده و باتن Add entry را می زنیم. در صفحه
+                    ای که باز می شود می بینیم همان فیلدهایی که ساختیم نشان داده
+                    می شوند که آن فیلدها را برای یک مقاله پر می کنیم.
+                  </p>
+                  <p>
+                    همانطور که می بینیم فیلد مربوط به Rich text که آن را content
+                    نامگذاری کردیم خودش یک ادیتور متن دارد که متن را اینجا هرطور
+                    ادیت کنیم در UI سایت به آن صورت نشان داده می شود.
+                  </p>
+                  <p>
+                    هنگام انتخاب عکس پس از انتخاب آن کنارش یک Draft نشان داده می
+                    شود این برای آن است که عکس اول باید تایید شود تا publish
+                    شود. در مورد کامنت هم به همین صورت است.
+                  </p>
+                  <p>
+                    هنگام save & publish کردن پس از پر کردن همه فیلدها تیک
+                    فیلدهایی که Draft دارند را می زنیم سپس save & publish را می
+                    زنیم تا محتوای Post(اولین مقاله) منتشر شود تا بتوانیم توسط
+                    API آن را در سمت فرانت اند دریافت کنیم.
+                  </p>
+                  <p>
+                    به این صورت می توانیم برای هر مقاله یک فرم Post را پر کنیم.
+                  </p>
+                </div>
+                <h4 id="j290react">
+                  جلسه دویست و نودم: اضافه کردن مدل Author به GraphCMS
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    مدل Author را هم مثل مدل Post با فیلدهایی که لازم داریم می
+                    سازیم.
+                  </p>
+                  <p>
+                    حال می خواهیم بین مدل های Post و Author ارتباط ایجاد
+                    کنیم(گفتیم که در GraphQL مدل های مختلف باهم ارتباط دارند)
+                  </p>
+                  <p>
+                    می خواهیم ارتباط بگونه ای باشد که برای هر مقاله فقط یک
+                    نویسنده باشد و هر نویسنده بتواند چند مقاله داشته باشد.
+                  </p>
+                  <p>
+                    برای اینکار از منوی سمت راست در قسمت relation گزینه
+                    Reference را انتخاب می کنیم و چون الان در مدل Author هستیم
+                    در قسمت Model to reference گزینه Post را انتخاب می کنیم.
+                  </p>
+                  <p>
+                    همچنین گزینه two-way reference را هم انتخاب می کنیم تا هم از
+                    Post به Author و هم از Author به Post ارتباط داشته باشیم و
+                    چون هر نویسنده چند Post(مقاله) می تواند داشته باشد one to
+                    many را انتخاب می کنیم سپس continue و continue و Add را می
+                    زنیم.
+                  </p>
+                  <img src="./react/290_1.png" />
+                  <p>
+                    حال به قسمت content در منو سمت چپ رفته و در مدل Author هم
+                    چند نویسنده را اضافه می کنیم(مثل جلسه پیش که مقاله ها را
+                    اضافه کردیم)
+                  </p>
+                </div>
+                <h4 id="j291react">
+                  جلسه دویست و نود و یکم: اضافه کردن مدل Comment به GraphCMS
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    مدل Comment را هم مثل مدل های Post و Author با فیلدهایی که
+                    لازم داریم می سازیم.
+                  </p>
+                  <p>
+                    در ایجاد ارتباط Post و Comment باید اینگونه باشد که هر
+                    Comment مربوط به یک Post باشد اما یک Post می تواند چندین
+                    Comment داشته باشد.
+                  </p>
+                  <img src="./react/291_1.png" />
+                  <p>
+                    حال به قسمت content در منو سمت چپ رفته و در مدل Comment چند
+                    کامنت را بصورت دستی اضافه می کنیم.
+                  </p>
+                </div>
+                <h4 id="j292react">
+                  جلسه دویست و نود و دوم: متصل کردن پروژه ریکتی به GraphCMS
+                </h4>
+                <div class="sessionContent">
+                  <p>ابتدا یک پروژه ریکتی با cra یا vite می سازیم.</p>
+                  <p>
+                    سپس با دستور npm install graphql @apollo/client لایبری های
+                    GraphQL و Apollo را نصب می کنیم.
+                  </p>
+                  <p>
+                    حال در فایل main.jsx یک client به کمک ApolloClient ساخته و
+                    آن را به کمک ApolloProvider به دور کل برنامه wrap می کنیم.
+                  </p>
+                  <p>
+                    برای گرفتن API در سایت hygraph.com به پروژه ای که ساختیم
+                    رفته و در منو سمت چپ در قسمت Project Settings گزینه API
+                    Access را انتخاب می کنیم و API موجود در قسمت content API را
+                    کپی کرده و در client ، uriی که ساختیم paste می کنیم.
+                  </p>
+                  <p>
+                    همچنین در قسمت API Access از Add premission همه premissionها
+                    را فعال می کنیم تا به کمک API که می دهد هرکاری که از قسمت
+                    فرانت اند می خواهیم انجام دهیم.
+                  </p>
+                </div>
+                <h4 id="j293react">
+                  جلسه دویست و نود و سوم: نصب و آشنایی با Material UI
+                </h4>
+                <div class="sessionComponent">
+                  <p>
+                    Material UI یک لایبری است که مخصوص ریکت بوده و انواع
+                    کامپوننت ها را در اختیار ما قرار می دهد.
+                  </p>
+                  <p>
+                    به سایت mui.com رفته و در قسمت Get started ، Material UI را
+                    می زنیم تا نحوه نصب و کار کردن با این لایبری را یاد بگیریم.
+                  </p>
+                  <p>
+                    در قسمت components هرگونه المانی که بخواهیم هست. آنها را
+                    انتخاب کرده و کدهای آنها را کپی کرده و در برنامه استفاده می
+                    کنیم.
+                  </p>
+                </div>
+                <h4 id="j294react">
+                  جلسه دویست و نود و چهارم: ساختن Navbar پروژه
+                </h4>
+                <div class="sessionComponent">
+                  <p>
+                    ابتدا در فایل html پروژه و در تگ html اتریبیوت lang را "fa"
+                    قرار داده و <span dir="ltr">dir="rtl"</span> قرار می دهیم.
+                  </p>
+                  <p>
+                    برای ساخت header سایت در قسمت components سایت mui.com گزینه
+                    App Bar را انتخاب می کنیم و یکی از آنها را انتخاب می کنیم.
+                  </p>
+                  <p>
+                    برای استفاده از آیکن ها ابتدا باید با دستور npm i
+                    @mui/icons-material لایبری آن را نصب کنیم.
+                  </p>
+                  <p>
+                    material icons را سرچ می کنیم سپس هر آیکنی که بخواهیم نام آن
+                    را در سرچ باکس مخصوص آیکن ها سرچ می کنیم و کد آن را کپی و در
+                    پروژه مان paste می کنیم.
+                  </p>
+                  <p>
+                    وقتی به یک کامپوننت <span dir="ltr">flex={1}</span> می دهیم
+                    یعنی تا جایی که میتونی کِش بیا و عرض رو بگیر.
+                  </p>
+                  <p>
+                    برای اینکه عرض سایت از یک حدی بیشتر نشود از کامپوننت
+                    Material UI ، container استفاده می کنیم و
+                    <span dir="ltr">maxWidth="lg"</span> را به آن می دهیم.
+                  </p>
+                  <p>
+                    اگر breakPoints را در Material UI سرچ کنیم یکسری مقادیر
+                    پیشفرض را نشان می دهد که lg یعنی 1200 پیکسل.
+                  </p>
+                </div>
+                <h4 id="j295react">
+                  جلسه دویست و نود و پنجم: اضافه کردن فونت به پروژه و تغییر تم
+                  Material UI
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم فونت هایی به پروژه اضافه کنیم که همه کامپوننت
+                    ها(حتی کامپوننت های Material UI) از آن فونت ها استفاده کنند.
+                  </p>
+                  <p>
+                    ابتدا فولدر fonts را داخل فولدر src ایجاد کرده و فایل فونت
+                    هایی که داریم را داخل آن می ریزیم سپس یک فایل font.css ساخته
+                    و با استفاده از font-face@ فونت ها را به پروژه اضافه می
+                    کنیم. حال فایل font.css را در بالاترین کامپوننت برنامه یعنی
+                    import ، main.jsx می کنیم تا به همه کامپوننت های پایین تر
+                    داده شود(ارث بری کنند)
+                  </p>
+                  <p>
+                    در Default theme ، Material UI را سرچ کنیم می بینیم که خود
+                    Material UI یکسری مقادیر default را تعیین کرده مثل همان
+                    breakPoints که می توانیم آنها را تغییر دهیم.
+                  </p>
+                  <p>
+                    در قسمت typography می بینیم که font-family را "Roboto" داده
+                    است ولی ما آن را نمی خواهیم.
+                  </p>
+                  <p>
+                    برای تغییر مقادیر theme ، default از createTheme استفاده
+                    کرده و یک theme می سازیم و مقادیر جدیدی که می خواهیم را می
+                    دهیم تا مقادیر جدید را جایگزین مقادیر default کند.
+                  </p>
+                  <p>
+                    themeی که ساختیم را export کرده و به کمک ThemeProviderدر
+                    بالاترین کامپوننت برنامه آن را به کل کامپوننت ها می دهیم.
+                  </p>
+                </div>
+                <h4 id="j296react">
+                  جلسه دویست و نود و ششم: اضافه کردن فایل env. به پروژه
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    گاهی وقت ها یکسری اطلاعات حساس داریم که امنیت آنها برایمان
+                    مهم است برای این اطلاعات یک فایل env. در فولدر اصلی پروژه
+                    ساخته و آن اطلاعات را داخل فایل env. قرار می دهیم.
+                  </p>
+                  <p>فایل env. هم ignore شده و داخل push ، github نمی شود.</p>
+                  <p>
+                    اگر پروژه ریکتی با cra ساخته شده باشد برای تعریف متغیر در
+                    فایل env. نام آن متغیر حتما و باید با REACT_APP شروع شود
+                    مثل: REACT_APP_GRAPHCMS_URI
+                  </p>
+                  <img src="./react/296_1.png" />
+                  <p>
+                    و برای اینکه در یک فایل یا کامپوننت مقدار آن متغیر را از
+                    فایل env. بگیریم از process.env.REACT_APP_GRAPHCMS_URI
+                    استفاده می کنیم.
+                  </p>
+                  <img src="./react/296_2.png" />
+                  <p>
+                    حال اگر پروژه ریکتی را با vite ساخته باشیم نام متغیر داخل
+                    فایل env. حتما و باید با VITE شروع شود مثل:
+                    VITE_GRAPHCMS_URI
+                  </p>
+                  <img src="./react/296_3.png" />
+                  <p>
+                    و برای اینکه در یک کامپوننت مقدار آن متغیر را از فایل env.
+                    بگیریم از import.meta.env.VITE_GRAPHCMS_URI استفاده می کنیم.
+                  </p>
+                  <img src="./react/296_4.png" />
+                </div>
+                <h4 id="j297react">
+                  جلسه دویست و نود و هفتم: چیدن المان های صفحه اصلی و ریسپانسیو
+                  کردن آن
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر grid را در Material UI سرچ کنیم نحوه چیدمان المان های
+                    صفحه را توسط کامپوننت Material UI ، Grid نشان می دهد.
+                  </p>
+                  <p>
+                    هر واحد در Material UI برابر 8 پیکسل است مثلا
+                    <span dir="ltr">marginBottom={3}</span> را قرار دادیم یعنی
+                    24 px است.
+                  </p>
+                  <p>
+                    در breakPoints گفتیم xs=0 px و md=900 px پس اگر در Grid از
+                    اینها استفاده کنیم مثلا <span dir="ltr">xs={12}</span> و
+                    <span dir="ltr">md={3}</span> یعنی آن کامپوننت Grid در عرض
+                    مرورگر 0 پیکسل به بالا همه 12 ستون(از 12 ستون ممکن Grid) را
+                    بگیرد و اگر عرض مرورگر 900 پیکسل به بالا شد فقط 3 ستون را
+                    بگیرد.
+                  </p>
+                  <p>
+                    mb یعنی marginBottom و mt یعنی marginTop و mx یعنی margin در
+                    راستای محور x و my یعنی margin در راستای محور y و px و py را
+                    هم برای paddingها داریم.
+                  </p>
+                  <p>
+                    وقتی به یک Grid ، <span dir="ltr">spacing={2}</span> می دهیم
+                    یعنی بین فرزندانت 16 پیکسل فاصله(padding) قرار بده.
+                  </p>
+                  <p>وقتی padding خالی بنویسیم به کل 4 طرف اعمال می شود.</p>
+                </div>
+                <h4 id="j298react">
+                  جلسه دویست و نود و هشتم: ساخت کامپوننت Layout و wrap کردن دور
+                  برنامه
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در default theme اگر palette را ببینیم Material UI یکسری رنگ
+                    های مشخص دارد مثل primary و secondary و..‌.
+                  </p>
+                  <p>
+                    اگر اسم فایل حاوی کامپوننت Layout را index قرار دهیم دیگر
+                    هنگام import کردن آن لازم نیست اسم فایل index.js را هم
+                    بنویسیم چون برنامه خودش بصورت default دنبال کامپوننت Layout
+                    در یک فایل با نام index می گردد.
+                  </p>
+                  <img src="./react/298_1.png" />
+                </div>
+                <h4 id="j299react">
+                  جلسه دویست و نود و نهم: نوشتن query برای گرفتن دیتای مقالات
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در سایت hygraph.com اگر داخل پروژه بک اندی که ساختیم برویم
+                    در قسمت API playground در منو سمت چپ نحوه نوشتن query برای
+                    گرفتن دیتای مدنظرمان را نشان می دهد.
+                  </p>
+                  <img src="./react/299_1.png" />
+                  <p>
+                    اگر گزینه ها را تیک بزنیم که چه می خواهیم query مربوط به
+                    آنها را می دهد.
+                  </p>
+                </div>
+                <h4 id="j300react">
+                  جلسه سیصدم: چیدن قسمت وبلاگ ها و ریسپانسیو کردن آن
+                </h4>
+                <h4 id="j301react">
+                  جلسه سیصد و یکم: ساخت کارد مربوط به مقالات
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در Card ، Material UI را سرچ کرده و یکی از آنها را انتخاب
+                    کرده و کدهای مربوط به آن را کپی می کنیم.
+                  </p>
+                  <p>خط وسط کارت ها را به کمک کامپوننت Divider می دهیم.</p>
+                  <p>
+                    برای دادن استایل های مدنظر خودمان به برخی از کامپوننت های
+                    Material UI از اتریبیوت sx استفاده می کنیم.
+                  </p>
+                  <p>
+                    اگر بخواهیم روی باتن(مطالعه مقاله) که کلیک کردیم به مقاله
+                    مربوطه برود از react-router-dom استفاده می کنیم و اول آن را
+                    نصب می کنیم.
+                  </p>
+                </div>
+                <h4 id="j302react">
+                  جلسه سیصد و دوم: گرفتن دیتای مربوط به نویسنده ها
+                </h4>
+                <h4 id="j303react">
+                  جلسه سیصد و سوم: نشان دادن نویسنده ها در صفحه اصلی
+                </h4>
+                <h4 id="j304react">
+                  جلسه سیصد و چهارم: اضافه کردن routeها به پروژه
+                </h4>
+                <h4 id="j305react">
+                  جلسه سیصد و پنجم: گرفتن دیتای یک نویسنده با استفاده از slug
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    هنگام گرفتن description چون آنجا content را توسط یک ادیتور
+                    متن ادیت کردیم اینجا هرگونه که بخواهیم description را می
+                    دهد. بصورت html یا text یا raw یا...
+                  </p>
+                </div>
+                <h4 id="j306react">
+                  جلسه سیصد و ششم: ایجاد صفحه جزئیات نویسنده به صورت داینامیک
+                </h4>
+                <h4 id="j307react">
+                  جلسه سیصد و هفتم: اضافه کردن دیتاهای نویسنده به صفحه جزئیات
+                  نویسنده
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    چون description را به graphCMS گفتیم که بصورت html بدهد اگر
+                    به روش عادی آن را در UI سایت نشان بدهیم تگ های html را نمی
+                    شناسد.
+                  </p>
+                  <img src="./react/307_1.png" />
+                  <p>
+                    چون در ریکت innerHtml نداریم از یک المان با اتریبیوت
+                    dangerouslySetInnerHtml با آیتم html__ استفاده می کنیم.
+                  </p>
+                  <img src="./react/307_2.png" />
+                  <p>
+                    در دوره جاوااسکریپت گفتیم که به وسیله حملات XSS هکرها می
+                    توانند به innerHtml نفوذ کرده و کدهای جاوااسکریپتی Inject
+                    کنند به همین دلیل ریکت در اسم این اتریبیوت از dangerously
+                    استفاده کرده است.
+                  </p>
+                  <p>
+                    با دستور npm install sanitize-html پکیج sanitize-html را نصب
+                    می کنیم. این پکیج کدهای مخرب جاوااسکریپتی که ممکن است داخل
+                    html برنامه ما باشند را حذف می کند.
+                  </p>
+                  <p>
+                    سپس sanitizeHtml را import کرده و کدهای html را به کمک آن می
+                    دهیم.
+                  </p>
+                  <img src="./react/307_3.png" />
+                  <p>
+                    عمل sanitize اغلب در بک اند انجام می شود اما برای اطمینان
+                    بیشتر آنرا در فرانت هم انجام دادیم.
+                  </p>
+                </div>
+                <h4 id="j308react">جلسه سیصد و هشتم: ایجاد کامپوننت Loader</h4>
+                <div class="sessionContent">
+                  <p>
+                    ابتدا با دستور npm install react-loader-spinner لایبری
+                    react-loader-spinner را نصب می کنیم سپس آن را در گوگل سرچ
+                    کرده و داکیومنت نحوه استفاده از آن را می خوانیم.
+                  </p>
+                </div>
+                <h4 id="j309react">
+                  جلسه سیصد و نهم: گرفتن دیتای مربوط به مقاله ها
+                </h4>
+                <h4 id="j310react">جلسه سیصد و دهم: صفحه جزئیات مقاله ها</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای استفاده از آیکن ها در سایت Material Icon ، mui.com را
+                    سرچ می کنیم.
+                  </p>
+                </div>
+                <h4 id="j311react">جلسه سیصد و یازدهم: ایجاد فرم کامنت</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد فیلدهای فرم TextField را در mui.com سرچ می کنیم.
+                  </p>
+                </div>
+                <h4 id="j312react">
+                  جلسه سیصد و دوازدهم: گذاشتن کامنت برای یک مقاله خاص
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در سایت hygraph.com روی پروژه بک اندمان کلیک کرده و به قسمت
+                    API playground رفته و در قسمت Playground ، Add new گزینه
+                    Mutation را انتخاب می کنیم تا graphQL ، mutationی برای ارسال
+                    کامنت را بنویسیم.
+                  </p>
+                  <p>
+                    به کمک لایبری react-toastify یک notification به کاربر نشان
+                    می دهیم.
+                  </p>
+                </div>
+                <h4 id="j313react">
+                  جلسه سیصد و سیزدهم: گرفتن کامنت های مربوط به یک پست
+                </h4>
+                <h4 id="j314react">
+                  جلسه سیصد و چهاردهم: نشان دادن کامنت های هر پست
+                </h4>
+                <h4 id="j315react">جلسه سیصد و پانزدهم: ارتقاء پروژه</h4>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="reactQuery">فصل بیست و ششم: بررسی کامل React Query</h3>
+              <div class="sessions">
+                <h4 id="j316react">جلسه سیصد و شانزدهم: React Query چیست؟</h4>
+                <div class="sessionContent">
+                  <p>
+                    TanStack Query یا اصطلاحا React Query سایتی است که یکسری
+                    لایبری ها و امکانات را در اختیار توسعه دهنده ها قرار می دهد
+                    مثلا برای tableهاو چارت ها و نمودارها و...
+                  </p>
+                  <p>
+                    TanStack Query یک مدیریت کننده state هم است که هم
+                    asynchronous بوده و هم بسیار قدرتمند است. وقتی اسم async می
+                    آید یعنی دیتا داخل برنامه نبوده و از سرور گرفته می شود. پس
+                    با React Query می توانیم درخواست بفرستیم و اطلاعات بگیریم.
+                  </p>
+                  <p>
+                    همچنین React Query خودش state management هم دارد برای
+                    stateهایی که remote هستند و سمت Client نیستند و لازم نیست
+                    مثلا جداگانه از redux هم استفاده کنیم. از redux وقتی استفاده
+                    می کردیم که دیتا در سمت Client و در بالاترین کامپوننت برنامه
+                    بود و می خواستیم آن را به همه کامپوننت ها پاس دهیم.
+                  </p>
+                  <p>
+                    همچنین React Query دیتایی که می گیرد را cache کرده و ذخیره
+                    می کند و لازم نیست هر لحظه درخواست بفرستیم و دوباره دیتا را
+                    بگیریم. می توانیم تعیین کنیم چند وقت به چند وقت دیتا را
+                    آپدیت کند.
+                  </p>
+                  <p>
+                    همچنین تا الان برای گرفتن دیتا از useEffect در فازهای
+                    mounting و updating و... استفاده می کردیم که React Query کلا
+                    آنها را حذف می کند و دیگر لازم نیست به این صورت کد بزنیم.
+                  </p>
+                  <p>
+                    React Query قابلیت Automatic Refetching دارد و stateها را می
+                    تواند با سرور sync نگه دارد.
+                  </p>
+                  <p>
+                    React Query خودش حالت های isLoading و fetching و error و...
+                    را به ما می دهد.
+                  </p>
+                </div>
+                <h4 id="j317react">
+                  جلسه سیصد و هفدهم: نصب و راه اندازی React Query
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای نصب React Query از دستور npm install
+                    @tanstack/react-query استفاده می کنیم. اگر آخر آن 4@ را هم
+                    اضافه کنیم ورژن 4 آن را نصب می کند.
+                  </p>
+                  <p>
+                    در بالاترین کامپوننت برنامه(یعنی App.jsx) QueryClient و
+                    QueryClientProvider را import می کنیم سپس توسط QueeyClient
+                    یک client ساخته و توسط QueryClientProvider آن را دور کل
+                    برنامه(یعنی App) wrap می کنیم تا بتوانیم در همه جای برنامه
+                    از امکانات React Query استفاده کنیم.
+                  </p>
+                  <img src="./react/317_1.png" />
+                </div>
+                <h4 id="j318react">جلسه سیصد و هجدهم: هوک useQuery</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای گرفتن دیتا از سرور از هوک useQuery استفاده می کنیم.
+                  </p>
+                  <p>
+                    داخل پرانتز هوک useQuery یک QueryKey مشخص می کنیم که این
+                    QueryKeyها باید در کل پروژه یونیک باشند(یعنی در همه کامپوننت
+                    ها باید از اسم های متفاوت برای QueryKey استفاده کنیم چون
+                    React Query اطلاعاتی که از API می گیرد را cache کرده و با
+                    این QueryKeyها ذخیره می کند) همچنین QueryKeyها را بصورت یک
+                    آرایه می دهیم.
+                  </p>
+                  <p>
+                    در ورودی دوم ()useQuery از یک فانکشن استفاده می کنیم که داخل
+                    آن فانکشن دیتا را fetch می کنیم.
+                  </p>
+                  <img src="./react/318_1.png" />
+                  <p>
+                    می توانیم فانکشنی که داخل آن دیتا را fetch می کنیم را بصورت
+                    async-await بنویسیم.
+                  </p>
+                  <img src="./react/318_2.png" />
+                  <p>
+                    همچنین می توانیم response دریافتی را destructure کرده و
+                    مقادیری که می خواهیم را بگیریم.
+                  </p>
+                  <img src="./react/318_3.png" />
+                </div>
+                <h4 id="j319react">
+                  جلسه سیصد و نوزدهم: استفاده از axios در React Query
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    با دستور npm install axios لایبری axios را نصب می کنیم. سپس
+                    بجای fetch از axios استفاده می کنیم.
+                  </p>
+                  <img src="./react/319_1.png" />
+                </div>
+                <h4 id="j320react">جلسه سیصد و بیستم: هندل کردن errorها</h4>
+                <div class="sessionContent">
+                  <p>
+                    responseی که React Query می دهد آیتم های مختلفی دارد که
+                    isError و error هم جزو آنها هستند که به وسیله آنها می توانیم
+                    errorها را هندل کنیم.
+                  </p>
+                  <img src="./react/320_1.png" />
+                </div>
+                <h4 id="j321react">
+                  جلسه سیصد و بیست و یکم: بررسی React Query Devtools
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    با دستور npm install @tanstack/react-query-devtools لایبری
+                    react-query-devtools را نصب می کنیم البته ورژن آن باید با
+                    ورژن react-query یکی باشد پس 4@ را به آخر این هم اضافه می
+                    کنیم. سپس آن را در بالاترین کامپوننت پروژه(یعنی App.jsx)
+                    import کرده و استفاده می کنیم.
+                  </p>
+                  <p>
+                    React Query Devtools در مرورگر چیزی شبیه console می دهد که
+                    اطلاعاتی راجع به React Query می دهد.
+                  </p>
+                  <img src="./react/321_1.png" />
+                  <img src="./react/321_2.png" />
+                </div>
+                <h4 id="j322react">
+                  جلسه سیصد و بیست و دوم: مفهوم cache و بررسی مقدار cacheTime
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    وقتی در یک page یا کامپوننت مثلا UserPage هستیم و دیتا در آن
+                    page گرفته و نمایش داده می شود در سری اول Loading هم نمایش
+                    داده می شود تا دیتا گرفته شود اما اگر به page دیگر مثل
+                    HomePage رفته و دوباره به UserPage برگردیم دیگر Loading را
+                    نشان نمی دهد و همان دیتا را نشان می دهد چون در سری اول دیتا
+                    را cache کرده و ذخیره می کند و در دفعه های بعد دیتا را از
+                    آنجا برمی دارد و نشان می دهد. درواقع در دفعه های بعد درسته
+                    که از دیتای cache شده استفاده می کند اما در پشت صحنه دیتای
+                    cache شده را آپدیت می کند و آن را نشان می دهد یعنی
+                    isLoading:false است اما isFetching:true است.
+                  </p>
+                  <p>
+                    پس فقط به جای نشان دادن Loading از دیتای قبلی که cache شده
+                    استفاده می کند و آن را نشان می دهد اما در پشت صحنه fetch
+                    کرده و دیتا را آپدیت می کند و نشان می دهد‌.
+                  </p>
+                  <p>
+                    مدت زمانی که دیتا را در حافظه cache ذخیره می کند بصورت
+                    default برابر 300 ثانیه(5 دقیقه) است یعنی اگر بعد از 5 دقیقه
+                    دوباره به آن صفحه برویم چون دیتایی در cache نیست که نشان دهد
+                    Loading را نمایش می دهد.
+                  </p>
+                  <p>
+                    برای تغییر مدت زمان cacheTime به هوک useQuery یک ورودی سوم
+                    می دهیم که یک آبجکت است و در آن آبجکت آیتم cacheTime را
+                    برحسب میلی ثانیه ست می کنیم.
+                  </p>
+                  <img src="./react/322_1.png" />
+                </div>
+                <h4 id="j323react">
+                  جلسه سیصد و بیست و سوم: بررسی مفهوم staleTime
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    به وسیله staleTime می توانیم عملیات fetching را مدیریت کنیم
+                    یعنی وقتی دیتا تغییر نکرده از همان دیتای cache شده استفاده
+                    کند و دیگر در پشت پرده عملیات fetching را انجام ندهد.
+                  </p>
+                  <p>
+                    مقدار staleTime ، default در React Query برابر 0 است.
+                    staleTime به React Query می فهماند که چه مدت زمانی صبر کند و
+                    دیتا را مجددا هر دفعه fetch نکند بعنوان مثال اگر
+                    staleTime:60000 باشد(برحسب میلی ثانیه است) یعنی به مدت 1
+                    دقیقه دیتا را fetch نکن و از همان دیتای cache شده استفاده کن
+                    و پس از 1 دقیقه اگر باز به آن صفحه رفتیم دیتا را fetch کن و
+                    cache کن و به همین صورت تا آخر.
+                  </p>
+                  <p>
+                    مقدار staleTime را در همان آبجکت که به عنوان ورودی سوم به
+                    هوک useQuery دادیم می دهیم.
+                  </p>
+                  <img src="./react/323_1.png" />
+                  <p>
+                    وقتی staleTime را ست نمی کنیم(default آن صفر است) یعنی دیتا
+                    همان لحظه stale(کهنه) می شود.
+                  </p>
+                  <img src="./react/323_2.png" />
+                  <p>
+                    اما وقتی staleTime را یک مدت زمانی ست می کنیم تا آن موقع
+                    دیتا fresh(تازه) است.
+                  </p>
+                  <img src="./react/323_3.png" />
+                  <p>
+                    وقتی دیتا stale شد اگر از آن کامپوننت یا page خارج شده و
+                    دوباره برگردیم دیتا دوباره fetch می شود.
+                  </p>
+                </div>
+                <h4 id="j324react">
+                  جلسه سیصد و بیست و چهارم: مقادیر refetch و کاربرد آن
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر مقدار refetchOnMount:false قرار دهیم در هر بار آمدن روی
+                    کامپوننت در پشت صحنه fetching رخ نمی دهد و فقط در Mount اول
+                    دیتا fetch شده و نمایش داده می شود.
+                  </p>
+                  <img src="./react/324_1.png" />
+                  <p>
+                    اگر از مرورگر درآمده و به پنجره دیگر در ویندوز برویم یا حتی
+                    به Tab دیگر در مرورگر برویم عملیات fetching انجام می
+                    شود(refetchOnMount تا وقتی عمل می کند که از آن سایت به جای
+                    دیگر یا پنجره دیگری نرفته باشیم و فقط بین صفحات یا کامپوننت
+                    های همان سایت جابجا شویم) برای جلوگیری از این fetching مقدار
+                    refetchOnWindowFocus:false قرار می دهیم.
+                  </p>
+                  <img src="./react/324_2.png" />
+                  <img src="./react/324_3.png" />
+                  <p>
+                    اگر بخواهیم در همان صفحه یا کامپوننت که هستیم مثلا هر 2
+                    ثانیه دیتا را fetch کرده و صفحه را بروز نماید(فرض کنیم دیتا
+                    لحظه ای تغییر می کند) برای اینکار از refetchInterval استفاده
+                    می کنیم که مقدار default آن false است اما می توانیم یک مقدار
+                    برحسب میلی ثانیه بدهیم تا مثلا هر 2 ثانیه دیتا را refetch
+                    کرده و صفحه را بروز نماید مثل قیمت لحظه ای دلار و طلا یا
+                    نتایج زنده مسابقات ورزشی.
+                  </p>
+                  <img src="./react/324_4.png" />
+                </div>
+                <h4 id="j325react">
+                  جلسه سیصد و بیست و پنجم: کنترل کردن React Query توسط eventها
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر بخواهیم مثلا وقتی روی یک باتن کلیک کردیم دیتا را بگیرد
+                    در اینصورت اول enabled:false قرار می دهیم تا در Mount اول هم
+                    دیتا را fetch نکند.
+                  </p>
+                  <img src="./react/325_1.png" />
+                  <p>
+                    هوک useQuery یک فانکشن به نام refetch در اختیار ما قرار می
+                    دهد تا در eventها از آن استفاده کنیم و اگر event رخ دهد
+                    عملیات fetching انجام شود.
+                  </p>
+                  <img src="./react/325_2.png" />
+                  <img src="./react/325_3.png" />
+                  <p>
+                    در این حالت می توانیم Loading را به کمک isFetching نشان
+                    دهیم.
+                  </p>
+                  <img src="./react/325_4.png" />
+                  <p>
+                    نکته جاوااسکریپتی: optional chaining یا .? در خط 27 تصویر
+                    بالا یعنی اگر data وجود داشت از داخل آن data را بگیر و روی
+                    آن map بزن.
+                  </p>
+                </div>
+                <h4 id="j326react">
+                  جلسه سیصد و بیست و ششم: بررسی onSuccess و onError
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    مقدار onSuccess یک فانکشن است که وقتی عملیات fetch کردن دیتا
+                    با موفقیت انجام بشود آن فانکشن اجرا می شود.
+                  </p>
+                  <img src="./react/326_1.png" />
+                  <p>
+                    مقدار onError هم یک فانکشن است که وقتی عملیات fetch کردن
+                    دیتا با ارور مواجه شد آن فانکشن اجرا می شود.
+                  </p>
+                  <img src="./react/326_2.png" />
+                </div>
+                <h4 id="j327react">
+                  جلسه سیصد و بیست و هفتم: افزودن پارامترها با useQuery
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    فانکشنی که در ورودی دوم هوک useQuery می دهیم به queryKeyها
+                    که در ورودی اول useQuery دادیم دسترسی دارد که می توانیم از
+                    آن مثلا برای گرفتن جزئیات هر دیتا استفاده کنیم.
+                  </p>
+                  <img src="./react/327_1.png" />
+                </div>
+                <h4 id="j328react">
+                  جلسه سیصد و بیست و هشتم: ایجاد custom hook
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می توانیم در یک فایل custom hook ایجاد کنیم و queryها را
+                    داخل آن بنویسیم و export کرده و در فایل های دیگر استفاده
+                    کنیم.
+                  </p>
+                  <img src="./react/328_1.png" />
+                  <img src="./react/328_2.png" />
+                  <img src="./react/328_3.png" />
+                </div>
+                <h4 id="j329react">
+                  جلسه سیصد و بیست و نهم: استفاده از هوک useMutation
+                </h4>
+                <div class="sessionContent">
+                  <p>برای فرستادن دیتا از هوک useMutation استفاده می کنیم.</p>
+                  <p>
+                    ورودی هوک useMutation یک فانکشن است که داخل آن فانکشن کدهای
+                    مربوط به عملیات ارسال دیتا را می نویسیم‌.
+                  </p>
+                  <p>
+                    هوک useMutation یک فانکشن mutate هم می دهد که destructure
+                    کرده و آن را می گیریم تا برای اجرای فانکشن مربوط به ارسال
+                    دیتا که به هوک useMutation دادیم از آن استفاده کنیم.
+                  </p>
+                  <img src="./react/329_1.png" />
+                  <p>
+                    اگر بخواهیم دیتایی که می خواهیم بفرستیم را از state بگیرد آن
+                    را به عنوان ورودی به mutate می دهیم و به فانکشن داخل هوک
+                    useMutation هم آرگومان می دهیم تا mutate پارامتر خودش را به
+                    جای آرگومان فانکشن داخل useMutation جاگذاری کرده و ارسال
+                    کند.
+                  </p>
+                  <img src="./react/329_2.png" />
+                  <p>
+                    می توانیم useMutation و فانکشن داخل آن را هم بصورت یک custom
+                    hook بنویسیم.
+                  </p>
+                  <img src="./react/329_3.png" />
+                  <img src="./react/329_4.png" />
+                </div>
+                <h4 id="j330react">
+                  جلسه سیصد و سی ام: بررسی React Query ورژن 5
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    با دستور npm install @tanstack/react-query آن را نصب می
+                    کنیم.
+                  </p>
+                </div>
+                <h4 id="j331react">جلسه سیصد و سی و یکم: نصب و اتصال ورژن 5</h4>
+                <div class="sessionContent">
+                  <p>
+                    در بالاترین کامپوننت توسط QueryClient یک client ساخته و به
+                    کمک QueryClientProvider آن را دور کل برنامه wrap می کنیم تا
+                    در همه جای برنامه به آن دسترسی داشته باشیم.
+                  </p>
+                  <img src="./react/331_1Update.png" />
+                </div>
+                <h4 id="j332react">
+                  جلسه سیصد و سی و دوم: بررسی هوک useQuery در ورژن 5
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در ورژن 5 به هوک useQuery به عنوان ورودی یک آبجکت می دهیم که
+                    این آبجکت آیتم های queryKey و queryFn را دارد که در ورژن 4
+                    این ها را به عنوان ورودی های جدا جدا به هوک useQuery می
+                    دادیم.
+                  </p>
+                  <img src="./react/332_1Update.png" />
+                  <p>
+                    می توانیم مقدار queryKey و queryFn را بصورت یک متغیر تعریف
+                    کرده و آن متغیرها را داخل هوک useQuery قرار دهیم.
+                  </p>
+                  <img src="./react/332_2Update.png" />
+                </div>
+                <h4 id="j333react">
+                  جلسه سیصد و سی و سوم: بررسی isPending و isLoading
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    isPending در ورژن 5 کار isLoading در ورژن 4 را انجام می دهد.
+                  </p>
+                  <p>
+                    isLoading در ورژن 5 حاصل isLoading + isFetching در ورژن 4 می
+                    باشد یعنی در ورژن 5 باید isPending و isFetching هر دو true
+                    باشند تا isLoading هم true باشد.
+                  </p>
+                </div>
+                <h4 id="j334react">
+                  جلسه سیصد و سی و چهارم: بررسی cacheTime و gcTime
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    cacheTime در ورژن 5 به gcTime تغییر نام داده است یعنی برای
+                    ست کردن cacheTime از آیتم gcTime استفاده می کنیم.
+                  </p>
+                  <p>
+                    options را علاوه بر اینکه می توانیم داخل هوک useQuery تعریف
+                    کنیم داخل QueryClient هم می توانیم تعریف کنیم.
+                  </p>
+                  <img src="./react/334_1Update.png" />
+                </div>
+                <h4 id="j335react">
+                  جلسه سیصد و سی و پنجم: بررسی هوک useMutation در ورژن 5
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    به هوک useMutation هم به عنوان ورودی یک آبجکت می دهیم که آن
+                    آبجکت دارای آیتم mutationFn می باشد.
+                  </p>
+                  <p>
+                    در اینجاهم می توانیم مقدار mutationFn را در یک متغیر ریخته و
+                    در هوک useMutation از آن متغیر استفاده کنیم.
+                  </p>
+                  <img src="./react/335_1Update.png" />
+                  <p>
+                    در اینجاهم isPending را داریم که کار isLoading ورژن 4 را
+                    انجام می دهد.
+                  </p>
+                  <p>
+                    می خواهیم دیتا را در لحظه ارسال مثلا از state گرفته و از
+                    طریق mutate به هوک useMutation بدهیم تا آن را ارسال کند.
+                  </p>
+                  <img src="./react/335_2Update.png" />
+                  <p>می توانیم options را هم تحت یک آبجکت به mutate بدهیم.</p>
+                  <img src="./react/335_3Update.png" />
+                </div>
+                <h4 id="j336react">
+                  جلسه سیصد و سی و ششم: بررسی invalidateQueries
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر بخواهیم وقتی یک post فرستادیم یا یک post را حذف کردیم
+                    Query مربوط به پست ها را دوباره اجرا کند و پست ها را آپدیت
+                    کند از هوک useQueryClient و invalidateQueries استفاده می
+                    کنیم.
+                  </p>
+                  <p>
+                    داخل پرانتز invalidateQueries حتما و باید queryKey که می
+                    خواهیم آپدیت شود را وارد کنیم.
+                  </p>
+                  <img src="./react/336_1Update.png" />
                 </div>
               </div>
             </div>
