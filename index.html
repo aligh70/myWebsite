@@ -3767,6 +3767,43 @@
           <a href="#j267next" class="sessionIndex"
             >جلسه دویست و شصت و هفتم: ریداکس چیست؟</a
           >
+          <a href="#next15" class="chapterIndex">
+            فصل بیست و هشتم: بررسی کامل Next ورژن 15
+          </a>
+          <a href="#j400next" class="sessionIndex"
+            >جلسه چهارصدم: نصب پروژه و معرفی codemod</a
+          >
+          <a href="#j401next" class="sessionIndex">
+            جلسه چهارصد و یکم: Async request API(cookie و headers)
+          </a>
+          <a href="#j402next" class="sessionIndex">
+            جلسه چهارصد و دوم: Async request API(params و searchParams)
+          </a>
+          <a href="#j403next" class="sessionIndex"
+            >جلسه چهارصد و سوم: پشتیبانی از React ورژن 19</a
+          >
+          <a href="#j404next" class="sessionIndex"
+            >جلسه چهارصد و چهارم: Caching Semantics</a
+          >
+
+          <a href="#j405next" class="sessionIndex"
+            >جلسه چهارصد و پنجم: Static Route Indicator</a
+          >
+          <a href="#j406next" class="sessionIndex">
+            جلسه چهارصد و ششم: Turbopack Dev
+          </a>
+          <a href="#j407next" class="sessionIndex">
+            جلسه چهارصد و هفتم: Hydration error improvements
+          </a>
+          <a href="#j408next" class="sessionIndex">
+            جلسه چهارصد و هشتم: Form Component
+          </a>
+          <a href="#j409next" class="sessionIndex">
+            جلسه چهارصد و نهم: Support for next.config.ts & ESLint 9 Support
+          </a>
+          <a href="#j410next" class="sessionIndex">
+            جلسه چهارصد و دهم: Enhanced Security for Server Actions
+          </a>
           <a id="tailwindCourseIndex" href="#tailwind" class="courseIndex"
             >دوره جامع و پروژه محور Tailwind CSS</a
           >
@@ -21731,6 +21768,385 @@
                     در فایل robots.txt می توانیم sitemapمان را هم معرفی کنیم.
                   </p>
                   <img src="./next/165_1.png" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="next15">فصل بیست و هشتم: بررسی کامل Next ورژن 15</h3>
+              <div class="sessions">
+                <h4 id="j400next">جلسه چهارصدم: نصب پروژه و معرفی codemod</h4>
+                <div class="sessionContent">
+                  <p>یک فولدر ایجاد کرده و با VSCode آن را باز می کنیم.</p>
+                  <p>
+                    با دستور
+                    <span dir="ltr">npx create-next-app@latest ./</span> یک
+                    پروژه نکستی می سازیم.
+                  </p>
+                  <p>
+                    حین نصب فقط سوال های مرتبط با ESLint و AppRouter را با Yes و
+                    بقیه سوالات را با No پاسخ می دهیم.
+                  </p>
+                  <p>ورژن 15 نکست از ورژن 19 ریکت استفاده می کند.</p>
+                  <p>
+                    در سایت nextjs.org در داکیومنت Next به قسمت Upgrading سپس
+                    Latest version می رویم.
+                  </p>
+                  <p>
+                    طبق داکیومنت نکست اگر یک پروژه نکستی داریم که با نکست ورژن
+                    14 و پایین تر ایجاد شده است و حال می خواهیم آنرا به نکست
+                    ورژن 15 ارتقا دهیم از codemod استفاده می کنیم.
+                  </p>
+                  <p>
+                    به این صورت که در ترمینال پروژه دستور زیر را وارد می کنیم.
+                  </p>
+                  <p dir="ltr">npx @next/codemod@canary upgrade latest</p>
+                </div>
+                <h4 id="j401next">
+                  جلسه چهارصد و یکم: Async request API(cookie و headers)
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در نکست 15 برای استفاده از headers و cookie و params و
+                    searchParams در request APIها باید بصورت asynchronous با
+                    آنها رفتار کنیم.
+                  </p>
+                  <p>
+                    NextJS برای بهینه کردن پروژه و بالا بردن performance آن
+                    اینکار را انجام داده است.
+                  </p>
+                  <p>
+                    در تصویر زیر چون کامپوننت AsyncAPI یک کامپوننت server side
+                    است پس log که می گیریم باید در ترمینال نشان داده شود اما در
+                    console هم نشان داده شده و کنار آن برچسب server را اضافه می
+                    کند. که این یکی از ویژگی های نکست 15 است.
+                  </p>
+                  <img src="./next/401_1.png" />
+                  <img src="./next/401_2.png" />
+                  <p>
+                    برای گرفتن یک token از متد get استفاده کرده و نام آن token
+                    را به آن می دهیم.
+                  </p>
+                  <img src="./next/401_3.png" />
+                  <p>برای headers هم به همین صورت عمل می کنیم.</p>
+                </div>
+                <h4 id="j402next">
+                  جلسه چهارصد و دوم: Async request API(params و searchParams)
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در اینجاهم برای گرفتن params فانکشن کامپوننت را بصورت async
+                    تعریف کرده و params را بصورت await می گیریم.
+                  </p>
+                  <img src="./next/402_1.png" />
+                  <p>در غیر اینصورت نتیجه را بصورت Promise می دهد.</p>
+                  <img src="./next/402_2.png" />
+                  <img src="./next/402_3.png" />
+                  <p>برای searchParams هم به همین صورت عمل می کنیم.</p>
+                  <img src="./next/402_4.png" />
+                  <p>
+                    اگر بخواهیم searchParams را در سمت Client بگیریم، ابتدا
+                    بالای فانکشن از عبارت "use client" استفاده می کنیم تا
+                    کامپوننت در سمت Client رندر شود.
+                  </p>
+                  <p>
+                    اگر در اینجاهم از params یک clg بگیریم نتیجه را بصورت
+                    Promise می دهد.
+                  </p>
+                  <img src="./next/402_5.png" />
+                  <img src="./next/402_6.png" />
+                  <p>
+                    در
+                    <a href="#j402react" class="linkInParagraph"
+                      >جلسه چهارصد و دوم فصل ریکت 19</a
+                    >
+                    فانکشن ()use و در
+                    <a href="#j403react" class="linkInParagraph"
+                      >جلسه چهارصد و سوم فصل ریکت 19</a
+                    >
+                    نحوه استفاده از Promise در ()use را یاد گرفتیم. حال برای حل
+                    مشکل بالا از ()use استفاده می کنیم.
+                  </p>
+                  <img src="./next/402_7.png" />
+                  <p>
+                    در این حالت هم searchParams را مشابه params می گیریم و از
+                    ()use استفاده می کنیم.
+                  </p>
+                  <img src="./next/402_8.png" />
+                  <p>
+                    در کامپوننت هایی که در سمت Client رندر می شوند نمی توانیم از
+                    async-await استفاده کنیم.
+                  </p>
+                </div>
+                <h4 id="j403next">
+                  جلسه چهارصد و سوم: پشتیبانی از React ورژن 19
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در نکست 15 از react و react-dom ورژن 19 استفاده می شود یعنی
+                    ریکت 19 و تمام فیچرهای آن را در نکست 15 داریم.
+                  </p>
+                  <p>
+                    مطالبی که در
+                    <a href="#react19" class="linkInParagraph"
+                      >فصل سی و سوم ریکت(ورژن 19 ریکت)</a
+                    >
+                    خواندیم و مثال های مربوط به هوک useActionState که از
+                    <a href="#j392react" class="linkInParagraph"
+                      >جلسه سیصد و نود و دوم</a
+                    >
+                    تا
+                    <a href="#j396react" class="linkInParagraph"
+                      >جلسه سیصد و نود و ششم</a
+                    >
+                    ریکت نوشتیم را در اینجا می خواهیم بنویسیم.
+                  </p>
+                  <img src="./next/403_1.png" class="useActionStateInNext" />
+                  <img src="./next/403_2.png" />
+                </div>
+                <h4 id="j404next">جلسه چهارصد و چهارم: Caching Semantics</h4>
+                <div class="sessionContent">
+                  <p>
+                    تا ورژن 14 نکست وقتی یک صفحه ایجاد می کردیم آنرا بصورت
+                    default یک صفحه server side و در صفحات server side از نوع
+                    SSG در نظر می گرفت. یعنی default را بر این می گذاشت که صفحه
+                    را در حین build ایجاد کند و همان صفحه باقی بماند.
+                  </p>
+                  <p>
+                    اما در نکست ورژن 15 تغییراتی را در این مورد داریم و در نکست
+                    15 صفحاتی که ایجاد می شوند بصورت default از نوع no store
+                    هستند یعنی عملا Caching در Next.js صورت نمی گیرد.
+                  </p>
+                  <p>
+                    قبلا وقتی یک صفحه ایجاد میشد دیتا که fetch میشد دیتای آن
+                    صفحه Cache میشد و در requestهای بعدی همان دیتا را استفاده می
+                    کرد اما در نکست ورژن 15 عملیات Caching وجود ندارد مگر اینکه
+                    خودمان به نکست بگوییم عملیات Caching را انجام دهد.
+                  </p>
+                  <p>
+                    اگر از پروژه build بگیریم می بینیم که دیگر همه صفحات را
+                    Static در نظر نمی گیرد.
+                  </p>
+                  <img src="./next/404_1.png" />
+                  <p>
+                    پس حالت default برای Cache در نکست 15 مقدار no-store
+                    است(یعنی چیزی ذخیره نمی شود) مثل اینکه آبجکت با آیتم
+                    <span dir="ltr">cache:"no-store"</span> را به fetch داده
+                    باشیم.
+                  </p>
+                  <img src="./next/404_2.png" />
+                  <p>
+                    که در نکست 14 حالت default برای Cache مقدار force-cache بود.
+                  </p>
+                  <img src="./next/404_3.png" />
+                  <p>
+                    پس صفحه CachePage در حالت default یک صفحه Static نیست که در
+                    زمان build ساخته شود چون دیتا را Cache کرده و ذخیره نمی کند
+                    و در هر request دیتا را می گیرد و صفحه جدید به ما می دهد اما
+                    چرا در تصویر زیر که از پروژه build گرفتیم صفحه
+                    CachePage(همان caching) را جزو صفحات Static حساب کرده است؟
+                  </p>
+                  <img src="./next/404_4.png" />
+                  <p>
+                    و حتی اگر npm start را بزنیم و صفحه را رفرش کنیم می بینیم که
+                    در هربار رفرش کردن clg را از data نمی گیرد یعنی هربار دیتای
+                    جدید نمی گیرد چرا؟
+                  </p>
+                  <p>
+                    چون نکست دیتا را Cache کرده و ذخیره نمی کند ولی نه در همه
+                    صفحات.
+                  </p>
+                  <p>
+                    نکست صفحات را بررسی می کند(Optimization را انجام می دهد) تا
+                    ببیند اگر صفحه ای مستعد Static بودن است دیتای آن را Cache
+                    کرده و ذخیره می کند و آن را Static در نظر می گیرد همانطور که
+                    در تصویر بالا می بینیم صفحات async-api را Dynamic در نظر
+                    گرفته است چون نکست به async request apiها حساس است یعنی وقتی
+                    ببیند در یک صفحه async request api مثل cookie و headers و
+                    params و searchParams وجود دارد صفحه را بصورت default
+                    داینامیک در نظر می گیرد که دیتایی داخل آن Cache نمی شود و با
+                    هربار request فرستادن دیتای این نوع از صفحات گرفته می شود.
+                  </p>
+                  <p>
+                    اگر بخواهیم نکست صفحه ما را Dynamic در نظر بگیرد عبارت زیر
+                    را به بالای صفحه اضافه می کنیم.
+                  </p>
+                  <p dir="ltr">export const dynamic="force-dynamic";</p>
+                  <img src="./next/404_5.png" />
+                  <p>
+                    اگر آبجکت با آیتم <span dir="ltr">cache:"no-store"</span> را
+                    به fetch اضافه کنیم هم صفحه را Dynamic در نظر می گیرد.
+                  </p>
+                  <img src="./next/404_6.png" />
+                  <p>
+                    اگر در API Route یک روت GET ایجاد کنیم آنجاهم Cache را انجام
+                    نمی دهد(که در ورژن های قبلی نکست Cache را انجام میداد)
+                  </p>
+                  <p>
+                    در نکست 15 وقتی در سمت Client از یک Route به Route دیگری می
+                    رویم هم Caching صورت نمی گیرد و اگر به Route قبلی برگردیم
+                    دیتای تازه را می گیرد و صفحه را با دیتای جدید نشان می دهد.
+                  </p>
+                  <p>
+                    و اگر بخواهیم در سمت Client بحث Caching را داشته باشیم داخل
+                    فایل next.config.mjs به آبجکت nextConfig آیتم staleTimes را
+                    داخل آیتم experimental بصورت زیر اضافه می کنیم.
+                  </p>
+                  <img src="./next/404_7.png" />
+                  <p>
+                    در تصویر بالا 30 برحسب ثانیه است یعنی اگر 30 ثانیه بیشتر شد
+                    و کاربر به آن صفحه رفت دوباره دیتا را بگیر و Cache کن که می
+                    توانیم بجای آن هر مقدار دلخواهی برحسب ثانیه بدهیم.
+                  </p>
+                </div>
+                <h4 id="j405next">
+                  جلسه چهارصد و پنجم: Static Route Indicator
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    یک قابلیت جدید که نکست 15 اضافه کرده است و به ما این امکان
+                    را می دهد که در حین develop بتوانیم متوجه شویم یک روت Static
+                    است یا Dynamic.
+                  </p>
+                  <p>
+                    Static به این معنی است که دیتای صفحه ثابت است و صفحه حین
+                    build ساخته می شود و Dynamic هم روت هایی هستند که با هربار
+                    request یا بصورت های مختلف، صفحات آپدیت می شوند.
+                  </p>
+                  <p>
+                    در صفحه مرورگر پایین صفحه سمت چپ یک دایره مشکی هست که داخل
+                    آن نوشته N که اگر روی آن کلیک کنیم نشان می دهد Routeی که
+                    الآن در آدرس آن هستیم Static است یا Dynamic.
+                  </p>
+                  <img src="./next/405_1.png" />
+                  <img src="./next/405_2.png" />
+                  <p>
+                    حتی اگر روی Route کلیک کنیم توضیحات بیشتری راجع به آن می
+                    دهد.
+                  </p>
+                  <img src="./next/405_3.png" />
+                </div>
+                <h4 id="j406next">جلسه چهارصد و ششم: Turbopack Dev</h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر روی همان باتن N در جلسه پیش گفتیم کلیک کنیم گزینه Try
+                    Turbopack هست که اگر روی آن کلیک کنیم نحوه استفاده از
+                    Turbopack را نشان می دهد.
+                  </p>
+                  <img src="./next/406_1.png" />
+                  <p>
+                    طبق راهنمایی گفته شده turbopack-- را به اسکریپت dev در فایل
+                    package.json اضافه می کنیم.
+                  </p>
+                  <img src="./next/406_2.png" />
+                  <p>سپس پروژه را با دستور npm run dev ران می کنیم.</p>
+                  <p>
+                    حال اگر روی باتن N در مرورگر کلیک کنیم Turbopack را Enabled
+                    نشان می دهد.
+                  </p>
+                  <img src="./next/406_3.png" />
+                  <p>
+                    در این حالت عملیات رندر شدن صفحه سریع تر(تا 76.7%) انجام می
+                    شود که در پروژه های سنگین این تغییر سرعت در رندر شدن صفحه
+                    محسوس تر است.
+                  </p>
+                </div>
+                <h4 id="j407next">
+                  جلسه چهارصد و هفتم: Hydration error improvements
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در نکست 15 ارورهای مربوط به Hydration بهبود پیدا کرده است و
+                    قسمتی که منجر به ارور Hydration شده است را دقیقا نشان می دهد
+                    که موجب راحت تر پیدا شدن عامل ارور و برطرف کردن آن می شود.
+                  </p>
+                </div>
+                <h4 id="j408next">جلسه چهارصد و هشتم: Form Component</h4>
+                <div class="sessionContent">
+                  <p>
+                    در نکست 15 یک کامپوننت به اسم Form اضافه شده است. کاربرد این
+                    کامپوننت چیست؟
+                  </p>
+                  <p>
+                    وقتی داخل یک Search Input چیزی را سرچ می کنیم و Enter را می
+                    زنیم به یک صفحه دیگر رفته و نتایج آن سرچ را نشان می دهد. این
+                    کامپوننت برای این مورد کاربرد دارد.
+                  </p>
+                  <p>
+                    برای این کامپوننت مقدار action را یک Route می دهیم که وقتی
+                    فرم Submit شد کاربر را به آن Route بفرستد.
+                  </p>
+                  <p>
+                    مقداری که به اتریبیوت name تگ input می دهیم را هم به عنوان
+                    نام query قرار می دهد.
+                  </p>
+                  <p>
+                    در مثال زیر ما می خواهیم وقتی بات Submit شد ما را به روت
+                    result ببرد و نام query را هم test در نظر بگیرد.
+                  </p>
+                  <img src="./next/408_1.png" />
+                  <img src="./next/408_2.png" class="formComponentImage" />
+                  <img src="./next/408_3.png" class="formComponentImage" />
+                  <p>
+                    در صفحه(روت) result به کمک searchParams چیزی که کاربر داخل
+                    input وارد کرده است را می گیریم.
+                  </p>
+                  <img src="./next/408_4.png" />
+                </div>
+                <h4 id="j409next">
+                  جلسه چهارصد و نهم: Support for next.config.ts & ESLint 9
+                  Support
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    این آپدیت برای TypeScript است و نکست 15 از فایل
+                    next.config.ts هم پشتیبانی می کند.
+                  </p>
+                  <p>
+                    همچنین نکست 15 از ESLint ورژن 9 استفاده می کند البته با ورژن
+                    های قبلی ESLint هم سازگاز است.
+                  </p>
+                </div>
+                <h4 id="j410next">
+                  جلسه چهارصد و دهم: Enhanced Security for Server Actions
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در نکست 15 در بحث Server Actionها یکسری مسائل امنیتی ارتقا
+                    پیدا کرده است.
+                  </p>
+                  <p>
+                    بحث Server Actionها به
+                    <a href="#next14" class="linkInParagraph"
+                      >فصل بیست و هفتم نکست</a
+                    >
+                    که به آپدیت نکست 14 پرداخته است مربوط می شود که در آنجا هوک
+                    useFormState را داشتیم که به useActionState تغییر پیدا کرده
+                    است.
+                  </p>
+                  <p>
+                    Server Actionها فانکشن هایی هستند که می توانیم در سمت Client
+                    آنها را کال کنیم اما در سمت سرور اجرا می شوند.
+                  </p>
+                  <p>
+                    درواقع برای Server Actionها یک API(endpoint) ایجاد می شود که
+                    public است و چون public هستند قابل سواستفاده بوده و برای
+                    موارد حساس نباید از آنها استفاده کنیم.
+                  </p>
+                  <p>
+                    برای بالا بردن امنیت در Server Actionها نکست 15 دو کار را
+                    انجام داده است.
+                  </p>
+                  <p>
+                    1- کدهای مرده(غیر قابل استفاده) را حذف می کند یعنی Server
+                    Actionهایی که استفاده نمی شوند را اصلا به سمت Client نمی
+                    فرستد.
+                  </p>
+                  <p>
+                    2- برای هرکدام از Server Actionها یک id ایجاد می کند که غیر
+                    قابل حدس و غیر قابل محاسبه است که امنیت آنها را با این کار
+                    بالا می برد یعنی حتما باید id باشد تا نکست requestی که آمده
+                    است را معتبر بداند و به آن response بدهد.
+                  </p>
                 </div>
               </div>
             </div>

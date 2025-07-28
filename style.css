@@ -605,6 +605,15 @@ img {
   height: 900px;
 }
 
+.useActionStateInNext{
+  width: 800px;
+  height: 1200px;
+}
+
+.formComponentImage{
+  height: 90px;
+}
+
 @font-face {
   font-family: "iranyekanwebmedium";
   src: url(/fonts/iranyekanwebmedium.woff) format("woff");
