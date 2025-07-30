@@ -3510,8 +3510,7 @@
             جلسه صد و هشتاد و هفتم: ایجاد api برای تکمیل اطلاعات کاربر
           </a>
           <a href="#j188next" class="sessionIndex">
-            جلسه صد و هشتاد و هشتم: پیاده کردن فرم تکمیل اطلاعات کاربر در سمت
-            Client
+            جلسه صد و هشتاد و هشتم: پیاده کردن فرم تکمیل اطلاعات در سمت Client
           </a>
           <a href="#authWithCredentialsMethod" class="chapterIndex">
             فصل سیزدهم: کتابخانه Next-Auth و احراز هویت با روش Credentials
@@ -23973,6 +23972,774 @@
                     در فایل robots.txt می توانیم sitemapمان را هم معرفی کنیم.
                   </p>
                   <img src="./next/165_1.png" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="authorizationAndAuthentication">
+                فصل دوازدهم: بحث Authentication و Authorization و پیاده سازی از
+                صفر تا صد
+              </h3>
+              <div class="sessions">
+                <h4 id="j166next">جلسه صد و شصت و ششم: مقدمه</h4>
+                <h4 id="j167next">
+                  جلسه صد و شصت و هفتم: بررسی مفاهیم Authentication و
+                  Authorization
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    بطور خلاصه در بحث Authentication به هویت کاربر و در بحث
+                    Authorization به دسترسی کاربر می پردازیم.
+                  </p>
+                  <p>
+                    یعنی در بحث Authentication می خواهیم ببینیم کاربری که
+                    درخواست می فرستد چه کسی است اما در بحث Authorization سطح
+                    دسترسی کاربر را مشخص می کنیم.
+                  </p>
+                </div>
+                <h4 id="j168next">جلسه صد و شصت و هشتم: jwt چیست؟</h4>
+                <div class="sessionContent">
+                  <p>
+                    jwt مخفف json web token می باشد و از jwt برای دسترسی دهی به
+                    کاربرها برای صفحات مختلف استفاده می کنیم.
+                  </p>
+                  <p>
+                    وقتی عملیات ثبتنام توسط کاربری انجام می شود و می خواهد لاگین
+                    کند یک jwt برای آن کاربر ایجاد می کنیم و داخل آن jwt اطلاعات
+                    کاربر را قرار می دهیم(بصورت رمزنگاری شده)
+                  </p>
+                  <p>
+                    برای ایجاد jwt به یک secret key برای sign(امضا) کردن token
+                    نیاز داریم. که این secret key می تواند هر چیزی باشد و دلخواه
+                    است. secret key مثل یک کلید عمل می کند. وقتی jwt را ایجاد می
+                    کنیم تا اطلاعات را داخل آن قرار دهیم به کمک این کلید آن را
+                    ایجاد می کنیم و برای اینکه jwt را بفهمیم و اطلاعاتی که داخل
+                    آن است را بگیریم نیاز به یک کلید داریم که آن jwt را باز کند
+                    و اطلاعات را بدهد که همان secret key است.
+                  </p>
+                  <p>
+                    secret key را فقط باید خودمان داشته باشیم و نباید کسی به آن
+                    دسترسی داشته باشد چون می تواند tokenهایمان را رمزگشایی کند.
+                    عملا با secret key توکن هایی که ایجاد کردیم را sign(امضا) می
+                    کنیم تا مشخص کنیم آن توکن ها را ایجاد کرده ایم و اگر کاربری
+                    یک توکن فیک سمت ما بفرستد چون امضایی ندارد(با secret key ما
+                    درست نشده) متوجه فیک بودن آن می شویم.
+                  </p>
+                  <p>
+                    به هر کاربر یک token خاص اختصاص داده می شود تا وقتی درخواستی
+                    به سمت سرور می فرستد آن توکن را هم بفرستد تا او را بشناسیم.
+                  </p>
+                  <p>jwtها به هیج عنوان در سرور ذخیره نمی شوند.</p>
+                  <p>تصویر زیر یک نمونه از jwt می باشد.</p>
+                  <img src="./next/168_1.png" />
+                </div>
+                <h4 id="j169next">جلسه صد و شصت و نهم: Cookie چیست؟</h4>
+                <div class="sessionContent">
+                  <p>
+                    Local storage و Session storage و Cookies برای ذخیره کردن
+                    اطلاعات در مرورگر کاربر و در سمت Client هستند اما تفاوت هایی
+                    باهم دارند.
+                  </p>
+                  <p>
+                    حجم اطلاعاتی که در Cookie می توانیم ذخیره کنیم خیلی کمتر از
+                    Local Storage و Session storage می باشد و در Cookie حدود 4
+                    کیلوبایت می توانیم ذخیره کنیم اما در Local storage تا چندین
+                    مگابایت هم می توانیم ذخیره کنیم.
+                  </p>
+                  <p>
+                    در Local storage وقتی اطلاعات را ذخیره می کنیم تا زمانی که
+                    کاربر آن ها را از remove ، Local storage نکند در آنجا می
+                    مانند و در Session storage هم تا زمانی که کاربر tab مرورگر
+                    را نبندد اطلاعات باقی می مانند اما در Cookieها می توانیم
+                    برای اطلاعات expire date قرار دهیم یعنی برای اطلاعات زمانی
+                    تعیین کنیم تا بعد از گذشت آن زمان حذف شوند.
+                  </p>
+                  <p>
+                    به Local storage و Session storage فقط در سمت Client می
+                    توانیم مقدار دهیم(یعنی فقط از سمت Client می توانیم داخل آنها
+                    دیتا ذخیره کنیم) اما در Cookie هم از سمت Client و هم از سمت
+                    Server می توانیم داخل آن دیتا ذخیره کنیم.
+                  </p>
+                  <p>
+                    وقتی از سمت Client به سمت سرور درخواست می فرستیم Cookie هم
+                    همراه با آن به سمت سرور فرستاده می شود اما Local storage و
+                    Session storage را نمی توانیم بفرستیم به همین دلیل حجم
+                    Cookie کم است.
+                  </p>
+                  <p>
+                    وقتی jwt را ایجاد می کنیم آن را در Cookie ذخیره می کنیم و
+                    وقتی درخواست به سمت سرور ارسال می شود Cookie هم ارسال شده و
+                    jwt داخل آن را در سمت سرور گرفته و با استفاده از secret key
+                    می فهمیم که token معتبر است یا نه و متعلق به چه کسی است.
+                  </p>
+                </div>
+                <h4 id="j170next">جلسه صد و هفتادم: بررسی فرآیند احراز هویت</h4>
+                <div class="sessionContent">
+                  <p>در یک سایت ابتدا فرآیند Sign up(ثبتنام) انجام می گیرد.</p>
+                  <p>
+                    سپس وقتی Sign in(Login) انجام می شود jwt ساخته شده و در
+                    cookie مرورگر کاربر ذخیره می شود(jwt به هیچ عنوان در سرور
+                    ذخیره نمی شود)
+                  </p>
+                  <p>
+                    وقتی Sign out(Logout) انجام می شود jwt از cookie مرورگر
+                    کاربر حذف می شود.
+                  </p>
+                </div>
+                <h4 id="j171next">
+                  جلسه صد و هفتاد و یکم: ایجاد مدل User و ارتباط با دیتابیس
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    فانکشن connectDB و اسکیمای userSchema و مدل User را تعریف می
+                    کنیم.
+                  </p>
+                  <img src="./next/171_1.png" />
+                  <img src="./next/171_2.png" />
+                </div>
+                <h4 id="j172next">
+                  جلسه صد و هفتاد و دوم: ایجاد api برای ثبتنام(Sign up)
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای اینکه پسورد کاربر را در Data Base ذخیره کنیم بهتر است
+                    آن را hash(رمزگذاری) کنیم و سپس در Data Base ذخیره کنیم.
+                    برای این کار از لایبری bcryptjs استفاده کرده و با دستور npm
+                    install bcryptjs آن را نصب می کنیم سپس با متد ()hash پسورد
+                    را hash می کنیم.
+                  </p>
+                  <p>
+                    عددی که به عنوان ورودی دوم به متد hash می دهیم یک مقدار
+                    دلخواه است.
+                  </p>
+                  <img src="./next/172_1.png" />
+                  <p>در تصویر زیر api مربوط به ثبتنام را نوشتیم.</p>
+                  <img src="./next/172_2.png" class="signupApiImage" />
+                </div>
+                <h4 id="j173next">
+                  جلسه صد و هفتاد و سوم: ایجاد فرم ثبتنام در فرانت
+                </h4>
+                <div class="sessionContent">
+                  <p>در تصویر زیر فرم مربوط به ثبتنام در فرانت را ساختیم.</p>
+                  <img src="./next/173_1.png" class="signupFormImage" />
+                </div>
+                <h4 id="j174next">
+                  جلسه صد و هفتاد و چهارم: ایجاد api برای ورود به حساب
+                  کاربری(Login)
+                </h4>
+                <div class="sessionContent">
+                  <p>تصویر زیر کدهای api برای ورود به حساب کاربری است.</p>
+                  <img src="./next/174_1.png" class="loginApiImage" />
+                </div>
+                <h4 id="j175next">
+                  جلسه صد و هفتاد و پنجم: مقایسه پسورد اصلی و پسورد hash شده در
+                  دیتابیس
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای مقایسه پسورد اصلی و پسورد hash شده از متد ()compare
+                    لایبری bcryptjs استفاده می کنیم.
+                  </p>
+                  <img src="./next/175_1.png" class="comaprePassImage" />
+                  <p>
+                    تصویر زیر ادامه کدهای api برای ورود به حساب کاربری می باشد.
+                  </p>
+                  <img src="./next/175_2.png" class="loginApiImage2" />
+                </div>
+                <h4 id="j176next">جلسه صد و هفتاد و ششم: ایجاد jwt در سرور</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد jwt از لایبری jsonwebtoken استفاده می کنیم و
+                    ابتدا با دستور npm install jsonwebtoken آن را نصب می کنیم.
+                  </p>
+                  <p>
+                    برای ایجاد token هر کاربر از email آن کاربر هم داخل token
+                    مخصوص خودش استفاده می کنیم همچنین باید یک secret key هم برای
+                    ایجاد jwt مشخص کنیم که آن را فقط باید خودمان در سمت سرور
+                    بدانیم(هر چیزی می تواند باشد) تا به کمک آن secret key هم
+                    token را رمزگذاری کنیم هم token رمزگذاری شده را از حالت
+                    رمزگذاری شده دربیاوریم.
+                  </p>
+                  <p>پس secret key را به هیچ عنوان سمت Client نمی فرستیم.</p>
+                  <p>برای ساخت token از متد ()sign استفاده می کنیم.</p>
+                  <p>
+                    به عنوان ورودی اول به ()sign یک آبجکت می دهیم که در آن آبجکت
+                    مشخص می کنیم token شامل چه اطلاعاتی از کاربر باشد.
+                  </p>
+                  <p>به عنوان ورودی دوم به ()secret key ، sign را می دهیم.</p>
+                  <p>
+                    به عنوان ورودی سوم به ()sign آپشن های مورد نیاز(مثل expire
+                    date) را بصورت یک آبجکت می دهیم(مقدار آیتم expiresIn را بر
+                    حسب ثانیه می دهیم)
+                  </p>
+                  <img src="./next/176_1.png" class="signImage" />
+                </div>
+                <h4 id="j177next">
+                  جلسه صد و هفتاد و هفتم: ذخیره کردن jwt در Cookie
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    به cookieهای از نوع httpOnly فقط در سمت سرور دسترسی داریم و
+                    در سمت Client هر نوع کدی بنویسیم به آن دسترسی نخواهیم داشت.
+                  </p>
+                  <p>
+                    برای ذخیره کردن jwt ایجاد شده در cookie به resی که به سمت
+                    Cilent می فرستیم متد ()setHeader را اضافه کرده و به عنوان
+                    ورودی اول به آن "Set-Cookie را می دهیم."
+                  </p>
+                  <p>
+                    برای اینکه یکسری مشخصات دیگر هنگام ذخیره کردن jwt در cookie
+                    را ست کنیم(مشخصاتی مثل httpOnly بودن cookie یا تعیین expire
+                    date تا بعد از گذشت آن مدت زمان token ذخیره شده در cookie
+                    حذف شود) از لایبری cookie استفاده می کنیم و ابتدا با دستور
+                    npm i cookie آن را نصب می کنیم.
+                  </p>
+                  <p>
+                    از متد ()serialize لایبری cookie برای مشخص کردن نام token و
+                    token و مشخصات آن token استفاده می کنیم.
+                  </p>
+                  <img src="./next/177_1.png" class="saveJwtInCookieImage" />
+                  <p>
+                    تصویر زیر فایل api کامل شده برای ورود به حساب کاربری می
+                    باشد.
+                  </p>
+                  <img src="./next/177_2.png" class="copmleteLoginApiImage" />
+                </div>
+                <h4 id="j178next">
+                  جلسه صد و هفتاد و هشتم: ایجاد فرم ورود در فرانت
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    تصویر زیر کدهای فرم ورود به حساب کاربری در سمت فرانت می
+                    باشد.
+                  </p>
+                  <img src="./next/178_1.png" class="loginFormImage" />
+                </div>
+                <h4 id="j179next">
+                  جلسه صد و هفتاد و نهم: بررسی روش های محافظت از صفحات
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    وقتی کاربر لاگین کرد و token در cookie ذخیره شد نباید به
+                    صفحات Signin و Signup دسترسی داشته باشد و اگر token را از
+                    cookie حذف کنیم باید کاربر به صفحات Signin و Signup دسترسی
+                    داشته باشد و به صفحه dashboard دسترسی نداشته باشد.
+                  </p>
+                  <p>
+                    دسترسی به صفحات مختلف را به دو صورت می توانیم مدیریت کنیم؛
+                    1- client side 2- server side
+                  </p>
+                </div>
+                <h4 id="j180next">
+                  جلسه صد و هشتادم: ایجاد api برای احراز هویت و محافظت از صفحات
+                  در فرانت
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    چون در سمت client به cookie دسترسی نداریم(چون cookie را
+                    بصورت httpOnly ست کردیم) همچنین به secret key دسترسی نداریم
+                    تا بتوانیم token را از حالت رمزگذاری شده درآورده و کاربر را
+                    بشناسیم پس یک api می سازیم تا یک درخواست GET به آن api
+                    بفرستیم و در آنجا به cookie دسترسی داریم و token را گرفته و
+                    validation را روی token انجام می دهیم و اگر OK ، validation
+                    بود یک res به سمت فرانت می فرستیم که کاربر ثبتنام کرده است و
+                    اگر OK نبود یک res می فرستیم که کاربر ثبتنام نکرده است.
+                  </p>
+                  <p>
+                    در api به کمک req.cookies می توانیم cookieها را بگیریم. اگر
+                    token وجود نداشت که کار ساده است و دسترسی به صفحه dashboard
+                    داده نمی شود اما اگر token وجود داشت باید چک کنیم ببینیم
+                    token معتبر است یا خیر، برای این کار از متد ()verify لایبری
+                    jsonwebtoken استفاده می کنیم که به آن دو ورودی می دهیم.
+                    ورودی اول token و ورودی دوم secret key است.
+                  </p>
+                  <p>
+                    چون متد verify در صورت درست نبودن token کلا ارور می دهد از
+                    try-catch استفاده می کنیم.
+                  </p>
+                  <img src="./next/180_1.png" class="verifyTokenImage" />
+                  <p>تصویر زیر کدهای مربوط به api احراز هویت می باشد.</p>
+                  <img src="./next/180_2.png" class="authApiImage" />
+                </div>
+                <h4 id="j181next">
+                  جلسه صد و هشتاد و یکم: احراز هویت و محافظت از صفحات در سمت
+                  Client
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    هوک useEffect را به کدهای صفحه Signin و Signup اضافه می
+                    کنیم.
+                  </p>
+                  <img src="./next/181_1.png" />
+                  <p>
+                    چون در تصویر بالا وقتی روی باتن Sign In کلیک می کنیم ما را
+                    به صفحه signin/ فرستاده و در آنجا بلافاصله بخاطر وجود token
+                    ما را به صفحه dashboard/ می فرستد ارور تصویر زیر را می دهد.
+                  </p>
+                  <img src="./next/181_2.png" />
+                  <p>
+                    برای رفع این ارور خط 14 تصویر بالا را بصورت زیر می نویسیم که
+                    باعث ریلود شدن صفحه می شود ولی ارور باقی نمی ماند.
+                  </p>
+                  <img src="./next/181_3.png" />
+                  <p>
+                    تصاویر زیر کدهای مربوط به صفحه های Signin و Signup در سمت
+                    فرانت پس از اضافه شدن هوک useEffect برای محافظت از صفحه می
+                    باشند.
+                  </p>
+                  <img src="./next/181_4.png" class="signinCodesImage" />
+                  <img src="./next/181_5.png" class="signupCodesImage" />
+                </div>
+                <h4 id="j182next">
+                  جلسه صد و هشتاد و دوم: احراز هویت و محافظت از صفحات در سمت
+                  Server
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای اینکار از فانکشن getServerSideProps استفاده می کنیم.
+                  </p>
+                  <img src="./next/182_1.png" />
+                  <p>
+                    از getStaticProps نمی توانیم استفاده کنیم چون هربار که
+                    درخواست سمت سرور فرستاده می شود باید فانکشن اجرا شود اما
+                    getStaticProps یکبار موقع build اجرا می شود و در صفحات ISR
+                    هم وقتی revalidate time تمام شده باشد اجرا می شود.
+                  </p>
+                  <p>
+                    وقتی احراز هویت و محافظت از صفحات در سمت سرور انجام می گیرد
+                    دیگر یک لحظه به صفحه موردتظر رفتن و سپس redirect شدن نداریم
+                    و همان مستقیم به صفحه redirect شده می رود.
+                  </p>
+                </div>
+                <h4 id="j183next">
+                  جلسه صد و هشتاد و سوم: ایجاد api برای خروج از حساب
+                  کاربری(Logout)
+                </h4>
+                <div class="sessionContent">
+                  <p>باید token را از cookie پاک کنیم.</p>
+                  <p>
+                    برای حذف token از cookie از متد ()serialize لایبری cookie
+                    استفاده می کنیم. به این صورت که یک token با مقدار " " و نام
+                    token و maxAge:0 ست کند. در اینصورت چون maxAge:0 است پس از 0
+                    ثانیه کلا token با رشته خالی هم پاک می شود.
+                  </p>
+                  <img src="./next/183_1.png" />
+                  <img src="./next/183_2.png" />
+                </div>
+                <h4 id="j184next">
+                  جلسه صد و هشتاد و چهارم: ایجاد گزینه خروج از حساب کاربری در
+                  سمت Client
+                </h4>
+                <div class="sessionContent">
+                  <p>باتن Sign out را در صفحه اصلی(index) می سازیم.</p>
+                  <img src="./next/184_1.png" />
+                </div>
+                <h4 id="j185next">
+                  جلسه صد و هشتاد و پنجم: نشان دادن المان ها در سایت بر اساس
+                  احراز هویت
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم وقتی Sign in انجام شد و token به cookie اضافه شد
+                    دیگر باتن های Sign In و Sign Up را نشان ندهد یا وقتی Sign
+                    out انجام شد و token از cookie حذف شد دیگر باتن های
+                    Dashboard و Sign Out را نشان ندهد. که این را هم بصورت client
+                    side و هم به صورت server side می توانیم هندل کنیم که ما
+                    بصورت client side در صفحه اصلی هندل می کنیم.
+                  </p>
+                  <img src="./next/185_1.png" class="authImage" />
+                </div>
+                <h4 id="j186next">
+                  جلسه صد و هشتاد و ششم: بررسی احراز هویت در api routeها
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم وقتی لاگین کردیم به صفحه dashboard رفته و
+                    اطلاعاتمان را کامل کنیم اطلاعاتی مثل name و last name و...
+                    تا آنها هم در Data Base ذخیره شوند.
+                  </p>
+                  <p>
+                    بحث امنیت در سمت فرانت معنایی ندارد چون همه کدها را می
+                    توانیم در source code ببینیم. بحث امنیت در سمت سرور معنا
+                    پیدا می کند چون نکست یک فریمورک فول استک است پس لازم است که
+                    بحث امنیت را در اینجا لحاظ کنیم.
+                  </p>
+                  <p>
+                    برای امنیت بیشتر کاربری که لاگین کرد token را چک کرده و آن
+                    را verify می کنیم سپس email آن را از token گرفته و اطلاعات
+                    آن کاربر را آپدیت می کنیم.
+                  </p>
+                </div>
+                <h4 id="j187next">
+                  جلسه صد و هشتاد و هفتم: ایجاد api برای تکمیل اطلاعات کاربر
+                </h4>
+                <div class="sessionContent">
+                  <p>ابتدا به مدل name ، User و lastName را اضافه می کنیم.</p>
+                  <img src="./next/187_1.png" />
+                  <p>تصویر زیر کدهای api برای تکمیل اطلاعات کاربر می باشد.</p>
+                  <img
+                    src="./next/187_2.png"
+                    class="completeUserDataApiImage" />
+                </div>
+                <h4 id="j188next">
+                  جلسه صد و هشتاد و هشتم: پیاده کردن فرم تکمیل اطلاعات در سمت
+                  Client
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    تصویر زیر کدهای مربوط به فرم تکمیل اطلاعات در صفحه dashboard
+                    می باشد.
+                  </p>
+                  <img
+                    src="./next/188_1.png"
+                    class="completeUserDataFormImage" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="authWithCredentialsMethod">
+                فصل سیزدهم: کتابخانه Next-Auth و احراز هویت با روش Credentials
+              </h3>
+              <div class="sessions">
+                <h4 id="j189next">جلسه صد و هشتاد و نهم: مقدمه</h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم عمل Authentication را به کمک لایبری Next-Auth
+                    انجام دهیم.
+                  </p>
+                  <p>
+                    Next-Auth امکانات دیگری هم برای ما فراهم می کند مثل ورود با
+                    اکانت github یا ورود با اکانت google و facebook و...
+                  </p>
+                  <p>
+                    همچنین credentials ، Next-Auth هم دارد یعنی از طریق username
+                    و password هم می توانیم عملیات لاگین را انجام دهیم.
+                  </p>
+                </div>
+                <h4 id="j190next">
+                  جلسه صد و نودم: اضافه کردن فانکشن های مورد نیاز
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    لایبری mongoose را نصب کرده و فانکشن connectDB را دقیقا مثل
+                    فصل قبل می نویسیم.
+                  </p>
+                  <img src="./next/190_1.png" />
+                  <p>
+                    لایبری bcryptjs را نصب کرده و فانکشن های hashPassword و
+                    verifyPassword را مثل فصل قبل می نویسیم.
+                  </p>
+                  <img src="./next/190_2.png" />
+                </div>
+                <h4 id="j191next">جلسه صد و نود و یکم: اضافه کردن مدل User</h4>
+                <div class="sessionContent">
+                  <p>مدل User را مثل فصل قبل می نویسیم.</p>
+                  <img src="./next/191_1.png" />
+                </div>
+                <h4 id="j192next">
+                  جلسه صد و نود و دوم: ایجاد api برای ثبتنام
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    کدهای مربوط به api برای ثبتنام را داخل فایل signup.js در
+                    فولدر pages/api/auth می نویسیم(دقیقا مثل فصل قبل)
+                  </p>
+                  <img src="./next/192_1.png" class="signupApiImage" />
+                </div>
+                <h4 id="j193next">جلسه صد و نود و سوم: ایجاد فرم ثبتنام</h4>
+                <div class="sessionContent">
+                  <p>
+                    کدهای مربوط به فرم ثبتنام را در فایل signup.js داخل فولدر
+                    pages می نویسیم(دقیقا مثل فصل قبل)
+                  </p>
+                  <img src="./next/193_1.png" class="signupFormImage" />
+                </div>
+                <h4 id="j194next">
+                  جلسه صد و نود و چهارم: معرفی لایبری next-auth
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در این دوره از ورژن 4.19.2 لایبری next-auth استفاده می کنیم
+                    و به سایت next-auth.js.org رفته و داکیومنت آن را می خوانیم.
+                  </p>
+                  <p>
+                    با دستور npm install next-auth این لایبری را نصب می کنیم سپس
+                    در فولدر pages/api/auth فایل
+                    <span dir="ltr">[...nextauth].js</span> را می سازیم(می دانیم
+                    که این فایل Catch All Routes است که در فصل قبل برای هر Route
+                    یک فایل می ساختیم مثل signin.js و signout.js و...)
+                  </p>
+                  <p>
+                    next-auth باهوش عمل می کند یعنی اگر برای یک Route فایلی
+                    موجود باشد، آن فایل درخواست را می گیرد اما اگر نباشد
+                    <span dir="ltr">[...nextauth].js</span> آن درخواست را می
+                    گیرد.
+                  </p>
+                  <p>
+                    داخل فایل <span dir="ltr">[...nextauth].js</span> دیگر
+                    header را تعریف و export نمی کنیم و NextAuth را از لایبری
+                    import ، next-auth کرده و در نهایت هم آن را export می کنیم.
+                  </p>
+                  <p>
+                    داخل آبجکت authOptions(آبجکتی که به عنوان ورودی به NextAuth
+                    می دهیم) در آیتم provider ، providers موردنظر برای ثبتنام را
+                    مشخص می کنیم مثلا ثبتنام با استفاده از اکانت github یا
+                    facebook و یا... انجام گیرد. که در جلسات بعد بصورت کامل به
+                    آنها می پردازیم.
+                  </p>
+                </div>
+                <h4 id="j195next">
+                  جلسه صد و نود و پنجم: ایجاد روت
+                  <span dir="ltr">[...nextauth]</span> برای هندل کردن درخواست ها
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    فایل <span dir="ltr">[...nextauth].js</span> را در فولدر
+                    pages/api/auth می سازیم.
+                  </p>
+                  <p>
+                    NextAuth را از import ، next-auth کرده و در آخر هم آن را
+                    export می کنیم.
+                  </p>
+                  <p>
+                    در اینجا دیگر فانکشن handler را تعریف نمی کنیم و NextAuth
+                    داخل خودش فانکشن handler را دارد به همین دلیل به جای فانکشن
+                    handler ما آن را export می کنیم.
+                  </p>
+                  <p>
+                    هنگام export کردن NextAuth داخل پرانتز آن به عنوان ورودی
+                    آبجکت authOptions را می دهیم.
+                  </p>
+                  <p>
+                    عملیات ثبتنام را با فایل signup.js انجام می دهیم اما عملیات
+                    signin و signout را با فایل
+                    <span dir="ltr">[...nextauth].js</span> و فانکشن NextAuth
+                    انجام می دهیم.
+                  </p>
+                  <p>
+                    داخل آبجکت authOptions آیتم strategy در آبجکت session را jwt
+                    مقدار می دهیم یعنی برای عملیات login و logout از token
+                    استفاده کن که بصورت default آن را هم داخل cookie ذخیره می
+                    کند.
+                  </p>
+                  <p>
+                    اگر می خواهیم عملیات ورود و خروج را با username و password
+                    هندل کنیم به آیتم providers در آبجکت authOptions یک آرایه با
+                    مقدار CredentialsProvider را می دهیم.
+                  </p>
+                  <p>
+                    همچنین به فانکشن CredentialsProvider به عنوان ورودی یک آبجکت
+                    با آیتم های name و credentials می دهیم به کمک این دو آیتم می
+                    توانیم یک فرم با inputهایی که می خواهیم را در سمت فرانت
+                    بسازیم.
+                  </p>
+                  <p>
+                    به آبجکتی که به عنوان ورودی به فانکشن CredentialsProvider
+                    دادیم فانکشن ()async authorize را هم می دهیم که این فانکشن
+                    هم دو ورودی credentials و req را می گیرد که این فانکشن
+                    عملیات شناسایی(authorization) را انجام می دهد و credentials
+                    همان username و passwordی است که از داخل فرم login سمت فرانت
+                    ارسال می شود و این فانکشن یک آبجکت را return می کند.
+                  </p>
+                  <img src="./next/195_1.png" />
+                </div>
+                <h4 id="j196next">
+                  جلسه صد و نود و ششم: بررسی فرم های ایجاد شده توسط nextauth
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر در قسمت فرانت فانکشن ()signIn لایبری next-auth را کال
+                    کنیم(مثلا در onClick یک باتن) ما را به صفحه ای می فرستد که
+                    در تصویر جلسه قبل در قسمت input ، credentialsهای آن را
+                    ساختیم.
+                  </p>
+                  <img src="./next/196_1.png" />
+                  <img src="./next/196_2.png" />
+                  <p>
+                    در قسمت name در خط 8 تصویر زیر هرچه بنویسیم در باتن Sign in
+                    آن را نشان می دهد.
+                  </p>
+                  <img src="./next/196_3.png" />
+                  <img src="./next/196_4.png" />
+                  <p>
+                    اما اگر بخواهیم در سمت فرانت، خودمان یک فرم بسازیم تا آن را
+                    نشان دهد و سمت فرانت را نخواهیم که با فانکشن
+                    CredentialsProvider بسازیم آیتم های name و credentials را
+                    حذف می کنیم.
+                  </p>
+                  <p>
+                    در این صورت به آبجکت authOptions یک آیتم pages هم اضافه می
+                    کنیم و مقدار signIn را هم داخل آبجکت آن مشخص می کنیم تا وقتی
+                    فانکشن signIn کال شد ما را به آن صفحه بفرستد.
+                  </p>
+                  <img src="./next/196_5.png" />
+                  <img src="./next/196_6.png" />
+                  <p>
+                    اما از signIn به این صورت و از آیتم pages آبجکت authOptions
+                    استفاده نمی کنیم.
+                  </p>
+                </div>
+                <h4 id="j197next">
+                  جلسه صد و نود و هفتم: پیاده کردن فانکشن authorize در nextauth
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در فانکشن email ، authorize و password را از credentials که
+                    به عنوان ورودی به ()authorize دادیم می گیریم سپس اتصال به
+                    دیتابیس را برقرار می کنیم(در authorize دیگر برای ارورها res
+                    نمی فرستیم و به جای آن با دستور throw new Error یک Error
+                    ایجاد می کنیم که خود authorize آن را هندل می کند چون
+                    response ، next-authها را خودش می فرستد)
+                  </p>
+                  <p>
+                    res را خود next-auth می فرستد اما در تصویر زیر به این دلیل
+                    فقط email را return کردیم تا از آن در ساخت token استفاده
+                    کنیم و می توانیم name یا last name یا... را هم return کنیم.
+                  </p>
+                  <img src="./next/197_1.png" class="authorizeFuncImage" />
+                  <p>
+                    در کل چیزی که return می شود next-auth با آن token را ایجاد
+                    می کند.
+                  </p>
+                </div>
+                <h4 id="j198next">
+                  جلسه صد و نود و هشتم: پروسه ورود به حساب کاربری در nextauth
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    فرم لاگین که خودمان می خواهیم را در فایل signin.js و در
+                    فولدر pages می سازیم. حال چطور از این فایل به فانکشن
+                    authorize که ساختیم درخواست بفرستیم؟
+                  </p>
+                  <p>
+                    از متد signIn خود next-auth استفاده می کنیم و داخل متد
+                    ()provider ، signIn را مشخص می کنیم که credential است و
+                    email و password را هم به آن می دهیم همچنین redirect:false
+                    می دهیم تا وقتی res را گرفت ما را به جایی نفرستد.
+                  </p>
+                  <img src="./next/198_1.png" class="signInNextauthImage" />
+                  <p>
+                    responseها را بر اساس Errorهایی که در تصویر جلسه قبل ساختیم
+                    می دهد.
+                  </p>
+                  <img src="./next/198_2.png" />
+                  <img src="./next/198_3.png" />
+                </div>
+                <h4 id="j199next">
+                  جلسه صد و نود و نهم: احراز هویت و سطح دسترسی در سمت Client(با
+                  هوک useSession)
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    بر اساس tokenی که پس از لاگین next-auth در cookie ذخیره می
+                    کند می خواهیم دسترسی به صفحات مختلف را محدود کنیم.
+                  </p>
+                  <p>
+                    در اینجاهم بحث احراز هویت به دو صورت client side و server
+                    side انجام می گیرد که در این جلسه می خواهیم احراز هویت و
+                    سطوح دسترسی را در client side هندل کنیم.
+                  </p>
+                  <p>
+                    برای اینکار از هوک useSession لایبری next-auth استفاده می
+                    کنیم.
+                  </p>
+                  <p>
+                    برای استفاده از هوک useSession باید داخل فایل app.js
+                    کامپوننت SessionProvider را دور کامپوننت wrap ، Component
+                    کنیم.
+                  </p>
+                  <img src="./next/199_1.png" />
+                  <p>
+                    درواقع SessionProvider داخل خودش از ReactContext استفاده
+                    کرده است و وضعیت ما را که لاگین هستیم یا نه را در کل برنامه
+                    پخش می کند.
+                  </p>
+                  <p>
+                    هوک useSession دو مقدار برمی گرداند(data و state) که با
+                    استفاده از آن ها و هوک useEffect سطوح دسترسی را هندل می
+                    کنیم.
+                  </p>
+                  <img src="./next/199_2.png" />
+                </div>
+                <h4 id="j200next">
+                  جلسه دویستم: احراز هویت در سمت سرور با getSession
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    بدلیل گفته شده در فصل قبل از فانکشن getServerSideProps
+                    استفاده می کنیم.
+                  </p>
+                  <p>
+                    با استفاده از فانکشن ()getSession می توانیم در سمت سرور
+                    token را گرفته و کاربر را احراز هویت کنیم.
+                  </p>
+                  <img src="./next/200_1.png" />
+                  <img src="./next/200_2.png" class="getSessionImage" />
+                </div>
+                <h4 id="j201next">
+                  جلسه دویست و یکم: نحوه خروج از حساب کاربری در nextauth
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای خروج از حساب کاربری از فانکشن ()signOut لایبری
+                    next-auth استفاده می کنیم.
+                  </p>
+                  <img src="./next/201_1.png" />
+                </div>
+                <h4 id="j202next">
+                  جلسه دویست و دوم: نشان دادن المان ها در فرانت بر اساس وضعیت
+                  احراز هویت
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    status را از هوک destructure ، useSession کرده و به کمک آن
+                    نمایش دادن باتن ها را هندل می کنیم.
+                  </p>
+                  <img src="./next/202_1.png" />
+                  <img src="./next/202_2.png" />
+                </div>
+                <h4 id="j203next">
+                  جلسه دویست و سوم: محافظت از api routeها در nextauth
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم اطلاعات کاربر را آپدیت کرده و name و lastName را
+                    به آن اضافه کنیم
+                  </p>
+                  <p>
+                    یک api با نام update-info.js می سازیم و داخل آن برای احراز
+                    هویت از next-auth استفاده می کنیم.
+                  </p>
+                  <p>
+                    در فصل قبل برای آپدیت کردن اطلاعات token را از req.cookie
+                    گرفتیم و آن را verify کردیم تا email کاربر را بگیریم.
+                  </p>
+                  <img
+                    src="./next/187_2.png"
+                    class="completeUserDataApiImage" />
+                  <p>
+                    اما در اینجا چون token را next-auth ساخته از فانکشن
+                    getSession برای گرفتن token استفاده می کنیم و خود getSession
+                    آن را verify کرده و email را می دهد.
+                  </p>
+                  <p>
+                    بجز گرفتن token و احراز هویت آن(گرفتن email از token) بقیه
+                    قسمت ها دقیقا مثل فصل قبل است.
+                  </p>
+                  <img src="./next/203_1.png" class="nextAuthImage" />
+                </div>
+                <h4 id="j204next">
+                  جلسه دویست و چهارم: اضافه کردن قسمت تکمیل اطلاعات کاربر
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در قسمت فرانت فرم مربوط به تکمیل اطلاعات کاربر را به صفحه
+                    dashboard اضافه می کنیم تا اطلاعات را به سمت apiی که ساختیم
+                    بفرستد.
+                  </p>
+                  <img
+                    src="./next/204_1.png"
+                    class="completeUserDataFormImage" />
                 </div>
               </div>
             </div>
