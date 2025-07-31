@@ -24744,6 +24744,702 @@
               </div>
             </div>
             <div class="chapter">
+              <h3 id="loginWithGithubProvider">
+                فصل چهاردهم: ورود و ثبتنام توسط provider(گیت هاب) و Next-Auth
+              </h3>
+              <div class="sessions">
+                <h4 id="j205next">جلسه دویست و پنجم: مقدمه</h4>
+                <div class="sessionContent">
+                  <p>
+                    پروژه خام را ساخته و با دستور npm install next-auth لایبری
+                    next-auth را نصب می کنیم.
+                  </p>
+                </div>
+                <h4 id="j206next">
+                  جلسه دویست و ششم: کانفیگ next-auth در پروژه
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در فصل قبل برای صفحه ثبتنام یک فایل signup.js در فولدر pages
+                    و یک api ثبتنام در فولدر pages/api/auth ساختیم اما در اینجا
+                    چون می خواهیم از طریق اکانت گیت هاب لاگین کنیم دیگر به صفحه
+                    signup نیازی نداریم و تمام کارها را در فایل
+                    <span dir="ltr">[...nextauth].js</span> انجام می دهیم.
+                  </p>
+                  <p>
+                    در اینجاهم NextAuth را از import ، next-auth کرده و در آخر
+                    هم آن را export می کنیم و آبجکت authOptions را هم به عنوان
+                    ورودی به آن می دهیم.
+                  </p>
+                  <p>
+                    در اینجا داخل آبجکت authOptions در آیتم providers به جای
+                    فانکشن CredentialsProvider از فانکشن GitHubProvider استفاده
+                    می کنیم.
+                  </p>
+                  <p>
+                    به فانکشن GitHubProvider هم به عنوان ورودی یک آبجکت می دهیم
+                    که دو آیتم clientId و clientSecret را دارد که برای مقداردهی
+                    به آنها در سایت github.com به قسمت زیر رفته و باتن Register
+                    application را می زنیم.
+                  </p>
+                  <p dir="ltr">
+                    Profile -> Settings -> Developer Settings -> OAuth Apps ->
+                    Registar application
+                  </p>
+                  <p>
+                    در صفحه باز شده یک Application name دلخواه انتخاب کرده و در
+                    دو فیلد مربوط به URL هم URL سایتمان که برای این پروژه آدرس
+                    <span dir="ltr">http://localhost:3000</span> است را وارد
+                    کرده و باتن Register application را می زنیم.
+                  </p>
+                  <p>
+                    در صفحه باز شده Client ID که می دهد را به صورت متغیر env. به
+                    آیتم clientId می دهیم و یک Client secrets هم Generate کرده و
+                    آن را هم به صورت متغیر env. به آیتم clientSecret می دهیم.
+                  </p>
+                  <img src="./next/206_1.png" />
+                  <img src="./next/206_2.png" />
+                </div>
+                <h4 id="j207next">
+                  جلسه دویست و هفتم: عملیات ورود به حساب کاربری
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ورود به حساب کاربری از فانکشن ()signIn لایبری next-auth
+                    استفاده می کنیم اما باید github را به عنوان ورودی به آن
+                    بدهیم تا از طریق github ، provider ورود انجام شود.
+                  </p>
+                  <img src="./next/207_1.png" />
+                </div>
+                <h4 id="j208next">
+                  جلسه دویست و هشتم: عملیات خروج از حساب کاربری
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای این کار از فانکشن ()signOut لایبری next-auth استفاده می
+                    کنیم.
+                  </p>
+                  <img src="./next/208_1.png" />
+                </div>
+                <h4 id="j209next">
+                  جلسه دویست و نهم: محافظت از صفحات و دسترسی به آن در سمت Client
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    مثل فصل قبل از هوک useSession برای احراز هویت استفاده می
+                    کنیم همچنین برای دسترسی به صفحه هم از هوک useEffect استفاده
+                    می کنیم.
+                  </p>
+                  <img src="./next/209_1.png" />
+                  <p>
+                    باید توجه داشته باشیم در فایل app.js کامپوننت
+                    SessionProvider را دور کامپوننت Component بپیچیم(wrap کنیم)
+                  </p>
+                  <img src="./next/209_2.png" />
+                </div>
+                <h4 id="j210next">
+                  جلسه دویست و دهم: محافظت از صفحات و دسترسی به آن در سمت Server
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در این حالت هم مثل فصل قبل از فانکشن getServerSideProps
+                    استفاده کرده و برای احراز هویت هم از فانکشن getSession
+                    استفاده می کنیم.
+                  </p>
+                  <img src="./next/210_1.png" />
+                </div>
+                <h4 id="j211next">
+                  جلسه دویست و یازدهم: نشان دادن المان های سایت بر اساس احراز
+                  هویت
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای اینکه تعیین کنیم کدام باتن ها نشان داده شوند هم از هوک
+                    useSession استفاده می کنیم.
+                  </p>
+                  <img src="./next/211_1.png" class="showButtonsCodeImage" />
+                </div>
+                <h4 id="j212next">
+                  جلسه دویست و دوازدهم: اتصال به دیتابیس mongoDB
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    می خواهیم وقتی از طریق گوگل یا گیت هاب و... هم ثبتنام می
+                    کنیم اطلاعات کاربر در دیتابیس ذخیره شود.
+                  </p>
+                  <p>
+                    در داکیومنت next-auth در قسمت Adapters روی MongoDB کلیک می
+                    کنیم.
+                  </p>
+                  <p>
+                    لایبری هایی که گفته است(mongodb و mongodb-adapter) را نصب می
+                    کنیم.
+                  </p>
+                  <p>
+                    عملکرد لایبری mongodb شبیه mongoose می باشد و به جای
+                    mongoose از آن استفاده می کنیم.
+                  </p>
+                  <p>
+                    در روت اصلی پروژه فولدر lib را ساخته و داخل آن فایل
+                    mongodb.js را ایجاد می کنیم و کدهای داده شده را داخل آن می
+                    ریزیم فقط در متغیر env.ی URI ، MONGODB_URI دیتابیس خودمان را
+                    قرار می دهیم.
+                  </p>
+                  <img src="./next/212_1.png" />
+                  <p>
+                    سپس به آبجکت authOptions در فایل
+                    <span dir="ltr">[...nextauth].js</span> آیتم adapter با
+                    مقدار داده شده را قرار می دهیم.
+                  </p>
+                  <img src="./next/212_2.png" />
+                  <p>
+                    در این صورت در ثبتنام از طریق گیت هاب اطلاعات کاربر را در
+                    دیتابیس ذخیره می کند.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="todoProject">فصل پانزدهم: پروژه fullstack مدیریت Todo</h3>
+              <div class="sessions">
+                <h4 id="j213next">جلسه دویست و سیزدهم: معرفی پروژه Todo</h4>
+                <div class="sessionContent">
+                  <p>ایده این پروژه از سایت trello.com گرفته شده است.</p>
+                </div>
+                <h4 id="j214next">جلسه دویست و چهاردهم: راه اندازی پروژه</h4>
+                <div class="sessionContent">
+                  <p>
+                    با دستور npx create-next-app next-app یک پروژه نکستی خام می
+                    سازیم.
+                  </p>
+                </div>
+                <h4 id="j215next">
+                  جلسه دویست و پانزدهم: آشنایی با لایبری react-icons
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای اضافه کردن یکسری آیکن به سایتمان از لایبری react-icons
+                    استفاده می کنیم که اگر داکیومنت آن را بخوانیم نحوه نصب و
+                    استفاده از آن را یاد می گیریم.
+                  </p>
+                </div>
+                <h4 id="j216next">
+                  جلسه دویست و شانزدهم: پیاده سازی Layout پروژه
+                </h4>
+                <h4 id="j217next">جلسه دویست و هفدهم: ایجاد مدل User</h4>
+                <div class="sessionContent">
+                  <p>لایبری mongoose را نصب کرده و مدل User را می سازیم.</p>
+                </div>
+                <h4 id="j218next">
+                  جلسه دویست و هجدهم: فانکشن اتصال به دیتابیس و hash کردن پسورد
+                </h4>
+                <h4 id="j219next">جلسه دویست و نوزدهم: توسعه api ثبتنام</h4>
+                <h4 id="j220next">جلسه دویست و بیستم: ایجاد فرم ثبتنام</h4>
+                <h4 id="j221next">
+                  جلسه دویست و بیست و یکم: اتصال فرم ثبتنام به api
+                </h4>
+                <h4 id="j222next">
+                  جلسه دویست و بیست و دوم: توسعه api ورود توسط next-auth
+                </h4>
+                <div class="sessionContent">
+                  <p>ورژن 4.19.2 لایبری next-auth را نصب می کنیم.</p>
+                </div>
+                <h4 id="j223next">جلسه دویست و بیست و سوم: ایجاد فرم ورود</h4>
+                <h4 id="j224next">
+                  جلسه دویست و بیست و چهارم: اتصال فرم ورود به api
+                </h4>
+                <h4 id="j225next">
+                  جلسه دوبست و بیست و پنجم: محدود کردن دسترسی کاربر به فرم ها
+                </h4>
+                <h4 id="j226next">
+                  جلسه دویست و بیست و ششم: ایجاد api با متد POST برای ذخیره todo
+                </h4>
+                <h4 id="j227next">
+                  جلسه دویست و بیست و هفتم: ایجاد صفحه اضافه کردن todo
+                </h4>
+                <h4 id="j228next">
+                  جلسه دویست و بیست و هشتم: ایجاد کامپوننت RadioButton
+                </h4>
+                <h4 id="j229next">
+                  جلسه دویست و بیست و نهم: ارسال todo به سمت back-end
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای نشان دادن یک toast از لایبری react-toastify استفاده می
+                    کنیم.
+                  </p>
+                </div>
+                <h4 id="j230next">
+                  جلسه دویست و سی ام: ایجاد api برای دسته بندی و گرفتن todoها
+                </h4>
+                <h4 id="j231next">
+                  جلسه دویست و سی و یکم: گرفتن todoها از api
+                </h4>
+                <h4 id="j232next">
+                  جلسه دویست و سی و دوم: نشان دادن تسک ها در UI
+                </h4>
+                <h4 id="j233next">
+                  جلسه دویست و سی و سوم: ایجاد api برای آپدیت کردن وضعیت todoها
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای آپدیت کردن از متد ()updateOne استفاده می کنیم. به این
+                    متد یک آبجکت برای پیدا کردن todo موردنظر و یک آبجکت برای
+                    آپدیت کردن آن می دهیم.
+                  </p>
+                  <img src="./next/233_1.png" />
+                  <p>
+                    منظور از <span dir="ltr">todo.$.status</span> در تصویر بالا
+                    یعنی todo.statusی که به وسیله آبجکت اول پیدا کردی را آپدیت
+                    کن.
+                  </p>
+                </div>
+                <h4 id="j234next">
+                  جلسه دویست و سی و چهارم: اضافه کردن buttonهای تغییر وضعیت
+                </h4>
+                <h4 id="j235next">
+                  جلسه دویست و سی و پنجم: آپدیت کردن وضعیت todoها
+                </h4>
+                <h4 id="j236next">
+                  جلسه دویست و سی و ششم: ایجاد api برای تکمیل اطلاعات کاربر
+                </h4>
+                <h4 id="j237next">
+                  جلسه دویست و سی و هفتم: ایجاد فرم تکمیل اطلاعات
+                </h4>
+                <h4 id="j238next">
+                  جلسه دویست و سی و هشتم: ارسال اطلاعات کاربر به بک اند
+                </h4>
+                <h4 id="j239next">
+                  جلسه دویست و سی و نهم: ایجاد api برای گرفتن اطلاعات کاربر
+                </h4>
+                <h4 id="j240next">
+                  جلسه دویست و چهلم: نشان دادن اطلاعات کاربر
+                </h4>
+                <h4 id="j241next">
+                  جلسه دویست و چهل و یکم: ایجاد button برای خروج از حساب کاربری
+                </h4>
+                <h4 id="j242next">
+                  جلسه دویست و چهل و دوم: محدود کردن دسترسی صفحه اصلی
+                </h4>
+                <h4 id="j243next">جلسه دویست و چهل و سوم: تمرین</h4>
+                <div class="sessionContent">
+                  <p>
+                    در قسمت Add Todo علاوه بر Title یک Text Box هم اضافه کنید که
+                    کاربر بتواند برای هر todo توضیحات هم بنویسد.
+                  </p>
+                  <p>
+                    در صفحه اصلی برای هر todo یک button قرار دهید که مثل قلم
+                    باشد تا وقتی کاربر روی آن کلیک می کند به صفحه Edit آن todo
+                    برود.
+                  </p>
+                  <p>
+                    در صفحه profile هم یک باتن Edit قرار دهید تا کاربر بتواند
+                    اطلاعات خود را Edit کند.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
+              <h3 id="nextVersion13">فصل شانزدهم: بررسی کامل Next ورژن 13</h3>
+              <div class="sessions">
+                <h4 id="j244next">جلسه دویست و چهل و چهارم: مقدمه</h4>
+                <h4 id="j245next">
+                  جلسه دویست و چهل و پنجم: ایجاد پروژه با آخرین ورژن Next.js
+                </h4>
+                <div class="sessionContent">
+                  <p>یک فولدر ساخته و آن را در VSCode باز می کنیم.</p>
+                  <p>
+                    با دستور npx create-next-app@13.4.19 next-app پروژه را با
+                    نکست ورژن 13.4.9 می سازیم و اگر بجای 13.4.9 از latest
+                    استفاده کنیم از آخرین ورژن Next استفاده می کند.
+                  </p>
+                  <p>
+                    در مرحله بعد سوالاتی می پرسد که به سوال مربوط به TypeScript
+                    با No و به سوال مربوط به EsLint با Yes و به سوال مربوط به
+                    Tailwind با No و به سوال مربوط به src/directory با No و به
+                    مهمترین سوال یعنی استفاده از App Router با Yes پاسخ می دهیم.
+                    و به سوال مربوط به import alias هم با No پاسخ می دهیم.
+                  </p>
+                  <p>
+                    در پروژه نکست با App Router دیگر فولدر pages نداریم و بجای
+                    آن فولدر app را خواهیم داشت.
+                  </p>
+                </div>
+                <h4 id="j246next">
+                  جلسه دویست و چهل و ششم: بررسی ساختار app directory
+                </h4>
+                <div class="sessionContent">
+                  <p>فایل page.js در فولدر app صفحه اصلی سایتمان است.</p>
+                  <p>فایل layout.js هم Layout سایتمان را مشخص می کند.</p>
+                  <p>
+                    page و layout دو اسم خاص برای نکست هستند که نکست آنها را می
+                    شناسد و نمی توانیم آنها را تغییر دهیم.
+                  </p>
+                </div>
+                <h4 id="j247next">جلسه دویست و چهل و هفتم: بررسی layout.js</h4>
+                <div class="sessionContent">
+                  <p>
+                    قبلا یک فایل layout.js ساخته و آن را در فایل app.js دور همه
+                    صفحات wrap می کردیم اما در اینجا چیزی که در فایل layout.js
+                    ساخته می شود خود به خود روی همه صفحات اعمال می شود(این فایل
+                    بصورت default دور همه routeهای برنامه wrap شده است)
+                  </p>
+                  <p>
+                    همچنین می توانیم layoutی بسازیم که دور کل routeها wrap نشود
+                    و مثلا فقط دور صفحات مربوط به روت dashboard پیچیده شود(wrap
+                    شود)
+                  </p>
+                  <p>
+                    با وجود فایل layout.js دیگر به فایل های app.js_ و
+                    document.js_ نیاز نخواهیم داشت به همین دلیل در App Router آن
+                    فایل ها را نداریم.
+                  </p>
+                </div>
+                <h4 id="j248next">جلسه دویست و چهل و هشتم: بررسی page.js</h4>
+                <div class="sessionContent">
+                  <p>روت اصلی ما در نکست با App Router فایل page.js می باشد</p>
+                </div>
+                <h4 id="j249next">جلسه دویست و چهل و نهم: app router</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد یک route جدید مثل courses/ داخل فولدر app یک
+                    فولدر به نام courses ایجاد کرده و داخل آن فولدر یک فایل به
+                    نام page.js می سازیم و داخل آن فایل با rfce فانکشن مورد
+                    نظرمان را تعریف می کنیم.
+                  </p>
+                  <img src="./next/249_1.png" />
+                </div>
+                <h4 id="j250next">جلسه دویست و پنجاهم: ایجاد nested routeها</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد یک nested route مثل blogs/nextjs داخل فولدر app
+                    فولدر blogs و داخل آن فولدر nextjs و داخل فولدر nextjs فایل
+                    page.js را می سازیم.
+                  </p>
+                  <img src="./next/250_1.png" />
+                </div>
+                <h4 id="j251next">
+                  جلسه دویست و پنجاه و یکم: ایجاد dynamic routeها
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد یک dynamic route نام فولدر مربوط به dynamic route
+                    را داخل براکت می نویسیم و داخل آن فولدر فایل page.js را
+                    تعریف می کنیم.
+                  </p>
+                  <p>
+                    داخل فایل page.js برای اینکه روت داینامیک را بگیریم از
+                    params استفاده می کنیم.
+                  </p>
+                  <img src="./next/251_1.png" />
+                </div>
+                <h4 id="j252next">
+                  جلسه دویست و پنجاه و دوم: بررسی nested layout
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    اگر بخواهیم یک layout فقط دور روت blogs/ و روت های نستد
+                    blogs مثل blogs/nextjs و... wrap شود یک فایل layout.js داخل
+                    فولدر blogs تعریف می کنیم.
+                  </p>
+                  <img src="./next/252_1.png" />
+                  <img src="./next/252_2.png" />
+                  <img src="./next/252_3.png" />
+                </div>
+                <h4 id="j253next">
+                  جلسه دویست و پنجاه و سوم: بررسی کامپوننت های Client side و
+                  Server side
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    هر صفحه یا کامپوننت که داخل فولدر app ایجاد می کنیم بصورت
+                    server side ، default هستند و در سمت سرور رندر می شوند اما
+                    می توانیم صفحات یا کامپوننت ها را client side کنیم تا در سمت
+                    client رندر شوند مثلا یک قسمت یا کامپوننت از صفحه client
+                    side باشد و بقیه صفحه server side باشد.
+                  </p>
+                  <p>
+                    اگر بخواهیم صفحه ای در سمت client رندر شود بالای فایل مربدط
+                    به آن صفحه از "use client" استفاده می کنیم.
+                  </p>
+                  <img src="./next/253_1.png" />
+                  <p>
+                    در تصویر زیر چون useEffect یک هوک است و باید در سمت client
+                    رندر شود و نکست بصورت default صفحات را server side در نظر می
+                    گیرد به همین دلیل ارور داریم.
+                  </p>
+                  <img src="./next/253_2.png" />
+                  <p>
+                    اگر از "use client" استفاده کنیم تا صفحه client side شود
+                    ارور برطرف می شود.
+                  </p>
+                  <img src="./next/253_3.png" />
+                  <p>
+                    پس هر کامپوننتی از صفحه که لازم است client side شود را به
+                    این صورت client side می کنیم.
+                  </p>
+                </div>
+                <h4 id="j254next">
+                  جلسه دویست و پنجاه و چهارم: استفاده بهینه از use client
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    کامپوننت هایی که در آنها کاربر باید فعالیتی داشته باشد را
+                    بصورت client side تعریف می کنیم مثل search box و buttonها
+                    و... درواقع client componentها به ما این اجازه را می دهند که
+                    در سمت client فعالیت(interactivity) را در برنامه مان ایجاد
+                    کنیم.
+                  </p>
+                  <p>
+                    تصویر زیر نشان می دهد که کی از client componentها و کی از
+                    server componentها باید استفاده کنیم.
+                  </p>
+                  <img src="./next/254_1.png" />
+                  <p>
+                    در کل وقتی در جایی که لازم است از client component استفاده
+                    کنیم از آن استفاده نکنیم برنامه ارور می دهد.
+                  </p>
+                </div>
+                <h4 id="j255next">
+                  جلسه دویست و پنجاه و پنجم: نحوه data fetching در سمت سرور
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در Page Router برای fetch کردن دیتا در سمت سرور از فانکشن
+                    های getStaticProps و getServerSideProps استفاده می کردیم اما
+                    در App Router چون default نکست server componentها می
+                    باشند(یعنی کامپوننت ها را بصورت server side ایجاد می کند مگر
+                    اینکه در آنها از "use client" استفاده کرده باشیم) دیگر به آن
+                    فانکشن ها نیاز نداریم و از یک فانکشن async-await ساده
+                    استفاده می کنیم(یعنی داخل همان فانکشن کامپوننت عملیات data
+                    fetching را انجام می دهیم فقط فانکشن کامپوننت را بصورت async
+                    تعریف می کنیم)
+                  </p>
+                  <p>
+                    چون کامپوننت ها بصورت default از نوع server side هستند از
+                    useEffect هم استفاده نمی کنیم.
+                  </p>
+                  <p>
+                    حال چطور یک صفحه(کامپوننت) را تبدیل به SSG یا SSR یا ISR
+                    کنیم؟
+                  </p>
+                  <p>
+                    اگر به فانکشن ()fetch به عنوان ورودی یک آبجکت با محتوای
+                    <span dir="ltr">{cache:'force-cache'}</span> بدهیم صفحه
+                    تبدیل به SSG می شود یعنی یکبار هنگام build گرفتن دیتاها
+                    گرفته و cache می شوند و هربار از آن دیتاهای cache شده
+                    استفاده می شود.
+                  </p>
+                  <p>
+                    البته اکر fetch خالی بنویسیم و آبجکت force-cache را قرار
+                    ندهیم نکست بصورت default آن را همان force-cache درنظر می
+                    گیرد(یعنی صفحه را SSG درنظر می گیرد)
+                  </p>
+                  <p>
+                    اگر به فانکشن ()fetch به عنوان ورودی یک آبجکت با محتوای
+                    <span dir="ltr">{cache:'no-store'}</span> بدهیم صفحه تبدیل
+                    به SSR می شود یعنی در این حالت اطلاعات cache نمی شود و هربار
+                    که req بفرستیم اطلاعات فرستاده می شود.
+                  </p>
+                  <p>
+                    اگر به فانکشن ()fetch به عنوان ورودی یک آبجکت با محتوای
+                    <span dir="ltr">{next:{revalidate:10}}</span> بدهیم صفحه
+                    تبدیل به ISR می شود یعنی وقتی req می رود اگر life time لازم
+                    سپری شده باشد دیتا را دوباره می فرستد در غیر اینصورت از
+                    دیتایی که قبلا گرفته شده استفاده می کند.
+                  </p>
+                </div>
+                <h4 id="j256next">
+                  جلسه دویست و پنجاه و ششم: ایجاد صفحات SSG و SSR و ISR
+                </h4>
+                <div class="sessionContent">
+                  <p>تصاویر زیر نمونه هایی از صفحه SSG می باشد.</p>
+                  <img src="./next/256_1.png" />
+                  <img src="./next/256_2.png" />
+                  <p>تصویر زیر نمونه ای از صفحه SSR می باشد.</p>
+                  <img src="./next/256_3.png" />
+                  <p>تصویر زیر نمونه ای از صفحه ISR می باشد.</p>
+                  <img src="./next/256_4.png" />
+                </div>
+                <h4 id="j257next">
+                  جلسه دویست و پنجاه و هفتم: نحوه استفاده از
+                  generateStaticParams
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    در Page Router و در صفحات SSG برای اینکه تعداد روت های
+                    داینامیک را در زمان build مشخص کنیم از getStaticPaths
+                    استفاده می کردیم.
+                  </p>
+                  <p>
+                    اما در App Router چون فانکشن های getStaticProps و
+                    getStaticPaths را نداریم از فانکشن generateStaticParams
+                    استفاده می کنیم و روت های داینامیکی که می خواهیم در زمان
+                    build بسازد را بصورت آرایه ای از آبجکت ها داخل آن فانکشن
+                    return می کنیم.
+                  </p>
+                  <img src="./next/257_1.png" />
+                  <p>
+                    می توانیم به جای اینکه داینامیک روت ها را بصورت دستی بنویسیم
+                    روی آرایه کامل آن ها map بزنیم.
+                  </p>
+                  <img src="./next/257_2.png" />
+                  <p>
+                    در کامپوننت توسط props می توانیم params و query را بگیریم.
+                  </p>
+                  <img src="./next/257_3.png" />
+                  <img src="./next/257_4.png" />
+                  <p>
+                    و توسط آن ها اطلاعات یک کاربر را fetch کنیم و نمایش دهیم.
+                  </p>
+                  <img src="./next/257_5.png" />
+                  <p>
+                    حال اگر از پروژه build بگیریم همه صفحات داینامیک مربوط به
+                    userها را در زمان build می سازد چون در generateStaticParams
+                    روی همه آنها map زده و return کردیم.
+                  </p>
+                  <img src="./next/257_6.png" />
+                </div>
+                <h4 id="j258next">
+                  جلسه دویست و پنجاه و هشتم: بررسی loading.js
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد loading برای هر صفحه کنار فایل page.js آن صفحه یک
+                    فایل loading.js هم می سازیم و تا وقتی که اطلاعات لود می شوند
+                    صفحه loading.js نمایش داده می شود و وقتی اطلاعات لود شد صفحه
+                    page.js نمایش داده می شود.
+                  </p>
+                  <img src="./next/258_1.png" />
+                </div>
+                <h4 id="j259next">جلسه دویست و پنجاه و نهم: بررسی error.js</h4>
+                <div class="sessionContent">
+                  <p>
+                    فایل error.js ارورهای هنگام run برنامه(runtime) را هندل می
+                    کند.
+                  </p>
+                  <p>
+                    فایل error.js حتما و باید "use client" را داشته باشد(client
+                    side باشد)
+                  </p>
+                  <p>
+                    برای یک روت فایل error.js را کنار فایل page.js آن روت تعریف
+                    می کنیم و وقتی برنامه به ارور خورد آن فایل اجرا می شود.
+                  </p>
+                  <p>
+                    فایل error.js شامل یک متد ()reset است تا وقتی با ارور مواجه
+                    شدیم از آن متد برای run مجدد استفاده کنیم.
+                  </p>
+                  <img src="./next/259_1.png" />
+                </div>
+                <h4 id="j260next">
+                  جلسه دویست و شصتم: ایجاد api به وسیله route handler
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    داخل فولدر app یک فولدر api می سازیم و داخل فولدر api یک
+                    فایل route.js می سازیم که این فایل برای مسیر api/ می باشد.
+                  </p>
+                  <p>
+                    فانکشن GET یا POST یا...(بسته به نوع درخواست) را داخل فایل
+                    route.js تعریف می کنیم.
+                  </p>
+                  <p>
+                    اگر بخواهیم مسیر api/users/ را ایجاد کنیم داخل فولدر api
+                    فولدر users را می سازیم و داخل فولدر users فایل route.js را
+                    می سازیم و فانکشن GET یا POST یا... را داخل آن فایل تعریف می
+                    کنیم.
+                  </p>
+                  <p>
+                    برای درخواست GET یک فانکشن بنام GET تعریف می کنیم که باید
+                    async باشد و آن را export می کنیم و به کمک response ،
+                    NextResponse را به سمت فرانت می فرستیم.
+                  </p>
+                  <img src="./next/260_1.png" />
+                  <img src="./next/260_2.png" />
+                  <p>
+                    برای درخواست POST و PUT و PATCH و DELETE نام فانکشن هم باید
+                    POST و PUT و PATCH و DELETE باشد و در همه درخواست ها
+                    response را به کمک NextResponse به سمت فرانت می فرستیم.
+                  </p>
+                </div>
+                <h4 id="j261next">
+                  جلسه دویست و شصت و یکم: هندل کردن searchQuery در api
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای گرفتن searchQuery در سمت بک اند به فانکشن GET یک ورودی
+                    req می دهیم و به کمک آن و متد ()new URL مقدار searchQuery را
+                    می گیریم.
+                  </p>
+                  <img src="./next/261_1.png" />
+                  <img src="./next/261_2.png" />
+                  <p>
+                    سپس به کمک متد ()filter آن چیزی که می خواهد را به عنوان
+                    response سمت فرانت return می کنیم.
+                  </p>
+                  <img src="./next/261_3.png" />
+                  <img src="./next/261_4.png" />
+                </div>
+                <h4 id="j262next">
+                  جلسه دویست و شصت و دوم: بررسی api با متد POST
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    برای گرفتن دیتایی که POST می کنیم در api به فانکشن POST
+                    ورودی req را داده و به کمک آن دیتایی که POST می شود را می
+                    گیریم.
+                  </p>
+                  <img src="./next/262_1.png" />
+                </div>
+                <h4 id="j263next">
+                  جلسه دویست و شصت و سوم: مدیریت metadataها برای SEO
+                </h4>
+                <div class="sessionContent">
+                  <p>
+                    title و description هر صفحه از طریق متغیر metadata که در
+                    layout.js آن صفحه تعریف می کنیم تعیین می شوند.
+                  </p>
+                  <img src="./next/263_1.png" />
+                  <img src="./next/263_2.png" />
+                </div>
+                <h4 id="j264next">جلسه دویست و شصت و چهارم: فونت ها</h4>
+                <div class="sessionContent">
+                  <p>
+                    یکسری فونت در Next هست که می توانیم آن ها را در فایل import
+                    ، layout.js کرده و داخل متغیر بریزیم و از آنها استفاده کنیم
+                    مثل فونت Inter و Roboto و...
+                  </p>
+                  <img src="./next/264_1.png" />
+                  <img src="./next/264_2.png" />
+                </div>
+                <h4 id="j265next">جلسه دویست و شصت و پنجم: بررسی sitemapها</h4>
+                <div class="sessionContent">
+                  <p>
+                    برای ایجاد sitemapها در ورژن 13 نکست(App Router) داخل فولدر
+                    app فایل sitemap.js را می سازیم و داخل آن فایل فانکشن
+                    sitemap را تعریف کرده و بصورت default آن را export می کنیم.
+                  </p>
+                  <p>
+                    داخل فانکشن sitemap آرایه ای از آبجکت ها را return می کنیم
+                    که هر آبجکت اطلاعاتی در مورد یک route می دهد.
+                  </p>
+                  <img src="./next/265_1.png" />
+                  <p>
+                    می توانیم روت های Static را بصورت یک آرایه نوشته و روی آن
+                    map بزنیم.
+                  </p>
+                  <img src="./next/265_2.png" />
+                  <p>
+                    همچنین روت های Dynamic را هم می توانیم fetch کرده و روی آن
+                    map بزنیم.
+                  </p>
+                  <img src="./next/265_3.png" />
+                  <img src="./next/265_4.png" />
+                </div>
+              </div>
+            </div>
+            <div class="chapter">
               <h3 id="next15">فصل بیست و هشتم: بررسی کامل Next ورژن 15</h3>
               <div class="sessions">
                 <h4 id="j400next">جلسه چهارصدم: نصب پروژه و معرفی codemod</h4>
