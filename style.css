@@ -325,18 +325,18 @@ img {
 }
 
 .payloadImage2 {
-  width: 700px;
-  height: 600px;
+  width: 600px;
+  height: 500px;
 }
 
 .reducerImage1 {
-  width: 500px;
+  width: 400px;
   height: 100px;
 }
 
 .reducerImage2 {
   width: 700px;
-  height: 500px;
+  height: 400px;
 }
 
 .combineReducersImage {
@@ -351,7 +351,7 @@ img {
 
 .createAsyncThunkImage {
   width: 700px;
-  height: 700px;
+  height: 900px;
 }
 
 .graphQLVariablesImage {
@@ -603,6 +603,21 @@ img {
 .showButtonsCodeImage {
   width: 600px;
   height: 900px;
+}
+
+.addActionImage{
+  width: 600px;
+  height: 1200px;
+}
+
+.middlewareImage1 {
+  width: 500px;
+  height: 140px;
+}
+
+.reduxToolkitFoldersImage{
+  width: 270px;
+  height: 400px;
 }
 
 .useActionStateInNext{
