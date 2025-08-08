@@ -629,6 +629,21 @@ img {
   height: 90px;
 }
 
+.reduxImage{
+  width: 800px;
+  height: 900px;
+}
+
+.asyncActionImage{
+  width: 700px;
+  height: 1100px;
+}
+
+.useFormStatusImage{
+  width: 500px;
+  height: 50px;
+}
+
 @font-face {
   font-family: "iranyekanwebmedium";
   src: url(/fonts/iranyekanwebmedium.woff) format("woff");
